@@ -22,6 +22,7 @@ universe <- c("glue", "tibble")
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 documentation <- document_universe(universe, url_template = url_template)
 
+# Note that {topic} and {pacakge} refer to column names
 documentation
 ```
 
