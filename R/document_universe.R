@@ -17,7 +17,7 @@ reference_any <- function(doc) {
 document_universe_impl <- reference_any("package")
 
 
-#' Create a data.frame with documentation metadata of one or more packages
+#' Create a data frame with documentation metadata of one or more packages
 #'
 #' Create a data.frame with documentation metadata of one or more packages. If
 #' you develop a universe, such as the tidyverse or tidymodels, dverse helps you

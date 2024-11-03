@@ -2,7 +2,7 @@
 % Please edit documentation in R/document_universe.R
 \name{document_universe}
 \alias{document_universe}
-\title{Create a data.frame with documentation metadata of one or more packages}
+\title{Create a data frame with documentation metadata of one or more packages}
 \usage{
 document_universe(x, url_template = NULL)
 }
