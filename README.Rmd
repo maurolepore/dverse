@@ -20,12 +20,11 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/maurolepore/dverse/graph/badge.svg)](https://app.codecov.io/gh/maurolepore/dverse)
 <!-- badges: end -->
 
-The goal of dverse is to make it easy to create a data frame of the metadata
-associated to the documentation of a collection of R packages.
-
-If you maintain an R-package universe, it helps you to easily create a
-universe-wide reference for the pkgdown website of your meta-package (e.g.
-tidyverse, tidymodels).
+The goal of dverse is to document a universe. It creates a data frame containing
+the metadata associated with the documentation of a collection of R packages. It
+allows for linking topic names to their corresponding documentation online. If
+you maintain a universe meta-package, it helps create a comprehensive reference
+for its website.
 
 ## Installation
 
