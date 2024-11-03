@@ -49,7 +49,7 @@ Remotes:
   - Organize the documentation by package or concept
   - Optionally override the default 
   
-The resulting _pkgdown.yml file would like this:
+This _pkgdown.yml file overrides the default pkgdown Reference:
 
 ```yaml
 navbar:
