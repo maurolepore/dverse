@@ -42,8 +42,8 @@ library(datasets)
 
 universe <- c("datasets", "tools")
 url_template <- "https://www.rdocumentation.org/packages/{package}/versions/3.6.2/topics/{topic}.html"
-linked <- document_universe(universe, url_template = url_template)
-linked
+
+document_universe(universe, url_template = url_template)
 #> # A tibble: 228 × 5
 #>    topic                                             alias title concept package
 #>    <chr>                                             <chr> <chr> <chr>   <chr>  
