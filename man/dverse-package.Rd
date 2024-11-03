@@ -6,7 +6,7 @@
 \alias{dverse-package}
 \title{dverse: Document a Universe of Packages}
 \description{
-Creates a data frame of the metadata associated with the documentation of a collection of R packages. It makes it easy to link the topic names with the corresponding documentation online. If you maintain a universe meta-package, it helps you easily create a comprehensive reference for its website.
+Creates a data frame containing the metadata associated with the documentation of a collection of R packages. It allows for linking topic names to their corresponding documentation online. If you maintain a universe meta-package, it helps create a comprehensive reference for its website.
 }
 \seealso{
 Useful links:
