@@ -62,4 +62,4 @@ navbar:
 ```
 
 Build the website locally with `pkgdown::build_site()` or automatically on
-GitHub Actions + Pages with `?usethis::use_pkgdown_github_pages()`.
+GitHub Actions + Pages with `usethis::use_pkgdown_github_pages()`.
