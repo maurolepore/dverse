@@ -13,7 +13,7 @@ Creating a meta-package might be easier than you think.
 
 ### Basic infrastructure
 
-* Create a pakcage, e.g. `usethis::create_package("meta")`
+* Create a package, e.g. `usethis::create_package("meta")`
 * Add a license, e.g. `usethis::use_mit_license()`
 * Depend on each package in your universe, e.g.
   - From GitHub, e.g. `usethis::use_dev_package("glue", "depends")`
@@ -42,8 +42,8 @@ Remotes:
 
 ### Universe documentation
 
-* Add RAEDME with `usethis::use_readme_rmd()` and add installation instructions
 * Add a pkgdown website, e.g. `usethis::use_pkgdown()`
+* Add a home page with `usethis::use_readme_rmd()` and add installation instructions
 * Create an article to host the documentation of the universe (see [how](https://maurolepore.github.io/dverse/articles/start.html)):
   - Create an article, e.g. `usethis::use_article("reference")`
   - Organize the documentation by package or concept
