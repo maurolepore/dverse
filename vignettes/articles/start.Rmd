@@ -15,25 +15,23 @@ knitr::opts_chunk$set(
 library(dplyr, warn.conflicts = FALSE)
 # Use dverse and the universe of packages you want to document
 library(dverse)
-library(tools)
-library(datasets)
+library(glue)
+library(tibble)
 
-universe <- c("datasets", "tools")
-url_template <- "https://www.rdocumentation.org/packages/{package}/versions/3.6.2/topics/{topic}.html"
+universe <- c("glue", "tibble")
+url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 documentation <- document_universe(universe, url_template = url_template)
-documentation
 
-select(documentation, topic)
+documentation
 ```
 
 You may generate a clickable table is with `knitr::kable()`.
 
 ```{r}
-pick <- documentation |> select(topic, title, concept, package)
+pick <- select(documentation, topic, title, concept, package)
 
-pick |>
-  head() |>
-  knitr::kable(col.names = NULL)
+# Removing column names for cleaner output
+knitr::kable(head(pick), col.names = NULL)
 ```
 
 You may generate a searchable table with `DT::datatable()`.
@@ -63,20 +61,16 @@ custom_table <- function(data, search = "") {
 }
 ```
 
-* Datasets available by `data()`
+* By package
 
 ```{r}
-by_concept <- filter(pick, concept == "Datasets available by data()")
-
-by_concept |> custom_table(search = "car")
+custom_table(filter(pick, package == "glue"), search = "safe")
 ```
 
-* Documentation in `tools`
+* By concept
 
 ```{r}
-by_package <- filter(pick, package == "tools")
-
-by_package |> custom_table(search = "Utilities")
+custom_table(filter(pick, concept == first(concept)))
 ```
 
 ### Presentation
