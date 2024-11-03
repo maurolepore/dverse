@@ -79,20 +79,922 @@
 <span><span class="va">url_template</span> <span class="op">&lt;-</span> <span class="st">"https://www.rdocumentation.org/packages/{package}/versions/3.6.2/topics/{topic}.html"</span></span>
 <span><span class="va">linked</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">universe</span>, url_template <span class="op">=</span> <span class="va">url_template</span><span class="op">)</span></span>
 <span><span class="va">linked</span></span>
-<span><span class="co">#&gt; # A tibble: 228 × 5</span></span>
-<span><span class="co">#&gt;    topic                                             alias title concept package</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                                             &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 &lt;a href=https://www.rdocumentation.org/packages/… .pri… Prin… Utilit… tools  </span></span>
-<span><span class="co">#&gt;  2 &lt;a href=https://www.rdocumentation.org/packages/… Adob… Conv… Datase… tools  </span></span>
-<span><span class="co">#&gt;  3 &lt;a href=https://www.rdocumentation.org/packages/… AirP… Mont… Datase… datase…</span></span>
-<span><span class="co">#&gt;  4 &lt;a href=https://www.rdocumentation.org/packages/… BJsa… Sale… Datase… datase…</span></span>
-<span><span class="co">#&gt;  5 &lt;a href=https://www.rdocumentation.org/packages/… BOD   Bioc… Datase… datase…</span></span>
-<span><span class="co">#&gt;  6 &lt;a href=https://www.rdocumentation.org/packages/… CO2   Carb… Datase… datase…</span></span>
-<span><span class="co">#&gt;  7 &lt;a href=https://www.rdocumentation.org/packages/… CRAN… CRAN… &lt;NA&gt;    tools  </span></span>
-<span><span class="co">#&gt;  8 &lt;a href=https://www.rdocumentation.org/packages/… Chic… Weig… Datase… datase…</span></span>
-<span><span class="co">#&gt;  9 &lt;a href=https://www.rdocumentation.org/packages/… DNase Elis… Datase… datase…</span></span>
-<span><span class="co">#&gt; 10 &lt;a href=https://www.rdocumentation.org/packages/… EuSt… Dail… Datase… datase…</span></span>
-<span><span class="co">#&gt; # ℹ 218 more rows</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                              topic</span></span>
+<span><span class="co">#&gt; 1                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/.print.via.format.html&gt;.print.via.format&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 2                                                                   &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Adobe_glyphs.html&gt;Adobe_glyphs&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 3                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/AirPassengers.html&gt;AirPassengers&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 4                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/BJsales.html&gt;BJsales&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 5                                                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/BOD.html&gt;BOD&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 6                                                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/CO2.html&gt;CO2&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 7                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/CRAN_package_db.html&gt;CRAN_package_db&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 8                                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/ChickWeight.html&gt;ChickWeight&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 9                                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/DNase.html&gt;DNase&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 10                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/EuStockMarkets.html&gt;EuStockMarkets&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 11                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Formaldehyde.html&gt;Formaldehyde&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 12                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/HTMLheader.html&gt;HTMLheader&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 13                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/HTMLheader.html&gt;HTMLheader&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 14                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/HTMLheader.html&gt;HTMLheader&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 15                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/HTMLheader.html&gt;HTMLheader&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 16                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/HairEyeColor.html&gt;HairEyeColor&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 17                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Harman23.cor.html&gt;Harman23.cor&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 18                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Harman74.cor.html&gt;Harman74.cor&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 19                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Indometh.html&gt;Indometh&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 20                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/InsectSprays.html&gt;InsectSprays&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 21                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/JohnsonJohnson.html&gt;JohnsonJohnson&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 22                                                                     &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/LakeHuron.html&gt;LakeHuron&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 23                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/LifeCycleSavings.html&gt;LifeCycleSavings&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 24                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Loblolly.html&gt;Loblolly&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 25                                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Nile.html&gt;Nile&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 26                                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Orange.html&gt;Orange&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 27                                                             &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/OrchardSprays.html&gt;OrchardSprays&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 28                                                                 &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/PlantGrowth.html&gt;PlantGrowth&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 29                                                                     &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Puromycin.html&gt;Puromycin&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 30                                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/QC.html&gt;QC&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 31                                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/QC.html&gt;QC&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 32                                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/QC.html&gt;QC&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 33                                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/QC.html&gt;QC&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 34                                                                      &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/R_user_dir.html&gt;R_user_dir&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 35                                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rcmd.html&gt;Rcmd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 36                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rd2HTML.html&gt;Rd2HTML&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 37                                                              &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rd2txt_options.html&gt;Rd2txt_options&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 38                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/RdTextFilter.html&gt;RdTextFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 39                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/RdTextFilter.html&gt;RdTextFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 40                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/RdTextFilter.html&gt;RdTextFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 41                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/RdTextFilter.html&gt;RdTextFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 42                                                                                &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rd_db.html&gt;Rd_db&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 43                                                                                &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rd_db.html&gt;Rd_db&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 44                                                                                &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rd_db.html&gt;Rd_db&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 45                                                                                &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rd_db.html&gt;Rd_db&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 46                                                                                &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rdiff.html&gt;Rdiff&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 47                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rdindex.html&gt;Rdindex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 48                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rdindex.html&gt;Rdindex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 49                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rdindex.html&gt;Rdindex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 50                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Rdindex.html&gt;Rdindex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 51                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/SweaveTeXFilter.html&gt;SweaveTeXFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 52                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/SweaveTeXFilter.html&gt;SweaveTeXFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 53                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/SweaveTeXFilter.html&gt;SweaveTeXFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 54                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/SweaveTeXFilter.html&gt;SweaveTeXFilter&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 55                                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Theoph.html&gt;Theoph&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 56                                                                         &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/Titanic.html&gt;Titanic&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 57                                                                 &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/ToothGrowth.html&gt;ToothGrowth&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 58                                                             &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/UCBAdmissions.html&gt;UCBAdmissions&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 59                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/UKDriverDeaths.html&gt;UKDriverDeaths&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 60                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/UKLungDeaths.html&gt;UKLungDeaths&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 61                                                                             &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/UKgas.html&gt;UKgas&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 62                                                                 &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USAccDeaths.html&gt;USAccDeaths&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 63                                                                     &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USArrests.html&gt;USArrests&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 64                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USJudgeRatings.html&gt;USJudgeRatings&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 65                                             &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/USPersonalExpenditure.html&gt;USPersonalExpenditure&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 66                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/VADeaths.html&gt;VADeaths&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 67                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/WWWusage.html&gt;WWWusage&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 68                                                                 &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/WorldPhones.html&gt;WorldPhones&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 69                                                                 &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/ability.cov.html&gt;ability.cov&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 70                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/add_datalist.html&gt;add_datalist&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 71                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/airmiles.html&gt;airmiles&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 72                                                                   &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/airquality.html&gt;airquality&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 73                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/anscombe.html&gt;anscombe&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 74                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/assertCondition.html&gt;assertCondition&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 75                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/assertCondition.html&gt;assertCondition&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 76                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/assertCondition.html&gt;assertCondition&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 77                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/assertCondition.html&gt;assertCondition&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 78                                                                           &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/attenu.html&gt;attenu&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 79                                                                       &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/attitude.html&gt;attitude&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 80                                                                         &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/austres.html&gt;austres&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 81                                                                         &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/beavers.html&gt;beavers&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 82                                                                          &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/bibstyle.html&gt;bibstyle&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 83                                                                          &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/bibstyle.html&gt;bibstyle&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 84                                                                &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/buildVignette.html&gt;buildVignette&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 85                                                              &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/buildVignettes.html&gt;buildVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 86                                                              &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/buildVignettes.html&gt;buildVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 87                                                              &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/buildVignettes.html&gt;buildVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 88                                                              &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/buildVignettes.html&gt;buildVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 89                                                                               &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/cars.html&gt;cars&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 90                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkFF.html&gt;checkFF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 91                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkFF.html&gt;checkFF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 92                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkFF.html&gt;checkFF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 93                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkFF.html&gt;checkFF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 94                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkMD5sums.html&gt;checkMD5sums&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 95                                                                  &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkPoFiles.html&gt;checkPoFiles&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 96                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkRd.html&gt;checkRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 97                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkRd.html&gt;checkRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 98                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkRd.html&gt;checkRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 99                                                                            &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkRd.html&gt;checkRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 100                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkRdaFiles.html&gt;checkRdaFiles&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 101                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkTnF.html&gt;checkTnF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 102                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkTnF.html&gt;checkTnF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 103                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkTnF.html&gt;checkTnF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 104                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkTnF.html&gt;checkTnF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 105                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkVignettes.html&gt;checkVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 106                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkVignettes.html&gt;checkVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 107                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkVignettes.html&gt;checkVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 108                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/checkVignettes.html&gt;checkVignettes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 109                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/check_packages_in_dir.html&gt;check_packages_in_dir&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 110                                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/chickwts.html&gt;chickwts&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 111                                                                                &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/co2.html&gt;co2&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 112                                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/codoc.html&gt;codoc&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 113                                                                     &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/compactPDF.html&gt;compactPDF&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 114                                                                        &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/crimtab.html&gt;crimtab&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 115                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/datasets-package.html&gt;datasets-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 116                                                                     &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/delimMatch.html&gt;delimMatch&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 117                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/dependsOnPkgs.html&gt;dependsOnPkgs&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 118                                                                &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/discoveries.html&gt;discoveries&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 119                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/encoded_text_to_latex.html&gt;encoded_text_to_latex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 120                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/esoph.html&gt;esoph&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 121                                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/euro.html&gt;euro&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 122                                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/eurodist.html&gt;eurodist&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 123                                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/faithful.html&gt;faithful&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 124                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/file_ext.html&gt;file_ext&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 125                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/findHTMLlinks.html&gt;findHTMLlinks&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 126                                                                   &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/find_gs_cmd.html&gt;find_gs_cmd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 127                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/freeny.html&gt;freeny&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 128                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/getVignetteInfo.html&gt;getVignetteInfo&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 129                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/getVignetteInfo.html&gt;getVignetteInfo&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 130                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/getVignetteInfo.html&gt;getVignetteInfo&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 131                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/getVignetteInfo.html&gt;getVignetteInfo&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 132                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/infert.html&gt;infert&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 133                                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/iris.html&gt;iris&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 134                                                                        &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/islands.html&gt;islands&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 135                                                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/lh.html&gt;lh&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 136                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/loadRdMacros.html&gt;loadRdMacros&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 137                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/loadRdMacros.html&gt;loadRdMacros&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 138                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/loadRdMacros.html&gt;loadRdMacros&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 139                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/loadRdMacros.html&gt;loadRdMacros&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 140                                                                        &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/longley.html&gt;longley&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 141                                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/lynx.html&gt;lynx&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 142                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/makeLazyLoading.html&gt;makeLazyLoading&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 143                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/make_translations_pkg.html&gt;make_translations_pkg&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 144                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/makevars_user.html&gt;makevars_user&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 145                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/matchConcordance.html&gt;matchConcordance&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 146                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/md5sum.html&gt;md5sum&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 147                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/morley.html&gt;morley&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 148                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars.html&gt;mtcars&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 149                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/nhtemp.html&gt;nhtemp&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 150                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/nottem.html&gt;nottem&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 151                                                                                &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/npk.html&gt;npk&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 152                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/occupationalStatus.html&gt;occupationalStatus&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 153                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/package_dependencies.html&gt;package_dependencies&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 154 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/package_native_routine_registration_skeleton.html&gt;package_native_routine_registration_skeleton&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 155                                                                     &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parseLatex.html&gt;parseLatex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 156                                                                     &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parseLatex.html&gt;parseLatex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 157                                                                     &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parseLatex.html&gt;parseLatex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 158                                                                     &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parseLatex.html&gt;parseLatex&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 159                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parse_Rd.html&gt;parse_Rd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 160                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parse_Rd.html&gt;parse_Rd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 161                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parse_Rd.html&gt;parse_Rd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 162                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/parse_Rd.html&gt;parse_Rd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 163                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/pkg2HTML.html&gt;pkg2HTML&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 164                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/precip.html&gt;precip&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 165                                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/presidents.html&gt;presidents&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 166                                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/pressure.html&gt;pressure&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 167                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/pskill.html&gt;pskill&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 168                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/psnice.html&gt;psnice&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 169                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/quakes.html&gt;quakes&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 170                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/randu.html&gt;randu&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 171                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/read.00Index.html&gt;read.00Index&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 172                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/read.00Index.html&gt;read.00Index&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 173                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/read.00Index.html&gt;read.00Index&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 174                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/read.00Index.html&gt;read.00Index&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 175                                                                          &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/rivers.html&gt;rivers&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 176                                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/rock.html&gt;rock&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 177                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/showNonASCII.html&gt;showNonASCII&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 178                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/sleep.html&gt;sleep&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 179                                                                    &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/stackloss.html&gt;stackloss&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 180                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/startDynamicHelp.html&gt;startDynamicHelp&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 181                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/state.html&gt;state&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 182                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/sunspot.month.html&gt;sunspot.month&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 183                                                              &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/sunspot.year.html&gt;sunspot.year&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 184                                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/sunspots.html&gt;sunspots&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 185                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/swiss.html&gt;swiss&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 186                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/testInstalledPackage.html&gt;testInstalledPackage&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 187                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/texi2dvi.html&gt;texi2dvi&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 188                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toHTML.html&gt;toHTML&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 189                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toHTML.html&gt;toHTML&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 190                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toHTML.html&gt;toHTML&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 191                                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toHTML.html&gt;toHTML&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 192                                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toRd.html&gt;toRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 193                                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toRd.html&gt;toRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 194                                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toRd.html&gt;toRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 195                                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toRd.html&gt;toRd&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 196                                                                   &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/toTitleCase.html&gt;toTitleCase&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 197                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-deprecated.html&gt;tools-deprecated&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 198                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 199                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 200                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 201                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 202                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 203                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 204                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 205                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 206                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/tools-package.html&gt;tools-package&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 207                                                                      &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/treering.html&gt;treering&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 208                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/trees.html&gt;trees&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 209                                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/undoc.html&gt;undoc&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 210                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/update_PACKAGES.html&gt;update_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 211                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/update_PACKAGES.html&gt;update_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 212                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/update_PACKAGES.html&gt;update_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 213                                                           &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/update_PACKAGES.html&gt;update_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 214                                                               &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/update_pkg_po.html&gt;update_pkg_po&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 215                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/uspop.html&gt;uspop&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 216                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/vignetteEngine.html&gt;vignetteEngine&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 217                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/vignetteEngine.html&gt;vignetteEngine&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 218                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/vignetteEngine.html&gt;vignetteEngine&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 219                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/vignetteEngine.html&gt;vignetteEngine&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 220                                                                 &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/vignetteInfo.html&gt;vignetteInfo&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 221                                                                        &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/volcano.html&gt;volcano&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 222                                                                  &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/warpbreaks.html&gt;warpbreaks&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 223                                                                            &lt;a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/women.html&gt;women&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 224                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/write_PACKAGES.html&gt;write_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 225                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/write_PACKAGES.html&gt;write_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 226                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/write_PACKAGES.html&gt;write_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 227                                                             &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/write_PACKAGES.html&gt;write_PACKAGES&lt;/a&gt;</span></span>
+<span><span class="co">#&gt; 228                                                                         &lt;a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/xgettext.html&gt;xgettext&lt;/a&gt;</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                              alias</span></span>
+<span><span class="co">#&gt; 1                                                                                                                                                                                                .print.via.format</span></span>
+<span><span class="co">#&gt; 2                                                                                                                                                                                 Adobe_glyphs, charset_to_Unicode</span></span>
+<span><span class="co">#&gt; 3                                                                                                                                                                                                    AirPassengers</span></span>
+<span><span class="co">#&gt; 4                                                                                                                                                                                            BJsales, BJsales.lead</span></span>
+<span><span class="co">#&gt; 5                                                                                                                                                                                                              BOD</span></span>
+<span><span class="co">#&gt; 6                                                                                                                                                                                                              CO2</span></span>
+<span><span class="co">#&gt; 7                                                                                  CRAN_package_db, CRAN_check_results, CRAN_check_details, CRAN_check_issues, summarize_CRAN_check_status, R_CRAN_WEB, R_CRAN_SRC</span></span>
+<span><span class="co">#&gt; 8                                                                                                                                                                                                      ChickWeight</span></span>
+<span><span class="co">#&gt; 9                                                                                                                                                                                                            DNase</span></span>
+<span><span class="co">#&gt; 10                                                                                                                                                                                                  EuStockMarkets</span></span>
+<span><span class="co">#&gt; 11                                                                                                                                                                                                    Formaldehyde</span></span>
+<span><span class="co">#&gt; 12                                                                                                                                                                                                      HTMLheader</span></span>
+<span><span class="co">#&gt; 13                                                                                                                                                                                                      HTMLheader</span></span>
+<span><span class="co">#&gt; 14                                                                                                                                                                                                      HTMLheader</span></span>
+<span><span class="co">#&gt; 15                                                                                                                                                                                                      HTMLheader</span></span>
+<span><span class="co">#&gt; 16                                                                                                                                                                                                    HairEyeColor</span></span>
+<span><span class="co">#&gt; 17                                                                                                                                                                                                    Harman23.cor</span></span>
+<span><span class="co">#&gt; 18                                                                                                                                                                                                    Harman74.cor</span></span>
+<span><span class="co">#&gt; 19                                                                                                                                                                                                        Indometh</span></span>
+<span><span class="co">#&gt; 20                                                                                                                                                                                                    InsectSprays</span></span>
+<span><span class="co">#&gt; 21                                                                                                                                                                                                  JohnsonJohnson</span></span>
+<span><span class="co">#&gt; 22                                                                                                                                                                                                       LakeHuron</span></span>
+<span><span class="co">#&gt; 23                                                                                                                                                                                                LifeCycleSavings</span></span>
+<span><span class="co">#&gt; 24                                                                                                                                                                                                        Loblolly</span></span>
+<span><span class="co">#&gt; 25                                                                                                                                                                                                            Nile</span></span>
+<span><span class="co">#&gt; 26                                                                                                                                                                                                          Orange</span></span>
+<span><span class="co">#&gt; 27                                                                                                                                                                                                   OrchardSprays</span></span>
+<span><span class="co">#&gt; 28                                                                                                                                                                                                     PlantGrowth</span></span>
+<span><span class="co">#&gt; 29                                                                                                                                                                                                       Puromycin</span></span>
+<span><span class="co">#&gt; 30                                                                                              QC, checkDocFiles, checkDocStyle, checkReplaceFuns, checkS3methods, checkRdContents, nonS3methods, langElts, print</span></span>
+<span><span class="co">#&gt; 31                                                                                              QC, checkDocFiles, checkDocStyle, checkReplaceFuns, checkS3methods, checkRdContents, nonS3methods, langElts, print</span></span>
+<span><span class="co">#&gt; 32                                                                                              QC, checkDocFiles, checkDocStyle, checkReplaceFuns, checkS3methods, checkRdContents, nonS3methods, langElts, print</span></span>
+<span><span class="co">#&gt; 33                                                                                              QC, checkDocFiles, checkDocStyle, checkReplaceFuns, checkS3methods, checkRdContents, nonS3methods, langElts, print</span></span>
+<span><span class="co">#&gt; 34                                                                                                                                                                                                      R_user_dir</span></span>
+<span><span class="co">#&gt; 35                                                                                                                                                                                                            Rcmd</span></span>
+<span><span class="co">#&gt; 36                                                                                                                                                                                Rd2txt, Rd2HTML, Rd2ex, Rd2latex</span></span>
+<span><span class="co">#&gt; 37                                                                                                                                                                                                  Rd2txt_options</span></span>
+<span><span class="co">#&gt; 38                                                                                                                                                                                                    RdTextFilter</span></span>
+<span><span class="co">#&gt; 39                                                                                                                                                                                                    RdTextFilter</span></span>
+<span><span class="co">#&gt; 40                                                                                                                                                                                                    RdTextFilter</span></span>
+<span><span class="co">#&gt; 41                                                                                                                                                                                                    RdTextFilter</span></span>
+<span><span class="co">#&gt; 42                                                                                                                                                                                                           Rd_db</span></span>
+<span><span class="co">#&gt; 43                                                                                                                                                                                                           Rd_db</span></span>
+<span><span class="co">#&gt; 44                                                                                                                                                                                                           Rd_db</span></span>
+<span><span class="co">#&gt; 45                                                                                                                                                                                                           Rd_db</span></span>
+<span><span class="co">#&gt; 46                                                                                                                                                                                                           Rdiff</span></span>
+<span><span class="co">#&gt; 47                                                                                                                                                                                                         Rdindex</span></span>
+<span><span class="co">#&gt; 48                                                                                                                                                                                                         Rdindex</span></span>
+<span><span class="co">#&gt; 49                                                                                                                                                                                                         Rdindex</span></span>
+<span><span class="co">#&gt; 50                                                                                                                                                                                                         Rdindex</span></span>
+<span><span class="co">#&gt; 51                                                                                                                                                                                                 SweaveTeXFilter</span></span>
+<span><span class="co">#&gt; 52                                                                                                                                                                                                 SweaveTeXFilter</span></span>
+<span><span class="co">#&gt; 53                                                                                                                                                                                                 SweaveTeXFilter</span></span>
+<span><span class="co">#&gt; 54                                                                                                                                                                                                 SweaveTeXFilter</span></span>
+<span><span class="co">#&gt; 55                                                                                                                                                                                                          Theoph</span></span>
+<span><span class="co">#&gt; 56                                                                                                                                                                                                         Titanic</span></span>
+<span><span class="co">#&gt; 57                                                                                                                                                                                                     ToothGrowth</span></span>
+<span><span class="co">#&gt; 58                                                                                                                                                                                                   UCBAdmissions</span></span>
+<span><span class="co">#&gt; 59                                                                                                                                                                                       UKDriverDeaths, Seatbelts</span></span>
+<span><span class="co">#&gt; 60                                                                                                                                                                         UKLungDeaths, ldeaths, fdeaths, mdeaths</span></span>
+<span><span class="co">#&gt; 61                                                                                                                                                                                                           UKgas</span></span>
+<span><span class="co">#&gt; 62                                                                                                                                                                                                     USAccDeaths</span></span>
+<span><span class="co">#&gt; 63                                                                                                                                                                                                       USArrests</span></span>
+<span><span class="co">#&gt; 64                                                                                                                                                                                                  USJudgeRatings</span></span>
+<span><span class="co">#&gt; 65                                                                                                                                                                                           USPersonalExpenditure</span></span>
+<span><span class="co">#&gt; 66                                                                                                                                                                                                        VADeaths</span></span>
+<span><span class="co">#&gt; 67                                                                                                                                                                                                        WWWusage</span></span>
+<span><span class="co">#&gt; 68                                                                                                                                                                                                     WorldPhones</span></span>
+<span><span class="co">#&gt; 69                                                                                                                                                                                                     ability.cov</span></span>
+<span><span class="co">#&gt; 70                                                                                                                                                                                                    add_datalist</span></span>
+<span><span class="co">#&gt; 71                                                                                                                                                                                                        airmiles</span></span>
+<span><span class="co">#&gt; 72                                                                                                                                                                                                      airquality</span></span>
+<span><span class="co">#&gt; 73                                                                                                                                                                                                        anscombe</span></span>
+<span><span class="co">#&gt; 74                                                                                                                                                                     assertCondition, assertWarning, assertError</span></span>
+<span><span class="co">#&gt; 75                                                                                                                                                                     assertCondition, assertWarning, assertError</span></span>
+<span><span class="co">#&gt; 76                                                                                                                                                                     assertCondition, assertWarning, assertError</span></span>
+<span><span class="co">#&gt; 77                                                                                                                                                                     assertCondition, assertWarning, assertError</span></span>
+<span><span class="co">#&gt; 78                                                                                                                                                                                                          attenu</span></span>
+<span><span class="co">#&gt; 79                                                                                                                                                                                                        attitude</span></span>
+<span><span class="co">#&gt; 80                                                                                                                                                                                                         austres</span></span>
+<span><span class="co">#&gt; 81                                                                                                                                                                                       beavers, beaver1, beaver2</span></span>
+<span><span class="co">#&gt; 82                                                                                                                                                                                           bibstyle, getBibstyle</span></span>
+<span><span class="co">#&gt; 83                                                                                                                                                                                           bibstyle, getBibstyle</span></span>
+<span><span class="co">#&gt; 84                                                                                                                                                                                                   buildVignette</span></span>
+<span><span class="co">#&gt; 85                                                                                                                                                                                    buildVignettes, pkgVignettes</span></span>
+<span><span class="co">#&gt; 86                                                                                                                                                                                    buildVignettes, pkgVignettes</span></span>
+<span><span class="co">#&gt; 87                                                                                                                                                                                    buildVignettes, pkgVignettes</span></span>
+<span><span class="co">#&gt; 88                                                                                                                                                                                    buildVignettes, pkgVignettes</span></span>
+<span><span class="co">#&gt; 89                                                                                                                                                                                                            cars</span></span>
+<span><span class="co">#&gt; 90                                                                                                                                                                                                  checkFF, print</span></span>
+<span><span class="co">#&gt; 91                                                                                                                                                                                                  checkFF, print</span></span>
+<span><span class="co">#&gt; 92                                                                                                                                                                                                  checkFF, print</span></span>
+<span><span class="co">#&gt; 93                                                                                                                                                                                                  checkFF, print</span></span>
+<span><span class="co">#&gt; 94                                                                                                                                                                                                    checkMD5sums</span></span>
+<span><span class="co">#&gt; 95                                                                                                                                                                                       checkPoFile, checkPoFiles</span></span>
+<span><span class="co">#&gt; 96                                                                                                                                                                                                         checkRd</span></span>
+<span><span class="co">#&gt; 97                                                                                                                                                                                                         checkRd</span></span>
+<span><span class="co">#&gt; 98                                                                                                                                                                                                         checkRd</span></span>
+<span><span class="co">#&gt; 99                                                                                                                                                                                                         checkRd</span></span>
+<span><span class="co">#&gt; 100                                                                                                                                                                                  checkRdaFiles, resaveRdaFiles</span></span>
+<span><span class="co">#&gt; 101                                                                                                                                                                                                checkTnF, print</span></span>
+<span><span class="co">#&gt; 102                                                                                                                                                                                                checkTnF, print</span></span>
+<span><span class="co">#&gt; 103                                                                                                                                                                                                checkTnF, print</span></span>
+<span><span class="co">#&gt; 104                                                                                                                                                                                                checkTnF, print</span></span>
+<span><span class="co">#&gt; 105                                                                                                                                                                                          checkVignettes, print</span></span>
+<span><span class="co">#&gt; 106                                                                                                                                                                                          checkVignettes, print</span></span>
+<span><span class="co">#&gt; 107                                                                                                                                                                                          checkVignettes, print</span></span>
+<span><span class="co">#&gt; 108                                                                                                                                                                                          checkVignettes, print</span></span>
+<span><span class="co">#&gt; 109 check_packages_in_dir, summarize_check_packages_in_dir_depends, summarize_check_packages_in_dir_results, summarize_check_packages_in_dir_timings, check_packages_in_dir_changes, check_packages_in_dir_details</span></span>
+<span><span class="co">#&gt; 110                                                                                                                                                                                                       chickwts</span></span>
+<span><span class="co">#&gt; 111                                                                                                                                                                                                            co2</span></span>
+<span><span class="co">#&gt; 112                                                                                                                                                                          codoc, codocClasses, codocData, print</span></span>
+<span><span class="co">#&gt; 113                                                                                                                                                                                             compactPDF, format</span></span>
+<span><span class="co">#&gt; 114                                                                                                                                                                                                        crimtab</span></span>
+<span><span class="co">#&gt; 115                                                                                                                                                                                     datasets-package, datasets</span></span>
+<span><span class="co">#&gt; 116                                                                                                                                                                                                     delimMatch</span></span>
+<span><span class="co">#&gt; 117                                                                                                                                                                                                  dependsOnPkgs</span></span>
+<span><span class="co">#&gt; 118                                                                                                                                                                                                    discoveries</span></span>
+<span><span class="co">#&gt; 119                                                                                                                                                                                          encoded_text_to_latex</span></span>
+<span><span class="co">#&gt; 120                                                                                                                                                                                                          esoph</span></span>
+<span><span class="co">#&gt; 121                                                                                                                                                                                               euro, euro.cross</span></span>
+<span><span class="co">#&gt; 122                                                                                                                                                                                            eurodist, UScitiesD</span></span>
+<span><span class="co">#&gt; 123                                                                                                                                                                                                       faithful</span></span>
+<span><span class="co">#&gt; 124                                                                                                                file_ext, file_path_as_absolute, file_path_sans_ext, list_files_with_exts, list_files_with_type</span></span>
+<span><span class="co">#&gt; 125                                                                                                                                                                                                  findHTMLlinks</span></span>
+<span><span class="co">#&gt; 126                                                                                                                                                                                      find_gs_cmd, R_GSCMD, GSC</span></span>
+<span><span class="co">#&gt; 127                                                                                                                                                                                     freeny, freeny.x, freeny.y</span></span>
+<span><span class="co">#&gt; 128                                                                                                                                                                                                getVignetteInfo</span></span>
+<span><span class="co">#&gt; 129                                                                                                                                                                                                getVignetteInfo</span></span>
+<span><span class="co">#&gt; 130                                                                                                                                                                                                getVignetteInfo</span></span>
+<span><span class="co">#&gt; 131                                                                                                                                                                                                getVignetteInfo</span></span>
+<span><span class="co">#&gt; 132                                                                                                                                                                                                         infert</span></span>
+<span><span class="co">#&gt; 133                                                                                                                                                                                                    iris, iris3</span></span>
+<span><span class="co">#&gt; 134                                                                                                                                                                                                        islands</span></span>
+<span><span class="co">#&gt; 135                                                                                                                                                                                                             lh</span></span>
+<span><span class="co">#&gt; 136                                                                                                                                                                                  loadRdMacros, loadPkgRdMacros</span></span>
+<span><span class="co">#&gt; 137                                                                                                                                                                                  loadRdMacros, loadPkgRdMacros</span></span>
+<span><span class="co">#&gt; 138                                                                                                                                                                                  loadRdMacros, loadPkgRdMacros</span></span>
+<span><span class="co">#&gt; 139                                                                                                                                                                                  loadRdMacros, loadPkgRdMacros</span></span>
+<span><span class="co">#&gt; 140                                                                                                                                                                                                        longley</span></span>
+<span><span class="co">#&gt; 141                                                                                                                                                                                                           lynx</span></span>
+<span><span class="co">#&gt; 142                                                                                                                                                                                                makeLazyLoading</span></span>
+<span><span class="co">#&gt; 143                                                                                                                                                                                          make_translations_pkg</span></span>
+<span><span class="co">#&gt; 144                                                                                                                                                                                   makevars_user, makevars_site</span></span>
+<span><span class="co">#&gt; 145                                                                                                            matchConcordance, as.character, as.Rconcordance, Rconcordance, activeConcordance, followConcordance</span></span>
+<span><span class="co">#&gt; 146                                                                                                                                                                                                         md5sum</span></span>
+<span><span class="co">#&gt; 147                                                                                                                                                                                                         morley</span></span>
+<span><span class="co">#&gt; 148                                                                                                                                                                                                         mtcars</span></span>
+<span><span class="co">#&gt; 149                                                                                                                                                                                                         nhtemp</span></span>
+<span><span class="co">#&gt; 150                                                                                                                                                                                                         nottem</span></span>
+<span><span class="co">#&gt; 151                                                                                                                                                                                                            npk</span></span>
+<span><span class="co">#&gt; 152                                                                                                                                                                                             occupationalStatus</span></span>
+<span><span class="co">#&gt; 153                                                                                                                                                                                           package_dependencies</span></span>
+<span><span class="co">#&gt; 154                                                                                                                                                                   package_native_routine_registration_skeleton</span></span>
+<span><span class="co">#&gt; 155                                                                                                                                                                          parseLatex, deparseLatex, latexToUtf8</span></span>
+<span><span class="co">#&gt; 156                                                                                                                                                                          parseLatex, deparseLatex, latexToUtf8</span></span>
+<span><span class="co">#&gt; 157                                                                                                                                                                          parseLatex, deparseLatex, latexToUtf8</span></span>
+<span><span class="co">#&gt; 158                                                                                                                                                                          parseLatex, deparseLatex, latexToUtf8</span></span>
+<span><span class="co">#&gt; 159                                                                                                                                                                                  parse_Rd, print, as.character</span></span>
+<span><span class="co">#&gt; 160                                                                                                                                                                                  parse_Rd, print, as.character</span></span>
+<span><span class="co">#&gt; 161                                                                                                                                                                                  parse_Rd, print, as.character</span></span>
+<span><span class="co">#&gt; 162                                                                                                                                                                                  parse_Rd, print, as.character</span></span>
+<span><span class="co">#&gt; 163                                                                                                                                                                                                       pkg2HTML</span></span>
+<span><span class="co">#&gt; 164                                                                                                                                                                                                         precip</span></span>
+<span><span class="co">#&gt; 165                                                                                                                                                                                                     presidents</span></span>
+<span><span class="co">#&gt; 166                                                                                                                                                                                                       pressure</span></span>
+<span><span class="co">#&gt; 167                                                                                                        pskill, SIGHUP, SIGINT, SIGQUIT, SIGKILL, SIGTERM, SIGSTOP, SIGTSTP, SIGCONT, SIGCHLD, SIGUSR1, SIGUSR2</span></span>
+<span><span class="co">#&gt; 168                                                                                                                                                                                                         psnice</span></span>
+<span><span class="co">#&gt; 169                                                                                                                                                                                                         quakes</span></span>
+<span><span class="co">#&gt; 170                                                                                                                                                                                                          randu</span></span>
+<span><span class="co">#&gt; 171                                                                                                                                                                                                   read.00Index</span></span>
+<span><span class="co">#&gt; 172                                                                                                                                                                                                   read.00Index</span></span>
+<span><span class="co">#&gt; 173                                                                                                                                                                                                   read.00Index</span></span>
+<span><span class="co">#&gt; 174                                                                                                                                                                                                   read.00Index</span></span>
+<span><span class="co">#&gt; 175                                                                                                                                                                                                         rivers</span></span>
+<span><span class="co">#&gt; 176                                                                                                                                                                                                           rock</span></span>
+<span><span class="co">#&gt; 177                                                                                                                                                                                 showNonASCII, showNonASCIIfile</span></span>
+<span><span class="co">#&gt; 178                                                                                                                                                                                                          sleep</span></span>
+<span><span class="co">#&gt; 179                                                                                                                                                                                 stackloss, stack.loss, stack.x</span></span>
+<span><span class="co">#&gt; 180                                                                                                                                                                  startDynamicHelp, help.ports, R_DISABLE_HTTPD</span></span>
+<span><span class="co">#&gt; 181                                                                                                                state, state.abb, state.area, state.center, state.division, state.name, state.region, state.x77</span></span>
+<span><span class="co">#&gt; 182                                                                                                                                                                                                  sunspot.month</span></span>
+<span><span class="co">#&gt; 183                                                                                                                                                                                                   sunspot.year</span></span>
+<span><span class="co">#&gt; 184                                                                                                                                                                                                       sunspots</span></span>
+<span><span class="co">#&gt; 185                                                                                                                                                                                                          swiss</span></span>
+<span><span class="co">#&gt; 186                                                                                                         testInstalledPackage, testInstalledPackages, testInstalledBasic, TEST_MC_CORES, standard_package_names</span></span>
+<span><span class="co">#&gt; 187                                                                                                                                                                                             texi2dvi, texi2pdf</span></span>
+<span><span class="co">#&gt; 188                                                                                                                                                                                                         toHTML</span></span>
+<span><span class="co">#&gt; 189                                                                                                                                                                                                         toHTML</span></span>
+<span><span class="co">#&gt; 190                                                                                                                                                                                                         toHTML</span></span>
+<span><span class="co">#&gt; 191                                                                                                                                                                                                         toHTML</span></span>
+<span><span class="co">#&gt; 192                                                                                                                                                                                                           toRd</span></span>
+<span><span class="co">#&gt; 193                                                                                                                                                                                                           toRd</span></span>
+<span><span class="co">#&gt; 194                                                                                                                                                                                                           toRd</span></span>
+<span><span class="co">#&gt; 195                                                                                                                                                                                                           toRd</span></span>
+<span><span class="co">#&gt; 196                                                                                                                                                                                                    toTitleCase</span></span>
+<span><span class="co">#&gt; 197                                                                                                                                                                                               tools-deprecated</span></span>
+<span><span class="co">#&gt; 198                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 199                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 200                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 201                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 202                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 203                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 204                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 205                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 206                                                                                                                                                                                           tools-package, tools</span></span>
+<span><span class="co">#&gt; 207                                                                                                                                                                                                       treering</span></span>
+<span><span class="co">#&gt; 208                                                                                                                                                                                                          trees</span></span>
+<span><span class="co">#&gt; 209                                                                                                                                                                                                   undoc, print</span></span>
+<span><span class="co">#&gt; 210                                                                                                                                                                                                update_PACKAGES</span></span>
+<span><span class="co">#&gt; 211                                                                                                                                                                                                update_PACKAGES</span></span>
+<span><span class="co">#&gt; 212                                                                                                                                                                                                update_PACKAGES</span></span>
+<span><span class="co">#&gt; 213                                                                                                                                                                                                update_PACKAGES</span></span>
+<span><span class="co">#&gt; 214                                                                                                                                                                                                  update_pkg_po</span></span>
+<span><span class="co">#&gt; 215                                                                                                                                                                                                          uspop</span></span>
+<span><span class="co">#&gt; 216                                                                                                                                                                                                 vignetteEngine</span></span>
+<span><span class="co">#&gt; 217                                                                                                                                                                                                 vignetteEngine</span></span>
+<span><span class="co">#&gt; 218                                                                                                                                                                                                 vignetteEngine</span></span>
+<span><span class="co">#&gt; 219                                                                                                                                                                                                 vignetteEngine</span></span>
+<span><span class="co">#&gt; 220                                                                                                                                                                                                   vignetteInfo</span></span>
+<span><span class="co">#&gt; 221                                                                                                                                                                                                        volcano</span></span>
+<span><span class="co">#&gt; 222                                                                                                                                                                                                     warpbreaks</span></span>
+<span><span class="co">#&gt; 223                                                                                                                                                                                                          women</span></span>
+<span><span class="co">#&gt; 224                                                                                                                                                                                                 write_PACKAGES</span></span>
+<span><span class="co">#&gt; 225                                                                                                                                                                                                 write_PACKAGES</span></span>
+<span><span class="co">#&gt; 226                                                                                                                                                                                                 write_PACKAGES</span></span>
+<span><span class="co">#&gt; 227                                                                                                                                                                                                 write_PACKAGES</span></span>
+<span><span class="co">#&gt; 228                                                                                                                                                                              xgettext, xngettext, xgettext2pot</span></span>
+<span><span class="co">#&gt;                                                                  title</span></span>
+<span><span class="co">#&gt; 1                                                   Printing Utilities</span></span>
+<span><span class="co">#&gt; 2                             Conversion Tables between Character Sets</span></span>
+<span><span class="co">#&gt; 3                          Monthly Airline Passenger Numbers 1949-1960</span></span>
+<span><span class="co">#&gt; 4                                    Sales Data with Leading Indicator</span></span>
+<span><span class="co">#&gt; 5                                            Biochemical Oxygen Demand</span></span>
+<span><span class="co">#&gt; 6                                Carbon Dioxide Uptake in Grass Plants</span></span>
+<span><span class="co">#&gt; 7                                        CRAN Package Repository Tools</span></span>
+<span><span class="co">#&gt; 8                       Weight versus age of chicks on different diets</span></span>
+<span><span class="co">#&gt; 9                                                 Elisa assay of DNase</span></span>
+<span><span class="co">#&gt; 10     Daily Closing Prices of Major European Stock Indices, 1991-1998</span></span>
+<span><span class="co">#&gt; 11                                       Determination of Formaldehyde</span></span>
+<span><span class="co">#&gt; 12                          Generate a Standard HTML Header for R Help</span></span>
+<span><span class="co">#&gt; 13                          Generate a Standard HTML Header for R Help</span></span>
+<span><span class="co">#&gt; 14                          Generate a Standard HTML Header for R Help</span></span>
+<span><span class="co">#&gt; 15                          Generate a Standard HTML Header for R Help</span></span>
+<span><span class="co">#&gt; 16                           Hair and Eye Color of Statistics Students</span></span>
+<span><span class="co">#&gt; 17                                                  Harman Example 2.3</span></span>
+<span><span class="co">#&gt; 18                                                  Harman Example 7.4</span></span>
+<span><span class="co">#&gt; 19                                    Pharmacokinetics of Indomethacin</span></span>
+<span><span class="co">#&gt; 20                                      Effectiveness of Insect Sprays</span></span>
+<span><span class="co">#&gt; 21                      Quarterly Earnings per Johnson &amp; Johnson Share</span></span>
+<span><span class="co">#&gt; 22                                       Level of Lake Huron 1875-1972</span></span>
+<span><span class="co">#&gt; 23                                Intercountry Life-Cycle Savings Data</span></span>
+<span><span class="co">#&gt; 24                                       Growth of Loblolly Pine Trees</span></span>
+<span><span class="co">#&gt; 25                                              Flow of the River Nile</span></span>
+<span><span class="co">#&gt; 26                                              Growth of Orange Trees</span></span>
+<span><span class="co">#&gt; 27                                           Potency of Orchard Sprays</span></span>
+<span><span class="co">#&gt; 28                          Results from an Experiment on Plant Growth</span></span>
+<span><span class="co">#&gt; 29                          Reaction Velocity of an Enzymatic Reaction</span></span>
+<span><span class="co">#&gt; 30                           QC Checks for R Code and/or Documentation</span></span>
+<span><span class="co">#&gt; 31                           QC Checks for R Code and/or Documentation</span></span>
+<span><span class="co">#&gt; 32                           QC Checks for R Code and/or Documentation</span></span>
+<span><span class="co">#&gt; 33                           QC Checks for R Code and/or Documentation</span></span>
+<span><span class="co">#&gt; 34                                                  R User Directories</span></span>
+<span><span class="co">#&gt; 35                                                   'R CMD' Interface</span></span>
+<span><span class="co">#&gt; 36                                                       Rd Converters</span></span>
+<span><span class="co">#&gt; 37                                Set Formatting Options for Text Help</span></span>
+<span><span class="co">#&gt; 38                                           Select Text in an Rd File</span></span>
+<span><span class="co">#&gt; 39                                           Select Text in an Rd File</span></span>
+<span><span class="co">#&gt; 40                                           Select Text in an Rd File</span></span>
+<span><span class="co">#&gt; 41                                           Select Text in an Rd File</span></span>
+<span><span class="co">#&gt; 42                                                        Rd Utilities</span></span>
+<span><span class="co">#&gt; 43                                                        Rd Utilities</span></span>
+<span><span class="co">#&gt; 44                                                        Rd Utilities</span></span>
+<span><span class="co">#&gt; 45                                                        Rd Utilities</span></span>
+<span><span class="co">#&gt; 46                                           Difference R Output Files</span></span>
+<span><span class="co">#&gt; 47                                        Generate Index from Rd Files</span></span>
+<span><span class="co">#&gt; 48                                        Generate Index from Rd Files</span></span>
+<span><span class="co">#&gt; 49                                        Generate Index from Rd Files</span></span>
+<span><span class="co">#&gt; 50                                        Generate Index from Rd Files</span></span>
+<span><span class="co">#&gt; 51                                     Strip R Code out of Sweave File</span></span>
+<span><span class="co">#&gt; 52                                     Strip R Code out of Sweave File</span></span>
+<span><span class="co">#&gt; 53                                     Strip R Code out of Sweave File</span></span>
+<span><span class="co">#&gt; 54                                     Strip R Code out of Sweave File</span></span>
+<span><span class="co">#&gt; 55                                    Pharmacokinetics of Theophylline</span></span>
+<span><span class="co">#&gt; 56                               Survival of passengers on the Titanic</span></span>
+<span><span class="co">#&gt; 57              The Effect of Vitamin C on Tooth Growth in Guinea Pigs</span></span>
+<span><span class="co">#&gt; 58                                   Student Admissions at UC Berkeley</span></span>
+<span><span class="co">#&gt; 59                            Road Casualties in Great Britain 1969-84</span></span>
+<span><span class="co">#&gt; 60                         Monthly Deaths from Lung Diseases in the UK</span></span>
+<span><span class="co">#&gt; 61                                        UK Quarterly Gas Consumption</span></span>
+<span><span class="co">#&gt; 62                               Accidental Deaths in the US 1973-1978</span></span>
+<span><span class="co">#&gt; 63                                     Violent Crime Rates by US State</span></span>
+<span><span class="co">#&gt; 64           Lawyers' Ratings of State Judges in the US Superior Court</span></span>
+<span><span class="co">#&gt; 65                                           Personal Expenditure Data</span></span>
+<span><span class="co">#&gt; 66                                      Death Rates in Virginia (1940)</span></span>
+<span><span class="co">#&gt; 67                                           Internet Usage per Minute</span></span>
+<span><span class="co">#&gt; 68                                              The World's Telephones</span></span>
+<span><span class="co">#&gt; 69                                      Ability and Intelligence Tests</span></span>
+<span><span class="co">#&gt; 70                           Add a 'datalist' File to a Source Package</span></span>
+<span><span class="co">#&gt; 71                Passenger Miles on Commercial US Airlines, 1937-1960</span></span>
+<span><span class="co">#&gt; 72                                   New York Air Quality Measurements</span></span>
+<span><span class="co">#&gt; 73         Anscombe's Quartet of 'Identical' Simple Linear Regressions</span></span>
+<span><span class="co">#&gt; 74                                          Asserting Error Conditions</span></span>
+<span><span class="co">#&gt; 75                                          Asserting Error Conditions</span></span>
+<span><span class="co">#&gt; 76                                          Asserting Error Conditions</span></span>
+<span><span class="co">#&gt; 77                                          Asserting Error Conditions</span></span>
+<span><span class="co">#&gt; 78                                   The Joyner-Boore Attenuation Data</span></span>
+<span><span class="co">#&gt; 79                                  The Chatterjee-Price Attitude Data</span></span>
+<span><span class="co">#&gt; 80         Quarterly Time Series of the Number of Australian Residents</span></span>
+<span><span class="co">#&gt; 81                              Body Temperature Series of Two Beavers</span></span>
+<span><span class="co">#&gt; 82                               Select or Define a Bibliography Style</span></span>
+<span><span class="co">#&gt; 83                               Select or Define a Bibliography Style</span></span>
+<span><span class="co">#&gt; 84                                                  Build One Vignette</span></span>
+<span><span class="co">#&gt; 85                                    List and Build Package Vignettes</span></span>
+<span><span class="co">#&gt; 86                                    List and Build Package Vignettes</span></span>
+<span><span class="co">#&gt; 87                                    List and Build Package Vignettes</span></span>
+<span><span class="co">#&gt; 88                                    List and Build Package Vignettes</span></span>
+<span><span class="co">#&gt; 89                                Speed and Stopping Distances of Cars</span></span>
+<span><span class="co">#&gt; 90                                        Check Foreign Function Calls</span></span>
+<span><span class="co">#&gt; 91                                        Check Foreign Function Calls</span></span>
+<span><span class="co">#&gt; 92                                        Check Foreign Function Calls</span></span>
+<span><span class="co">#&gt; 93                                        Check Foreign Function Calls</span></span>
+<span><span class="co">#&gt; 94                                 Check and Create MD5 Checksum Files</span></span>
+<span><span class="co">#&gt; 95             Check Translation Files for Inconsistent Format Strings</span></span>
+<span><span class="co">#&gt; 96                                                  Check an Rd Object</span></span>
+<span><span class="co">#&gt; 97                                                  Check an Rd Object</span></span>
+<span><span class="co">#&gt; 98                                                  Check an Rd Object</span></span>
+<span><span class="co">#&gt; 99                                                  Check an Rd Object</span></span>
+<span><span class="co">#&gt; 100                 Report on Details of Saved Images or Re-saves them</span></span>
+<span><span class="co">#&gt; 101                                   Check R Packages or Code for T/F</span></span>
+<span><span class="co">#&gt; 102                                   Check R Packages or Code for T/F</span></span>
+<span><span class="co">#&gt; 103                                   Check R Packages or Code for T/F</span></span>
+<span><span class="co">#&gt; 104                                   Check R Packages or Code for T/F</span></span>
+<span><span class="co">#&gt; 105                                            Check Package Vignettes</span></span>
+<span><span class="co">#&gt; 106                                            Check Package Vignettes</span></span>
+<span><span class="co">#&gt; 107                                            Check Package Vignettes</span></span>
+<span><span class="co">#&gt; 108                                            Check Package Vignettes</span></span>
+<span><span class="co">#&gt; 109               Check Source Packages and Their Reverse Dependencies</span></span>
+<span><span class="co">#&gt; 110                                       Chicken Weights by Feed Type</span></span>
+<span><span class="co">#&gt; 111                            Mauna Loa Atmospheric CO2 Concentration</span></span>
+<span><span class="co">#&gt; 112                               Check Code/Documentation Consistency</span></span>
+<span><span class="co">#&gt; 113                                                  Compact PDF Files</span></span>
+<span><span class="co">#&gt; 114                                      Student's 3000 Criminals Data</span></span>
+<span><span class="co">#&gt; 115                                             The R Datasets Package</span></span>
+<span><span class="co">#&gt; 116                                         Delimited Pattern Matching</span></span>
+<span><span class="co">#&gt; 117                                          Find Reverse Dependencies</span></span>
+<span><span class="co">#&gt; 118                            Yearly Numbers of Important Discoveries</span></span>
+<span><span class="co">#&gt; 119                          Translate non-ASCII Text to LaTeX Escapes</span></span>
+<span><span class="co">#&gt; 120                          Smoking, Alcohol and (O)esophageal Cancer</span></span>
+<span><span class="co">#&gt; 121                                Conversion Rates of Euro Currencies</span></span>
+<span><span class="co">#&gt; 122            Distances Between European Cities and Between US Cities</span></span>
+<span><span class="co">#&gt; 123                                           Old Faithful Geyser Data</span></span>
+<span><span class="co">#&gt; 124                                                     File Utilities</span></span>
+<span><span class="co">#&gt; 125                      Collect HTML Links from Package Documentation</span></span>
+<span><span class="co">#&gt; 126                                      Find a GhostScript Executable</span></span>
+<span><span class="co">#&gt; 127                                              Freeny's Revenue Data</span></span>
+<span><span class="co">#&gt; 128                             Get Information on Installed Vignettes</span></span>
+<span><span class="co">#&gt; 129                             Get Information on Installed Vignettes</span></span>
+<span><span class="co">#&gt; 130                             Get Information on Installed Vignettes</span></span>
+<span><span class="co">#&gt; 131                             Get Information on Installed Vignettes</span></span>
+<span><span class="co">#&gt; 132                 Infertility after Spontaneous and Induced Abortion</span></span>
+<span><span class="co">#&gt; 133                                         Edgar Anderson's Iris Data</span></span>
+<span><span class="co">#&gt; 134                              Areas of the World's Major Landmasses</span></span>
+<span><span class="co">#&gt; 135                               Luteinizing Hormone in Blood Samples</span></span>
+<span><span class="co">#&gt; 136                            Load User-defined Rd Help System Macros</span></span>
+<span><span class="co">#&gt; 137                            Load User-defined Rd Help System Macros</span></span>
+<span><span class="co">#&gt; 138                            Load User-defined Rd Help System Macros</span></span>
+<span><span class="co">#&gt; 139                            Load User-defined Rd Help System Macros</span></span>
+<span><span class="co">#&gt; 140                                 Longley's Economic Regression Data</span></span>
+<span><span class="co">#&gt; 141                           Annual Canadian Lynx trappings 1821-1934</span></span>
+<span><span class="co">#&gt; 142                                           Lazy Loading of Packages</span></span>
+<span><span class="co">#&gt; 143                  Package the Current Translations in the R Sources</span></span>
+<span><span class="co">#&gt; 144                                User and Site Compilation Variables</span></span>
+<span><span class="co">#&gt; 145                        Concordance between source and target lines</span></span>
+<span><span class="co">#&gt; 146                                              Compute MD5 Checksums</span></span>
+<span><span class="co">#&gt; 147                                      Michelson Speed of Light Data</span></span>
+<span><span class="co">#&gt; 148                                         Motor Trend Car Road Tests</span></span>
+<span><span class="co">#&gt; 149                           Average Yearly Temperatures in New Haven</span></span>
+<span><span class="co">#&gt; 150              Average Monthly Temperatures at Nottingham, 1920-1939</span></span>
+<span><span class="co">#&gt; 151                             Classical N, P, K Factorial Experiment</span></span>
+<span><span class="co">#&gt; 152                      Occupational Status of Fathers and their Sons</span></span>
+<span><span class="co">#&gt; 153               Computations on the Dependency Hierarchy of Packages</span></span>
+<span><span class="co">#&gt; 154 Write Skeleton for Adding Native Routine Registration to a Package</span></span>
+<span><span class="co">#&gt; 155                     Experimental Functions to Work with LaTeX Code</span></span>
+<span><span class="co">#&gt; 156                     Experimental Functions to Work with LaTeX Code</span></span>
+<span><span class="co">#&gt; 157                     Experimental Functions to Work with LaTeX Code</span></span>
+<span><span class="co">#&gt; 158                     Experimental Functions to Work with LaTeX Code</span></span>
+<span><span class="co">#&gt; 159                                                   Parse an Rd File</span></span>
+<span><span class="co">#&gt; 160                                                   Parse an Rd File</span></span>
+<span><span class="co">#&gt; 161                                                   Parse an Rd File</span></span>
+<span><span class="co">#&gt; 162                                                   Parse an Rd File</span></span>
+<span><span class="co">#&gt; 163                                                      Rd Converters</span></span>
+<span><span class="co">#&gt; 164                                  Annual Precipitation in US Cities</span></span>
+<span><span class="co">#&gt; 165                        Quarterly Approval Ratings of US Presidents</span></span>
+<span><span class="co">#&gt; 166             Vapor Pressure of Mercury as a Function of Temperature</span></span>
+<span><span class="co">#&gt; 167                                                     Kill a Process</span></span>
+<span><span class="co">#&gt; 168                    Get or Set the Priority (Niceness) of a Process</span></span>
+<span><span class="co">#&gt; 169                                  Locations of Earthquakes off Fiji</span></span>
+<span><span class="co">#&gt; 170                   Random Numbers from Congruential Generator RANDU</span></span>
+<span><span class="co">#&gt; 171                                           Read 00Index-style Files</span></span>
+<span><span class="co">#&gt; 172                                           Read 00Index-style Files</span></span>
+<span><span class="co">#&gt; 173                                           Read 00Index-style Files</span></span>
+<span><span class="co">#&gt; 174                                           Read 00Index-style Files</span></span>
+<span><span class="co">#&gt; 175                             Lengths of Major North American Rivers</span></span>
+<span><span class="co">#&gt; 176                             Measurements on Petroleum Rock Samples</span></span>
+<span><span class="co">#&gt; 177                                      Pick Out Non-ASCII Characters</span></span>
+<span><span class="co">#&gt; 178                                               Student's Sleep Data</span></span>
+<span><span class="co">#&gt; 179                                   Brownlee's Stack Loss Plant Data</span></span>
+<span><span class="co">#&gt; 180                                 Start the Dynamic HTML Help System</span></span>
+<span><span class="co">#&gt; 181                                         US State Facts and Figures</span></span>
+<span><span class="co">#&gt; 182                       Monthly Sunspot Data, from 1749 to "Present"</span></span>
+<span><span class="co">#&gt; 183                                     Yearly Sunspot Data, 1700-1988</span></span>
+<span><span class="co">#&gt; 184                                 Monthly Sunspot Numbers, 1749-1983</span></span>
+<span><span class="co">#&gt; 185           Swiss Fertility and Socioeconomic Indicators (1888) Data</span></span>
+<span><span class="co">#&gt; 186                                            Test Installed Packages</span></span>
+<span><span class="co">#&gt; 187                                                Compile LaTeX Files</span></span>
+<span><span class="co">#&gt; 188                                          Display an Object in HTML</span></span>
+<span><span class="co">#&gt; 189                                          Display an Object in HTML</span></span>
+<span><span class="co">#&gt; 190                                          Display an Object in HTML</span></span>
+<span><span class="co">#&gt; 191                                          Display an Object in HTML</span></span>
+<span><span class="co">#&gt; 192        Generic Function to Convert Object to a Fragment of Rd Code</span></span>
+<span><span class="co">#&gt; 193        Generic Function to Convert Object to a Fragment of Rd Code</span></span>
+<span><span class="co">#&gt; 194        Generic Function to Convert Object to a Fragment of Rd Code</span></span>
+<span><span class="co">#&gt; 195        Generic Function to Convert Object to a Fragment of Rd Code</span></span>
+<span><span class="co">#&gt; 196                                       Convert Titles to Title Case</span></span>
+<span><span class="co">#&gt; 197                              Deprecated Objects in Package 'tools'</span></span>
+<span><span class="co">#&gt; 198                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 199                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 200                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 201                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 202                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 203                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 204                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 205                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 206                                      Tools for Package Development</span></span>
+<span><span class="co">#&gt; 207                                  Yearly Tree-Ring Data, -6000-1979</span></span>
+<span><span class="co">#&gt; 208                 Diameter, Height and Volume for Black Cherry Trees</span></span>
+<span><span class="co">#&gt; 209                                          Find Undocumented Objects</span></span>
+<span><span class="co">#&gt; 210                                     Update Existing PACKAGES Files</span></span>
+<span><span class="co">#&gt; 211                                     Update Existing PACKAGES Files</span></span>
+<span><span class="co">#&gt; 212                                     Update Existing PACKAGES Files</span></span>
+<span><span class="co">#&gt; 213                                     Update Existing PACKAGES Files</span></span>
+<span><span class="co">#&gt; 214                                 Prepare Translations for a Package</span></span>
+<span><span class="co">#&gt; 215                              Populations Recorded by the US Census</span></span>
+<span><span class="co">#&gt; 216                            Set or Get a Vignette Processing Engine</span></span>
+<span><span class="co">#&gt; 217                            Set or Get a Vignette Processing Engine</span></span>
+<span><span class="co">#&gt; 218                            Set or Get a Vignette Processing Engine</span></span>
+<span><span class="co">#&gt; 219                            Set or Get a Vignette Processing Engine</span></span>
+<span><span class="co">#&gt; 220                                 Basic Information about a Vignette</span></span>
+<span><span class="co">#&gt; 221          Topographic Information on Auckland's Maunga Whau Volcano</span></span>
+<span><span class="co">#&gt; 222                        The Number of Breaks in Yarn during Weaving</span></span>
+<span><span class="co">#&gt; 223                     Average Heights and Weights for American Women</span></span>
+<span><span class="co">#&gt; 224                                            Generate PACKAGES Files</span></span>
+<span><span class="co">#&gt; 225                                            Generate PACKAGES Files</span></span>
+<span><span class="co">#&gt; 226                                            Generate PACKAGES Files</span></span>
+<span><span class="co">#&gt; 227                                            Generate PACKAGES Files</span></span>
+<span><span class="co">#&gt; 228            Extract Translatable Messages from R Files in a Package</span></span>
+<span><span class="co">#&gt;                                  concept  package</span></span>
+<span><span class="co">#&gt; 1                              Utilities    tools</span></span>
+<span><span class="co">#&gt; 2           Datasets available by data()    tools</span></span>
+<span><span class="co">#&gt; 3           Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 4           Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 5           Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 6           Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 7                                   &lt;NA&gt;    tools</span></span>
+<span><span class="co">#&gt; 8           Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 9           Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 10          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 11          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 12                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 13                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 14                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 15                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 16          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 17          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 18          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 19          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 20          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 21          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 22          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 23          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 24          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 25          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 26          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 27          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 28          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 29          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 30                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 31                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 32                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 33                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 34                                  &lt;NA&gt;    tools</span></span>
+<span><span class="co">#&gt; 35                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 36                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 37                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 38                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 39                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 40                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 41                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 42                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 43                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 44                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 45                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 46                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 47                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 48                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 49                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 50                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 51                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 52                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 53                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 54                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 55          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 56          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 57          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 58          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 59          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 60          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 61          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 62          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 63          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 64          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 65          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 66          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 67          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 68          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 69          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 70                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 71          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 72          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 73          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 74                           Programming    tools</span></span>
+<span><span class="co">#&gt; 75                        Error Handling    tools</span></span>
+<span><span class="co">#&gt; 76                           Programming    tools</span></span>
+<span><span class="co">#&gt; 77                        Error Handling    tools</span></span>
+<span><span class="co">#&gt; 78          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 79          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 80          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 81          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 82                              utilties    tools</span></span>
+<span><span class="co">#&gt; 83                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 84                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 85                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 86                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 87                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 88                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 89          Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 90                           Programming    tools</span></span>
+<span><span class="co">#&gt; 91                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 92                           Programming    tools</span></span>
+<span><span class="co">#&gt; 93                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 94                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 95                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 96                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 97                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 98                             Utilities    tools</span></span>
+<span><span class="co">#&gt; 99                         Documentation    tools</span></span>
+<span><span class="co">#&gt; 100                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 101                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 102                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 103                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 104                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 105                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 106                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 107                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 108                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 109                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 110         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 111         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 112                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 113                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 114         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 115                    Package Summaries datasets</span></span>
+<span><span class="co">#&gt; 116 Character Data ("String") Operations    tools</span></span>
+<span><span class="co">#&gt; 117                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 118         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 119                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 120         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 121         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 122         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 123         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 124                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 125                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 126                                 &lt;NA&gt;    tools</span></span>
+<span><span class="co">#&gt; 127         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 128                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 129                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 130                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 131                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 132         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 133         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 134         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 135         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 136                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 137                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 138                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 139                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 140         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 141         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 142                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 143                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 144                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 145                                 &lt;NA&gt;    tools</span></span>
+<span><span class="co">#&gt; 146                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 147         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 148         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 149         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 150         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 151         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 152         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 153                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 154                                 &lt;NA&gt;    tools</span></span>
+<span><span class="co">#&gt; 155                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 156                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 157                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 158                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 159                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 160                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 161                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 162                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 163                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 164         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 165         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 166         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 167                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 168                              utility    tools</span></span>
+<span><span class="co">#&gt; 169         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 170         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 171                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 172             Input/Output Connections    tools</span></span>
+<span><span class="co">#&gt; 173                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 174             Input/Output Connections    tools</span></span>
+<span><span class="co">#&gt; 175         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 176         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 177                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 178         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 179         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 180                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 181         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 182         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 183         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 184         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 185         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 186                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 187                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 188                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 189                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 190                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 191                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 192                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 193                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 194                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 195                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 196                                 &lt;NA&gt;    tools</span></span>
+<span><span class="co">#&gt; 197                        Miscellaneous    tools</span></span>
+<span><span class="co">#&gt; 198                    Package Summaries    tools</span></span>
+<span><span class="co">#&gt; 199                          Programming    tools</span></span>
+<span><span class="co">#&gt; 200                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 201                    Package Summaries    tools</span></span>
+<span><span class="co">#&gt; 202                          Programming    tools</span></span>
+<span><span class="co">#&gt; 203                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 204                    Package Summaries    tools</span></span>
+<span><span class="co">#&gt; 205                          Programming    tools</span></span>
+<span><span class="co">#&gt; 206                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 207         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 208         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 209                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 210                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 211                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 212                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 213                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 214                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 215         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 216                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 217                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 218                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 219                        Documentation    tools</span></span>
+<span><span class="co">#&gt; 220                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 221         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 222         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 223         Datasets available by data() datasets</span></span>
+<span><span class="co">#&gt; 224                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 225                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 226                   Input/Output Files    tools</span></span>
+<span><span class="co">#&gt; 227                            Utilities    tools</span></span>
+<span><span class="co">#&gt; 228                            Utilities    tools</span></span>
 <span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">linked</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -199,6 +1101,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/maurolepore/dverse/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/maurolepore/dverse/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/maurolepore/dverse" class="external-link"><img src="https://codecov.io/gh/maurolepore/dverse/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 
