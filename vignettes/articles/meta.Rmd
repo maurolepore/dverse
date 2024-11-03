@@ -1,5 +1,5 @@
 ---
-title: "meta"
+title: "Meta package"
 ---
 
 ```{r, include = FALSE}
@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Creating a meta-package might be easier than you think.
+Creating and documenting a simple meta-package might be easier than you think.
 
 ### Basic infrastructure
 
@@ -19,7 +19,7 @@ Creating a meta-package might be easier than you think.
   - From GitHub, e.g. `usethis::use_dev_package("glue", "depends")`
   - From CRAN, e.g. `usethis::use_package("tibble", "depends")`
 
-The result would like this:
+The resulting DESCRIPTION file would like this:
 
 ```
 Package: meta
@@ -44,12 +44,12 @@ Remotes:
 
 * Add a pkgdown website, e.g. `usethis::use_pkgdown()`
 * Add a home page with `usethis::use_readme_rmd()` and add installation instructions
-* Create an article to host the documentation of the universe (see [how](https://maurolepore.github.io/dverse/articles/start.html)):
+* Create an article and document your universe with dverse ([Get started](https://maurolepore.github.io/dverse/articles/start.html)):
   - Create an article, e.g. `usethis::use_article("reference")`
   - Organize the documentation by package or concept
   - Optionally override the default 
   
-Your _pkgdown.yml would look like this:
+The resulting _pkgdown.yml file would like this:
 
 ```yaml
 navbar:
