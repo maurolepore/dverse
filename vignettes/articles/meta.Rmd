@@ -1,0 +1,65 @@
+---
+title: "Meta package"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Creating and documenting a simple meta-package might be easier than you think.
+
+### Basic infrastructure
+
+* Create a package, e.g. `usethis::create_package("meta")`
+* Add a license, e.g. `usethis::use_mit_license()`
+* Depend on each package in your universe, e.g.
+  - From GitHub, e.g. `usethis::use_dev_package("glue", "depends")`
+  - From CRAN, e.g. `usethis::use_package("tibble", "depends")`
+
+The resulting DESCRIPTION file would like this:
+
+```
+Package: meta
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "https://orcid.org/0000-0002-1986-7988"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: 
+    glue (>= 1.8.0.9000),
+    tibble
+Remotes:  
+    tidyverse/glue
+```
+
+### Universe documentation
+
+* Add a pkgdown website, e.g. `usethis::use_pkgdown()`
+* Add a home page with `usethis::use_readme_rmd()` and add installation instructions
+* Create an article and document your universe with dverse ([Get started](https://maurolepore.github.io/dverse/articles/start.html)):
+  - Create an article, e.g. `usethis::use_article("reference")`
+  - Organize the documentation by package or concept
+  - Optionally override the default 
+  
+This _pkgdown.yml file overrides the default pkgdown Reference:
+
+```yaml
+navbar:
+  structure:
+    left:  [reference]
+  components:
+    reference:
+      text: "Reference"
+      href: articles/reference.html
+```
+
+Build the website locally with `pkgdown::build_site()` or automatically on
+GitHub Actions + Pages with `usethis::use_pkgdown_github_pages()`.
