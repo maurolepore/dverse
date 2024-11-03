@@ -1,14 +1,3 @@
-#' Strip the class part of attached S3 methods (do nothing with other functions).
-#'
-#' @param x A character vector giving candidate S3 methods.
-#' @seealso utils::isS3method()
-#'
-#' @return Character.
-#'
-#' @examples
-#' s3_strip_class(c("print", "print.factor", "print.data.frame"))
-#'
-#' @noRd
 s3_strip_class <- function(x) {
   unlist(lapply(x, s3_strip_class_impl))
 }

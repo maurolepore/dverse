@@ -6,7 +6,7 @@
 \alias{dverse-package}
 \title{dverse: Document a Universe of Packages}
 \description{
-Creates a data frame of the metadata associated to the documentation of a collection of R packages. If you maintain universe meta-package, it helps you to easily create a universal reference for its website.
+Creates a data frame of the metadata associated with the documentation of a collection of R packages. It makes it easy to link the topic names with the corresponding documentation online. If you maintain a universe meta-package, it helps you easily create a comprehensive reference for its website.
 }
 \seealso{
 Useful links:
@@ -18,7 +18,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Mauro Lepore \email{maurolepore@gmail.com} [contractor]
+\strong{Maintainer}: Mauro Lepore \email{maurolepore@gmail.com} (\href{https://orcid.org/0000-0002-1986-7988}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

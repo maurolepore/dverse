@@ -13,3 +13,4 @@
 ^pkgdown$
 ^dverse\.Rproj$
 ^dverse\.Rproj$
+^cran-comments\.md$

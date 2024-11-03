@@ -20,7 +20,7 @@ navbar:
       text: "Articles"
       menu:
         - text: "Get started"
-          href: articles/dverse.html
+          href: articles/start.html
     news:
       text: "Changelog"
       href: news/index.html
