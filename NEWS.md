@@ -1,5 +1,9 @@
-# dverse (development version)
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
-# dverse 0.0.1
+# dverse v0.0.1.9001
 
-- Initial CRAN release.
+* New article shows how to create and document a meta package (#6).
+
+# dverse v0.0.1
+
+* Initial CRAN release.
