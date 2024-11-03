@@ -13,8 +13,10 @@ coverage](https://codecov.io/gh/maurolepore/dverse/graph/badge.svg)](https://app
 The goal of dverse is to document a universe. It creates a data frame
 containing the metadata associated with the documentation of a
 collection of R packages. It allows for linking topic names to their
-corresponding documentation online. If you maintain a universe
-meta-package, it helps create a comprehensive reference for its website.
+corresponding documentation online.
+
+If you maintain a meta-package, dverse helps create a comprehensive
+reference for its website.
 
 ## Installation
 
