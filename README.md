@@ -19,6 +19,14 @@ universe-wide reference for the pkgdown website of your meta-package
 
 ## Installation
 
+Install from CRAN:
+
+``` r
+install.packages("dverse")
+```
+
+or get a development version from GitHub:
+
 ``` r
 # install.packages("pak")
 pak::pak("maurolepore/dverse")

@@ -2,11 +2,13 @@ Package: dverse
 Title: Document a Universe of Packages
 Version: 0.0.0.9004
 Authors@R: 
-    person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "ctr", "cre"))
-Description: Creates a data frame of the metadata associated to the
-    documentation of a collection of R packages. If you maintain universe
-    meta-package, it helps you to easily create a universal reference for
-    its website.
+    person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "https://orcid.org/0000-0002-1986-7988"))
+Description: Creates a data frame containing the metadata associated with
+    the documentation of a collection of R packages. It allows for linking
+    topic names to their corresponding documentation online. If you
+    maintain a universe meta-package, it helps create a comprehensive
+    reference for its website.
 License: MIT + file LICENSE
 URL: https://github.com/maurolepore/dverse,
     https://maurolepore.github.io/dverse/
