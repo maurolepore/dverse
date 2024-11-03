@@ -4,13 +4,11 @@
 #' @seealso utils::isS3method()
 #'
 #' @return Character.
-#' @export
 #'
 #' @examples
 #' s3_strip_class(c("print", "print.factor", "print.data.frame"))
 #'
-#' @export
-#' @family helper
+#' @noRd
 s3_strip_class <- function(x) {
   unlist(lapply(x, s3_strip_class_impl))
 }
@@ -45,5 +43,5 @@ s3_strip_class_impl <- function(x) {
 
 is_s3_method <- function(x) {
   # Deal with objects starting with ".", e.g. .this
-  rlang::with_handlers(utils::isS3method(x), error = ~FALSE)
+  withCallingHandlers(utils::isS3method(x), error = ~FALSE)
 }

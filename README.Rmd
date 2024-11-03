@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r setup, include = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -12,60 +12,39 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# pkgdoc
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build status](https://travis-ci.org/maurolepore/pkgdoc.svg?branch=master)](https://travis-ci.org/maurolepore/pkgdoc)
-[![Coverage status](https://coveralls.io/repos/github/maurolepore/pkgdoc/badge.svg)](https://coveralls.io/r/maurolepore/pkgdoc?branch=master)
-[![CRAN status](https://www.r-pkg.org/badges/version/pkgdoc)](https://cran.r-project.org/package=pkgdoc)
+# dverse
 
-Dataframe the documentation of available packages, and reference objects across multiple packages by package or concept. Combined with `krittr::kable()` or `DT::datatable()`, __pkgdoc__ allows you to reference functions by package or concept across multiple packages and to provide links to each topic's help file (similar to the Reference section of a [__pkgdown__](https://pkgdown.r-lib.org/) website but not limited to a single package).
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/maurolepore/dverse/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/maurolepore/dverse/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
-* [Reference and tutorial](https://maurolepore.github.io/pkgdoc/articles/siteonly/reference.html)
-* [__pkgdoc__ in action](https://forestgeo.github.io/fgeo/articles/siteonly/reference.html)
+The goal of dverse is to make it easy to create a data frame of the metadata
+associated to the documentation of a collection of R packages.
+
+If you maintain an R-package universe, it helps you to easily create a
+universe-wide reference for the pkgdown website of your meta-package (e.g.
+tidyverse, tidymodels).
 
 ## Installation
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("maurolepore/pkgdoc")
+# install.packages("pak")
+pak::pak("maurolepore/dverse")
 ```
 
 ## Example
 
 ```{r}
-library(pkgdoc)
+# Use dverse and the universe of packages you want to document
+library(dverse)
+library(tools)
+library(datasets)
+
+universe <- c("datasets", "tools")
+url_template <- "https://www.rdocumentation.org/packages/{package}/versions/3.6.2/topics/{topic}.html"
+linked <- document_universe(universe, url_template = url_template)
+linked
+
+knitr::kable(head(linked))
 ```
-
-`search_docs()` creates a dataframe of documentation available to you.
-
-```{r example}
-# Documentation of all installed packages
-search_docs()
-
-some_packages <- c("utils", "base")
-search_docs(some_packages)
-```
-
-`reference_package()` and `reference_concept()` allow you to pick specific documentation.
-
-```{r}
-reference_package(c("stats", "MASS"))
-
-reference_concept(c("combine strings", "files", "PCA"))
-```
-
-Use `knittr::kable()` or `DT::datatable()` for the links to become clickable.
-
-```{r}
-library(fgeo)
-
-reference_concept(
-  c("datasets", "plot functions"),
-  url = "https://forestgeo.github.io/",
-  ) %>% 
-  arrange(concept) %>%
-  head() %>% 
-  knitr::kable()
-```
-

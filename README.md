@@ -1,137 +1,62 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pkgdoc
+# dverse
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build
-status](https://travis-ci.org/maurolepore/pkgdoc.svg?branch=master)](https://travis-ci.org/maurolepore/pkgdoc)
-[![Coverage
-status](https://coveralls.io/repos/github/maurolepore/pkgdoc/badge.svg)](https://coveralls.io/r/maurolepore/pkgdoc?branch=master)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/pkgdoc)](https://cran.r-project.org/package=pkgdoc)
+<!-- badges: start -->
 
-Dataframe the documentation of available packages, and reference objects
-across multiple packages by package or concept. Combined with
-`krittr::kable()` or `DT::datatable()`, **pkgdoc** allows you to
-reference functions by package or concept across multiple packages and
-to provide links to each topic’s help file (similar to the Reference
-section of a [**pkgdown**](https://pkgdown.r-lib.org/) website but not
-limited to a single package).
+[![R-CMD-check](https://github.com/maurolepore/dverse/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/maurolepore/dverse/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
 
-  - [Reference and
-    tutorial](https://maurolepore.github.io/pkgdoc/articles/siteonly/reference.html)
-  - [**pkgdoc** in
-    action](https://forestgeo.github.io/fgeo/articles/siteonly/reference.html)
+The goal of dverse is to make it easy to create a data frame of the
+metadata associated to the documentation of a collection of R packages.
+
+If you maintain an R-package universe, it helps you to easily create a
+universe-wide reference for the pkgdown website of your meta-package
+(e.g. tidyverse, tidymodels).
 
 ## Installation
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("maurolepore/pkgdoc")
+# install.packages("pak")
+pak::pak("maurolepore/dverse")
 ```
 
 ## Example
 
 ``` r
-library(pkgdoc)
+# Use dverse and the universe of packages you want to document
+library(dverse)
+library(tools)
+library(datasets)
+
+universe <- c("datasets", "tools")
+url_template <- "https://www.rdocumentation.org/packages/{package}/versions/3.6.2/topics/{topic}.html"
+linked <- document_universe(universe, url_template = url_template)
+linked
+#> # A tibble: 228 × 5
+#>    topic                                             alias title concept package
+#>    <chr>                                             <chr> <chr> <chr>   <chr>  
+#>  1 <a href=https://www.rdocumentation.org/packages/… .pri… Prin… Utilit… tools  
+#>  2 <a href=https://www.rdocumentation.org/packages/… Adob… Conv… Datase… tools  
+#>  3 <a href=https://www.rdocumentation.org/packages/… AirP… Mont… Datase… datase…
+#>  4 <a href=https://www.rdocumentation.org/packages/… BJsa… Sale… Datase… datase…
+#>  5 <a href=https://www.rdocumentation.org/packages/… BOD   Bioc… Datase… datase…
+#>  6 <a href=https://www.rdocumentation.org/packages/… CO2   Carb… Datase… datase…
+#>  7 <a href=https://www.rdocumentation.org/packages/… CRAN… CRAN… <NA>    tools  
+#>  8 <a href=https://www.rdocumentation.org/packages/… Chic… Weig… Datase… datase…
+#>  9 <a href=https://www.rdocumentation.org/packages/… DNase Elis… Datase… datase…
+#> 10 <a href=https://www.rdocumentation.org/packages/… EuSt… Dail… Datase… datase…
+#> # ℹ 218 more rows
+
+knitr::kable(head(linked))
 ```
 
-`search_docs()` creates a dataframe of documentation available to you.
-
-``` r
-# Documentation of all installed packages
-search_docs()
-#> # A tibble: 71,919 x 11
-#>    package libpath id    name  title topic encoding type  alias keyword
-#>    <chr>   <chr>   <chr> <chr> <chr> <chr> <chr>    <chr> <chr> <chr>  
-#>  1 acepack C:/Use~ 1/1   ace   Alte~ ace   ""       help  ace   models 
-#>  2 acepack C:/Use~ 1/2   avas  Addi~ avas  ""       help  avas  models 
-#>  3 acepack C:/Use~ 1/2   avas  Addi~ avas  ""       help  avas~ models 
-#>  4 addine~ C:/Use~ 2/1   addi~ RStu~ addi~ ""       help  addi~ <NA>   
-#>  5 addine~ C:/Use~ 2/1   addi~ RStu~ addi~ ""       help  addi~ <NA>   
-#>  6 addine~ C:/Use~ 2/2   find~ Find~ find~ ""       help  find~ <NA>   
-#>  7 addine~ C:/Use~ 2/3   inse~ Inse~ inse~ ""       help  inse~ <NA>   
-#>  8 addine~ C:/Use~ 2/4   refo~ Refo~ refo~ ""       help  refo~ <NA>   
-#>  9 addine~ C:/Use~ 2/5   subs~ Subs~ subs~ ""       help  subs~ <NA>   
-#> 10 AGBflu~ C:/Use~ 3/1   AGBf~ AGBf~ AGBf~ UTF-8    help  AGBf~ intern~
-#> # ... with 71,909 more rows, and 1 more variable: concept <chr>
-
-some_packages <- c("utils", "base")
-search_docs(some_packages)
-#> # A tibble: 5,935 x 11
-#>    package libpath id    name  title topic encoding type  alias keyword
-#>    <chr>   <chr>   <chr> <chr> <chr> <chr> <chr>    <chr> <chr> <chr>  
-#>  1 base    C:/Use~ 10/1  abbr~ Abbr~ abbr~ ""       help  abbr~ charac~
-#>  2 base    C:/Use~ 10/2  agrep Appr~ agrep ""       help  agrep charac~
-#>  3 base    C:/Use~ 10/2  agrep Appr~ agrep ""       help  agre~ charac~
-#>  4 base    C:/Use~ 10/2  agrep Appr~ agrep ""       help  fuzz~ charac~
-#>  5 base    C:/Use~ 10/2  agrep Appr~ agrep ""       help  .ama~ charac~
-#>  6 base    C:/Use~ 10/2  agrep Appr~ agrep ""       help  .ama~ charac~
-#>  7 base    C:/Use~ 10/3  all.~ Test~ all.~ ""       help  all.~ progra~
-#>  8 base    C:/Use~ 10/3  all.~ Test~ all.~ ""       help  all.~ progra~
-#>  9 base    C:/Use~ 10/3  all.~ Test~ all.~ ""       help  all.~ progra~
-#> 10 base    C:/Use~ 10/3  all.~ Test~ all.~ ""       help  all.~ progra~
-#> # ... with 5,925 more rows, and 1 more variable: concept <chr>
-```
-
-`reference_package()` and `reference_concept()` allow you to pick
-specific documentation.
-
-``` r
-reference_package(c("stats", "MASS"))
-#> Warning:   All packages should be attached `strip_s3class` to work properly.
-#>   Not attached: MASS
-#> # A tibble: 970 x 5
-#>    topic     alias            title                   concept       package
-#>    <chr>     <chr>            <chr>                   <chr>         <chr>  
-#>  1 .checkMF~ .checkMFClasses~ Functions to Check the~ Utilities     stats  
-#>  2 .preform~ .preformat.ts, ~ Printing and Formattin~ Time Series   stats  
-#>  3 abbey     abbey            Determinations of Nick~ Datasets ava~ MASS   
-#>  4 accdeaths accdeaths        Accidental Deaths in t~ Datasets ava~ MASS   
-#>  5 acf       acf, ccf, pacf,~ Auto- and Cross- Covar~ Time Series   stats  
-#>  6 acf2AR    acf2AR           Compute an AR Process ~ Time Series   stats  
-#>  7 add.scope add.scope, drop~ Compute Allowed Change~ Statistical ~ stats  
-#>  8 add1      add1, drop1      Add or Drop All Possib~ Statistical ~ stats  
-#>  9 addmargi~ addmargins       Puts Arbitrary Margins~ totals        stats  
-#> 10 addmargi~ addmargins       Puts Arbitrary Margins~ margins       stats  
-#> # ... with 960 more rows
-
-reference_concept(c("combine strings", "files", "PCA"))
-#> # A tibble: 4 x 5
-#>   topic     alias                    title              concept     package
-#>   <chr>     <chr>                    <chr>              <chr>       <chr>  
-#> 1 find.pac~ find.package, path.pack~ Find Packages      files       base   
-#> 2 paste     paste, paste0            Concatenate Strin~ combine st~ base   
-#> 3 prcomp    prcomp, plot, predict, ~ Principal Compone~ PCA         stats  
-#> 4 princomp  princomp, plot, print, ~ Principal Compone~ PCA         stats
-```
-
-Use `knittr::kable()` or `DT::datatable()` for the links to become
-clickable.
-
-``` r
-library(fgeo)
-#> -- Attaching packages ------------------------------------------------------- fgeo 0.0.0.9002 --
-#> v fgeo.analyze 0.0.0.9003     v fgeo.tool    0.0.0.9005
-#> v fgeo.plot    0.0.0.9402     v fgeo.x       0.0.0.9000
-#> -- Conflicts --------------------------------------------------------------- fgeo_conflicts() --
-#> x fgeo.tool::filter() masks stats::filter()
-
-reference_concept(
-  c("datasets", "plot functions"),
-  url = "https://forestgeo.github.io/",
-  ) %>% 
-  arrange(concept) %>%
-  head() %>% 
-  knitr::kable()
-```
-
-| topic                                                                                     | alias                                                                                       | title                                                                    | concept        | package                                                     |
-| :---------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------- | :------------- | :---------------------------------------------------------- |
-| <a href=https://forestgeo.github.io/fgeo.x/reference/datasets>?</a>                       | datasets, elevation, habitat, stem5, stem6, taxa, tree5, tree6, vft\_4quad, tree6\_3species | Datasets from Luquillo, Puerto Rico.                                     | datasets       | <a href=https://forestgeo.github.io/fgeo.x>fgeo.x</a>       |
-| <a href=https://forestgeo.github.io/fgeo.x/reference/download_data>?</a>                  | download\_data                                                                              | Download data from fgeo.data.                                            | datasets       | <a href=https://forestgeo.github.io/fgeo.x>fgeo.x</a>       |
-| <a href=https://forestgeo.github.io/fgeo.x/reference/example_path>?</a>                   | example\_path                                                                               | Path to directory containing example data.                               | datasets       | <a href=https://forestgeo.github.io/fgeo.x>fgeo.x</a>       |
-| <a href=https://forestgeo.github.io/fgeo.plot/reference/autoplot.fgeo_habitat>?</a>       | autoplot                                                                                    | Quick habitat plots.                                                     | plot functions | <a href=https://forestgeo.github.io/fgeo.plot>fgeo.plot</a> |
-| <a href=https://forestgeo.github.io/fgeo.plot/reference/autoplot.sp_elev>?</a>            | autoplot                                                                                    | Quick plot of species distribution and/or topography.                    | plot functions | <a href=https://forestgeo.github.io/fgeo.plot>fgeo.plot</a> |
-| <a href=https://forestgeo.github.io/fgeo.plot/reference/autoplot_by_species.sp_elev>?</a> | autoplot\_by\_species                                                                       | List plots of species distribution and topography (good for pdf output). | plot functions | <a href=https://forestgeo.github.io/fgeo.plot>fgeo.plot</a> |
+| topic | alias | title | concept | package |
+|:---|:---|:---|:---|:---|
+| <a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/.print.via.format.html>.print.via.format</a> | .print.via.format | Printing Utilities | Utilities | tools |
+| <a href=https://www.rdocumentation.org/packages/tools/versions/3.6.2/topics/Adobe_glyphs.html>Adobe_glyphs</a> | Adobe_glyphs, charset_to_Unicode | Conversion Tables between Character Sets | Datasets available by data() | tools |
+| <a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/AirPassengers.html>AirPassengers</a> | AirPassengers | Monthly Airline Passenger Numbers 1949-1960 | Datasets available by data() | datasets |
+| <a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/BJsales.html>BJsales</a> | BJsales, BJsales.lead | Sales Data with Leading Indicator | Datasets available by data() | datasets |
+| <a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/BOD.html>BOD</a> | BOD | Biochemical Oxygen Demand | Datasets available by data() | datasets |
+| <a href=https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/CO2.html>CO2</a> | CO2 | Carbon Dioxide Uptake in Grass Plants | Datasets available by data() | datasets |

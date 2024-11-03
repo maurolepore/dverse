@@ -5,5 +5,11 @@
 ^_pkgdown\.yml$
 ^README\.Rmd$
 ^\.travis\.yml$
-^pkgdoc\.Rproj$
+^dverse\.Rproj$
 ^\.Rproj\.user$
+^\.github$
+^CODE_OF_CONDUCT\.md$
+^vignettes/articles$
+^pkgdown$
+^dverse\.Rproj$
+^dverse\.Rproj$

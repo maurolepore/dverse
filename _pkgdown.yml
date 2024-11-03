@@ -1,8 +1,26 @@
-navbar:
-  type: default
-  left:
-  - text: "Reference"
-    href: articles/siteonly/reference.html
-  - text: "Example: Search the tidyverse"
-    href: articles/siteonly/reference-tidyverse.html
+url: https://maurolepore.github.io/dverse/
+template:
+  bootstrap: 5
 
+development:
+  mode: auto
+
+authors:
+  Mauro Lepore:
+    href: https://github.com/maurolepore
+
+navbar:
+  structure:
+    left:  [reference, articles, news]
+  components:
+    reference:
+      text: "Reference"
+      href: articles/reference.html
+    articles:
+      text: "Articles"
+      menu:
+        - text: "Get started"
+          href: articles/dverse.html
+    news:
+      text: "Changelog"
+      href: news/index.html

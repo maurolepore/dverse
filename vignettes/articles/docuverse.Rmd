@@ -1,0 +1,92 @@
+---
+title: "dverse"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+### Basics
+
+```{r}
+library(dplyr, warn.conflicts = FALSE)
+# Use dverse and the universe of packages you want to document
+library(dverse)
+library(tools)
+library(datasets)
+
+universe <- c("datasets", "tools")
+url_template <- "https://www.rdocumentation.org/packages/{package}/versions/3.6.2/topics/{topic}.html"
+documentation <- document_universe(universe, url_template = url_template)
+documentation
+
+select(documentation, topic)
+```
+
+You may generate a clickable table is with `knitr::kable()`.
+
+```{r}
+pick <- documentation |> select(topic, title, concept, package)
+
+pick |>
+  head() |>
+  knitr::kable(col.names = NULL)
+```
+
+You may generate a searchable table with `DT::datatable()`.
+
+```{r}
+# `escape = FALSE` shows the link (defaults to showing the underlying URL)
+pick |> DT::datatable(escape = FALSE)
+```
+
+### Organization and customization
+
+In a meta-package you may organize the documentation of the entire universe in a
+single place, maybe organized by package or concept (via `#'
+@family`). You may create your own custom tables with `DT` or other packages.
+
+```{r}
+custom_table <- function(data, search = "") {
+  DT::datatable(
+    data,
+    escape = FALSE,
+    rownames = NULL,
+    options = list(
+      # fti =  f: filter, t: table, i: information
+      dom = "fti", search = list(search = search)
+    )
+  )
+}
+```
+
+* Datasets available by `data()`
+
+```{r}
+by_concept <- filter(pick, concept == "Datasets available by data()")
+
+by_concept |> custom_table(search = "car")
+```
+
+* Documentation in `tools`
+
+```{r}
+by_package <- filter(pick, package == "tools")
+
+by_package |> custom_table(search = "Utilities")
+```
+
+### Presentation
+
+In a meta-package, you may use dverse in an article, then use it to [override
+the default Reference
+component](https://pkgdown.r-lib.org/articles/customise.html#navbar-heading).
+
+For an example see the pkgdown Reference of
+[dverse](https://maurolepore.github.io/dverse/) and follow the link to its
+source and see how it's configured in
+[_pkgdown.yml](https://github.com/maurolepore/dverse/blob/main/_pkgdown.yml).
+
