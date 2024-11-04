@@ -67,15 +67,13 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 
 ``` r
 library(dverse)
+
 library(glue)
 library(tibble)
-
 universe <- c("glue", "tibble")
 
-# Example URLs:
 # https://glue.tidyverse.org/reference/as_glue.html
 # https://tibble.tidyverse.org/reference/as_tibble.html
-
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 
 docs <- document_universe(universe, url_template)

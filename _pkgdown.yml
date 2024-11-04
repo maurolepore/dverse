@@ -2,9 +2,6 @@ url: https://maurolepore.github.io/dverse/
 template:
   bootstrap: 5
 
-development:
-  mode: auto
-
 authors:
   Mauro Lepore:
     href: https://github.com/maurolepore
