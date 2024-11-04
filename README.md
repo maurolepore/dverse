@@ -105,13 +105,14 @@ knitr::kable(head(pick, 3))
 
 ### All functions in my universe
 
-This is a basic, universe-wide reference generated with dverse. For
-customization ideas see `?DT::datatable()`, `?knitr::kable()`, and the
-examples in the [dverse
-articles](https://maurolepore.github.io/dverse/articles).
+This is a basic, universe-wide reference generated with dverse.
 
 | topic | title | package |
 |:---|:---|:---|
 | <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | Add columns to a data frame | tibble |
 | <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | Add rows to a data frame | tibble |
 | <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | Coerce object to glue | glue |
+
+For customization ideas see `?DT::datatable()`, `?knitr::kable()`, and
+the examples in the [dverse
+articles](https://maurolepore.github.io/dverse/articles).

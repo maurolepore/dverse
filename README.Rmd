@@ -96,11 +96,12 @@ knitr::kable(head(pick, 3))
 
 ### All functions in my universe
 
-This is a basic, universe-wide reference generated with dverse. For
-customization ideas see `?DT::datatable()`, `?knitr::kable()`, and the examples
-in the [dverse articles](https://maurolepore.github.io/dverse/articles).
+This is a basic, universe-wide reference generated with dverse.
 
 ```{r echo=FALSE, ref.label="kable"}
 
 ```
 
+For customization ideas see `?DT::datatable()`, `?knitr::kable()`, and the
+examples in the [dverse
+articles](https://maurolepore.github.io/dverse/articles).
