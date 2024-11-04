@@ -28,10 +28,7 @@ DT::datatable(
   docs[c("topic", "title")],
   escape = FALSE,
   rownames = NULL,
-  options = list(
-    # f: filter, t: table, i: information
-    dom = "fti",
-    search = list(search = "document")
-  )
+  # Simplify the interface
+  options = list(dom = "fti", search = list(search = "document"))
 )
 ```

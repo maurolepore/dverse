@@ -19,7 +19,7 @@ containing the metadata associated with the documentation of a
 collection of R packages. It allows for linking topic names to their
 corresponding documentation online.
 
-If you maintain a meta-package, dverse helps create a comprehensive
+If you have a meta-package, dverse helps you to create a comprehensive
 reference for its website.
 
 ## Installation
