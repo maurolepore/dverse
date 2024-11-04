@@ -39,7 +39,7 @@ You may generate a searchable table with `DT::datatable()`.
 
 ```{r}
 # `escape = FALSE` shows the link (defaults to showing the underlying URL)
-pick |> DT::datatable(escape = FALSE)
+DT::datatable(pick, escape = FALSE)
 ```
 
 ### Organization and customization
