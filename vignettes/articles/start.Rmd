@@ -1,5 +1,5 @@
 ---
-title: "dverse"
+title: "Get started"
 ---
 
 ```{r, include = FALSE}
