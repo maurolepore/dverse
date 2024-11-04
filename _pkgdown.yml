@@ -7,8 +7,6 @@ authors:
     href: https://github.com/maurolepore
 
 navbar:
-  structure:
-    left:  [reference, articles, news]
   components:
     reference:
       text: "Reference"

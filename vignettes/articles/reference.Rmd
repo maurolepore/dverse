@@ -2,10 +2,6 @@
 title: "Package index"
 ---
 
-<!-- This file is an overkill for dverse but aims to show how to create a custom
-reference the overrides the Reference component of the default pkgdown website
--->
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   echo = FALSE,
@@ -15,22 +11,27 @@ knitr::opts_chunk$set(
 )
 ```
 
+Overriding the default pkgdown "Reference" just to show how you might do it.
+
 ```{r setup}
 library(dverse)
-library(dplyr)
-library(knitr)
 
-custom_table <- function(data) {
-  pick <- select(data, topic, title)
-  knitr::kable(pick, col.names = NULL)
-}
-
-link <- "https://maurolepore.github.io/{package}/reference/{topic}.html"
-docs <- document_universe("dverse", url_template = link)
+universe <- c("dverse")
+url_template <- "https://maurolepore.github.io/{package}/reference/{topic}.html"
+docs <- document_universe(universe, url_template)
 ```
 
-### All funcitons
+## All funcitons
 
 ```{r}
-custom_table(docs)
+DT::datatable(
+  docs[c("topic", "title")],
+  escape = FALSE,
+  rownames = NULL,
+  options = list(
+    # f: filter, t: table, i: information
+    dom = "fti",
+    search = list(search = "document")
+  )
+)
 ```
