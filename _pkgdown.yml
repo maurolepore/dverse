@@ -21,7 +21,7 @@ navbar:
       menu:
         - text: "Get started"
           href: articles/start.html
-        - text: "Meta package"
+        - text: "Creating a meta-package"
           href: articles/meta.html
     news:
       text: "Changelog"

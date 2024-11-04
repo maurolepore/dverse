@@ -1,8 +1,10 @@
 CMD
 Codecov
 ORCID
+Tidyverse
 funcitons
 pkgdown
+tibble
 tidymodels
 tidyverse
 yml
