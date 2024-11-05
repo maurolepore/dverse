@@ -32,14 +32,8 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="articles/reference.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/start.html">Get started</a></li>
-    <li><a class="dropdown-item" href="articles/meta.html">Creating a meta-package</a></li>
-  </ul>
-</li>
+<li class="nav-item"><a class="nav-link" href="articles/dverse.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -60,7 +54,7 @@
 <!-- badges: start -->
 
 <p>The goal of dverse is to document a universe. It creates a data frame containing the metadata associated with the documentation of a collection of R packages. It allows for linking topic names to their corresponding documentation online.</p>
-<p>If you maintain a meta-package, dverse helps create a comprehensive reference for its website.</p>
+<p>If you have a meta-package, dverse helps you to create a comprehensive reference for its website.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -82,20 +76,20 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
+<ul>
+<li>
+<code><a href="reference/document_universe.html">dverse::document_universe()</a></code> creates a data frame with the documentation of a collection of packages.</li>
+<li>
+<code>url_template</code> links each <code>{topic}</code> in each <code>{package}</code> with its corresponding documentation online.</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maurolepore/dverse" class="external-link">dverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">universe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Example URLs:</span></span>
-<span><span class="co"># https://glue.tidyverse.org/reference/as_glue.html</span></span>
-<span><span class="co"># https://tibble.tidyverse.org/reference/as_tibble.html</span></span>
-<span></span>
+<span><span class="va">packages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span></span>
 <span><span class="va">url_template</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span></span>
+<span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu">dverse</span><span class="fu">::</span><span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">packages</span>, <span class="va">url_template</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">universe</span>, <span class="va">url_template</span><span class="op">)</span></span>
 <span><span class="va">docs</span></span>
 <span><span class="co">#&gt; # A tibble: 35 × 5</span></span>
 <span><span class="co">#&gt;    topic                                             alias title concept package</span></span>
@@ -111,51 +105,61 @@
 <span><span class="co">#&gt;  9 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Colu… &lt;NA&gt;    tibble </span></span>
 <span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Prin… &lt;NA&gt;    tibble </span></span>
 <span><span class="co">#&gt; # ℹ 25 more rows</span></span></code></pre></div>
-<p>Typically you would hide the code (<code>echo = FALSE</code>) and generate click-able links with <code><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">DT::datatable()</a></code> or <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code>. For example, this code to generates the table under “All functions in my universe”:</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links.</li>
+</ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Picking only a few rows and columns for a short example</span></span>
-<span><span class="va">pick</span> <span class="op">&lt;-</span> <span class="va">docs</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"topic"</span>, <span class="st">"title"</span>, <span class="st">"package"</span><span class="op">)</span><span class="op">]</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pick</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="section level3">
-<h3 id="all-functions-in-my-universe">All functions in my universe<a class="anchor" aria-label="anchor" href="#all-functions-in-my-universe"></a>
-</h3>
-<p>This is a basic, universe-wide reference generated with dverse.</p>
+<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">docs</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
-<col width="33%">
-<col width="33%">
-<col width="33%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">topic</th>
+<th align="left">alias</th>
 <th align="left">title</th>
+<th align="left">concept</th>
 <th align="left">package</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left"><a href="https://tibble.tidyverse.org/reference/add_column.html" class="external-link">add_column</a></td>
+<td align="left">add_column</td>
 <td align="left">Add columns to a data frame</td>
+<td align="left">addition</td>
 <td align="left">tibble</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://tibble.tidyverse.org/reference/add_row.html" class="external-link">add_row</a></td>
+<td align="left">add_row, add_case</td>
 <td align="left">Add rows to a data frame</td>
+<td align="left">addition</td>
 <td align="left">tibble</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">as_glue</a></td>
+<td align="left">as_glue</td>
 <td align="left">Coerce object to glue</td>
+<td align="left">NA</td>
 <td align="left">glue</td>
 </tr>
 </tbody>
 </table>
-<p>For customization ideas see <code>?DT::datatable()</code>, <code>?knitr::kable()</code>, and the examples in the <a href="https://maurolepore.github.io/dverse/articles">dverse articles</a>.</p>
-</div>
+<ul>
+<li>
+<code>DT::datatabe()</code> also provides a search box. See <a href="https://maurolepore.github.io/dverse/articles/dverse.html">Get started</a>.</li>
+</ul>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=dverse" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/maurolepore/dverse/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/maurolepore/dverse/issues" class="external-link">Report a bug</a></li>
 </ul>
