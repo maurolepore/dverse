@@ -65,10 +65,8 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-- `dverse::document_universe()` creates a data frame with the
-  documentation of a collection of packages.
-- `url_template` links each `{topic}` in each `{package}` with its
-  corresponding documentation online.
+`document_universe()` creates a data frame with documentation metadata
+of one or more packages.
 
 ``` r
 library(glue)
@@ -95,7 +93,7 @@ docs
 #> # ℹ 25 more rows
 ```
 
-- `knitr::kable()` turns the URLs into clickable links.
+`knitr::kable()` turns the URLs into clickable links.
 
 ``` r
 knitr::kable(head(docs, 3))
@@ -107,5 +105,5 @@ knitr::kable(head(docs, 3))
 | <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | add_row, add_case | Add rows to a data frame | addition | tibble |
 | <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | as_glue | Coerce object to glue | NA | glue |
 
-- `DT::datatabe()` also provides a search box. See [Get
-  started](https://maurolepore.github.io/dverse/articles/dverse.html).
+`DT::datatabe()` also provides a search box. See [Get
+started](https://maurolepore.github.io/dverse/articles/dverse.html).
