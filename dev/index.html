@@ -76,12 +76,7 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<ul>
-<li>
-<code><a href="reference/document_universe.html">dverse::document_universe()</a></code> creates a data frame with the documentation of a collection of packages.</li>
-<li>
-<code>url_template</code> links each <code>{topic}</code> in each <code>{package}</code> with its corresponding documentation online.</li>
-</ul>
+<p><code><a href="reference/document_universe.html">document_universe()</a></code> creates a data frame with documentation metadata of one or more packages.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
@@ -105,10 +100,7 @@
 <span><span class="co">#&gt;  9 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Colu… &lt;NA&gt;    tibble </span></span>
 <span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Prin… &lt;NA&gt;    tibble </span></span>
 <span><span class="co">#&gt; # ℹ 25 more rows</span></span></code></pre></div>
-<ul>
-<li>
-<code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links.</li>
-</ul>
+<p><code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">docs</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -150,10 +142,7 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>
-<code>DT::datatabe()</code> also provides a search box. See <a href="https://maurolepore.github.io/dverse/articles/dverse.html">Get started</a>.</li>
-</ul>
+<p><code>DT::datatabe()</code> also provides a search box. See <a href="https://maurolepore.github.io/dverse/articles/dverse.html">Get started</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
