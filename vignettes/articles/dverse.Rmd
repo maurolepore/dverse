@@ -44,13 +44,13 @@ DT::datatable(docs, escape = FALSE)
 
 ```{r}
 knitr::kable(
-  docs, 
+  docs,
   format = "html",
   col.names = NULL,
   escape = FALSE
 ) %>%
-kableExtra::column_spec(1, bold = TRUE) %>% 
-kableExtra::column_spec(2, width = "20em")
+  kableExtra::column_spec(1, bold = TRUE) %>%
+  kableExtra::column_spec(2, width = "20em")
 ```
 
 * See `?DT::datatable()` for more options.
