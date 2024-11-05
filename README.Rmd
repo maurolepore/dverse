@@ -85,7 +85,7 @@ docs <- dverse::document_universe(packages, url_template)
 docs
 ```
 
-* `knitr::kable()` tunrs the URLs into clickable links.
+* `knitr::kable()` turns the URLs into clickable links.
 
 ```{r}
 knitr::kable(head(docs, 3))

@@ -95,7 +95,7 @@ docs
 #> # ℹ 25 more rows
 ```
 
-- `knitr::kable()` tunrs the URLs into clickable links.
+- `knitr::kable()` turns the URLs into clickable links.
 
 ``` r
 knitr::kable(head(docs, 3))
