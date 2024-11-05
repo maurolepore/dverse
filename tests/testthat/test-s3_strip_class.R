@@ -1,12 +1,4 @@
 test_that("no longer fails with objects starting with dot", {
-  out <- search_documentation("grDevices")
-  out |> filter(topic == "axisTicks") |> select(topic, alias)
-  s3_strip_class(".axisPars")
-  expect_equal(s3_strip_class(".something"), ".something")
-})
-
-
-test_that("no longer fails with objects starting with dot", {
   expect_equal(s3_strip_class(".something"), ".something")
 })
 
