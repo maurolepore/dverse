@@ -11,77 +11,58 @@ knitr::opts_chunk$set(
 
 ### Basics
 
+* `dverse::document_universe()` creates a data frame with the documentation of a
+collection of R packages. Provide a `url_template` to link each `topic` in each
+`package` with its corresponding documentation online.
+
 ```{r}
-library(dplyr, warn.conflicts = FALSE)
-# Use dverse and the universe of packages you want to document
-library(dverse)
 library(glue)
 library(tibble)
 
-universe <- c("glue", "tibble")
+packages <- c("glue", "tibble")
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-documentation <- document_universe(universe, url_template = url_template)
+docs <- dverse::document_universe(packages, url_template)
 
-# Note that {topic} and {pacakge} refer to column names
-documentation
+docs
 ```
 
 You may generate a clickable table is with `knitr::kable()`.
 
 ```{r}
-pick <- select(documentation, topic, title, concept, package)
-
-# Removing column names for cleaner output
-knitr::kable(head(pick), col.names = NULL)
+knitr::kable(docs)
 ```
 
-You may generate a searchable table with `DT::datatable()`.
+You may generate a clickable and searchable table with `DT::datatable()`.
 
 ```{r}
-# `escape = FALSE` shows the link (defaults to showing the underlying URL)
-DT::datatable(pick, escape = FALSE)
+DT::datatable(docs, escape = FALSE)
 ```
 
-### Organization and customization
+## Tweaks
 
-In a meta-package you may organize the documentation of the entire universe in a
-single place, maybe organized by package or concept (via `#'
-@family`). You may create your own custom tables with `DT` or other packages.
+* See `?knitr::kable()` and `?kableExtra::column_spec()` for more options.
 
 ```{r}
-custom_table <- function(data, search = "") {
-  DT::datatable(
-    data,
-    escape = FALSE,
-    rownames = NULL,
-    options = list(
-      # fti =  f: filter, t: table, i: information
-      dom = "fti", search = list(search = search)
-    )
+knitr::kable(
+  docs, 
+  format = "html",
+  col.names = NULL,
+  escape = FALSE
+) %>%
+kableExtra::column_spec(1, bold = TRUE) %>% 
+kableExtra::column_spec(2, width = "20em")
+```
+
+* See `?DT::datatable()` for more options.
+
+```{r}
+DT::datatable(
+  docs,
+  escape = FALSE,
+  rownames = NULL,
+  options = list(
+    # fti =  f: filter, t: table, i: information
+    dom = "fti", search = list(search = search)
   )
-}
+)
 ```
-
-* By package
-
-```{r}
-custom_table(filter(pick, package == "glue"), search = "safe")
-```
-
-* By concept
-
-```{r}
-custom_table(filter(pick, concept == first(concept)))
-```
-
-### Presentation
-
-In a meta-package, you may use dverse in an article, then use it to [override
-the default Reference
-component](https://pkgdown.r-lib.org/articles/customise.html#navbar-heading).
-
-For an example see the pkgdown Reference of
-[dverse](https://maurolepore.github.io/dverse/) and follow the link to its
-source and see how it's configured in
-[_pkgdown.yml](https://github.com/maurolepore/dverse/blob/main/_pkgdown.yml).
-

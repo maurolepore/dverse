@@ -66,17 +66,14 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 ## Example
 
 ``` r
-library(dverse)
 
 library(glue)
 library(tibble)
+
 universe <- c("glue", "tibble")
-
-# https://glue.tidyverse.org/reference/as_glue.html
-# https://tibble.tidyverse.org/reference/as_tibble.html
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- dverse::document_universe(universe, url_template)
 
-docs <- document_universe(universe, url_template)
 docs
 #> # A tibble: 35 × 5
 #>    topic                                             alias title concept package
@@ -101,9 +98,16 @@ universe”:
 
 ``` r
 # Picking only a few rows and columns for a short example
-pick <- docs[c("topic", "title", "package")]
-knitr::kable(head(pick, 3))
+
+pick <- docs[c("topic", "title", "package")] |> head(3)
+pick |> knitr::kable()
 ```
+
+| topic | title | package |
+|:---|:---|:---|
+| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | Add columns to a data frame | tibble |
+| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | Add rows to a data frame | tibble |
+| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | Coerce object to glue | glue |
 
 ### All functions in my universe
 

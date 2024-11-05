@@ -69,29 +69,40 @@ using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-```{r main}
-library(dverse)
+```{r main, echo = TRUE}
 
 library(glue)
 library(tibble)
+
 universe <- c("glue", "tibble")
-
-# https://glue.tidyverse.org/reference/as_glue.html
-# https://tibble.tidyverse.org/reference/as_tibble.html
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- dverse::document_universe(universe, url_template)
 
-docs <- document_universe(universe, url_template)
 docs
 ```
+
+
+```{r}
+knitr::kable(docs)
+```
+
+```{r}
+DT::datatable(docs)
+```
+
+
+
 
 Typically you would hide the code (`echo = FALSE`) and generate click-able links
 with `DT::datatable()` or `knitr::kable()`. For example, this code to generates
 the table under "All functions in my universe":
 
-```{r kable, eval=FALSE}
+```{r kable, eval=TRUE}
 # Picking only a few rows and columns for a short example
-pick <- docs[c("topic", "title", "package")]
-knitr::kable(head(pick, 3))
+
+pick <- docs[c("topic", "title", "package")] |> head(3)
+pick |> knitr::kable()
+
 ```
 
 ### All functions in my universe
