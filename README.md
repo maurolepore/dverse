@@ -65,14 +65,18 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-``` r
+- `dverse::document_universe()` creates a data frame with the
+  documentation of a collection of packages.
+- `url_template` links each `{topic}` in each `{package}` with its
+  corresponding documentation online.
 
+``` r
 library(glue)
 library(tibble)
 
-universe <- c("glue", "tibble")
+packages <- c("glue", "tibble")
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- dverse::document_universe(universe, url_template)
+docs <- dverse::document_universe(packages, url_template)
 
 docs
 #> # A tibble: 35 × 5
@@ -91,34 +95,46 @@ docs
 #> # ℹ 25 more rows
 ```
 
-Typically you would hide the code (`echo = FALSE`) and generate
-click-able links with `DT::datatable()` or `knitr::kable()`. For
-example, this code to generates the table under “All functions in my
-universe”:
+You may generate a clickable table is with `knitr::kable()`.
 
 ``` r
-# Picking only a few rows and columns for a short example
-
-pick <- docs[c("topic", "title", "package")] |> head(3)
-pick |> knitr::kable()
+knitr::kable(docs)
 ```
 
-| topic | title | package |
-|:---|:---|:---|
-| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | Add columns to a data frame | tibble |
-| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | Add rows to a data frame | tibble |
-| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | Coerce object to glue | glue |
-
-### All functions in my universe
-
-This is a basic, universe-wide reference generated with dverse.
-
-| topic | title | package |
-|:---|:---|:---|
-| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | Add columns to a data frame | tibble |
-| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | Add rows to a data frame | tibble |
-| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | Coerce object to glue | glue |
-
-For customization ideas see `?DT::datatable()`, `?knitr::kable()`, and
-the examples in the [dverse
-articles](https://maurolepore.github.io/dverse/articles).
+| topic | alias | title | concept | package |
+|:---|:---|:---|:---|:---|
+| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | add_column | Add columns to a data frame | addition | tibble |
+| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | add_row, add_case | Add rows to a data frame | addition | tibble |
+| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | as_glue | Coerce object to glue | NA | glue |
+| <a href=https://tibble.tidyverse.org/reference/as_tibble.html>as_tibble</a> | as_tibble, as_tibble_row, as_tibble_col | Coerce lists, matrices, and more to data frames | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/char.html>char</a> | char, set_char_opts | Format a character vector | vector classes | tibble |
+| <a href=https://tibble.tidyverse.org/reference/digits.html>digits</a> | digits | Comparing display with data frames | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/enframe.html>enframe</a> | enframe, deframe | Converting vectors to data frames, and vice versa | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/extending.html>extending</a> | extending | Extending tibble | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/formats.html>formats</a> | formats | Column formats | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/formatting.html>formatting</a> | formatting, print, format, print.tbl_df, format.tbl_df | Printing tibbles | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/frame_matrix.html>frame_matrix</a> | frame_matrix | Row-wise matrix creation | NA | tibble |
+| <a href=https://glue.tidyverse.org/reference/glue.html>glue</a> | glue, glue_data | Format and interpolate a string | NA | glue |
+| <a href=https://glue.tidyverse.org/reference/glue_col.html>glue_col</a> | glue_col, glue_data_col | Construct strings with color | NA | glue |
+| <a href=https://glue.tidyverse.org/reference/glue_collapse.html>glue_collapse</a> | glue_collapse, glue_sql_collapse | Collapse a character vector | NA | glue |
+| <a href=https://glue.tidyverse.org/reference/glue_safe.html>glue_safe</a> | glue_safe, glue_data_safe | Safely interpolate strings | NA | glue |
+| <a href=https://glue.tidyverse.org/reference/glue_sql.html>glue_sql</a> | glue_sql, glue_data_sql | Interpolate strings with SQL escaping | NA | glue |
+| <a href=https://glue.tidyverse.org/reference/identity_transformer.html>identity_transformer</a> | identity_transformer | Parse and Evaluate R code | NA | glue |
+| <a href=https://tibble.tidyverse.org/reference/invariants.html>invariants</a> | invariants | Invariants: Comparing behavior with data frames | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/is_tibble.html>is_tibble</a> | is_tibble | Test if the object is a tibble | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/lst.html>lst</a> | lst | Build a list | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/new_tibble.html>new_tibble</a> | new_tibble, validate_tibble | Tibble constructor and validator | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/num.html>num</a> | num, set_num_opts | Format a numeric vector | vector classes | tibble |
+| <a href=https://tibble.tidyverse.org/reference/numbers.html>numbers</a> | numbers | Controlling display of numbers | NA | tibble |
+| <a href=https://glue.tidyverse.org/reference/quoting.html>quoting</a> | quoting, single_quote, double_quote, backtick | Quoting operators | NA | glue |
+| <a href=https://tibble.tidyverse.org/reference/rownames.html>rownames</a> | rownames, has_rownames, remove_rownames, rownames_to_column, rowid_to_column, column_to_rownames | Tools for working with row names | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/subsetting.html>subsetting</a> | subsetting, \$, \[\[, \[, \$\<-, \[\[\<-, \[\<- | Subsetting tibbles | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/tbl_df-class.html>tbl_df-class</a> | tbl_df-class, tbl_df | ‘tbl_df’ class | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/tibble.html>tibble</a> | tibble, tibble_row | Build a data frame | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/tibble.html>tibble</a> | tibble, tibble_row | Tibbles | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/tibble-package.html>tibble-package</a> | tibble-package | tibble: Simple Data Frames | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/tibble_options.html>tibble_options</a> | tibble_options | Package options | Datasets available by data() | tibble |
+| <a href=https://tibble.tidyverse.org/reference/tribble.html>tribble</a> | tribble | Row-wise tibble creation | NA | tibble |
+| <a href=https://glue.tidyverse.org/reference/trim.html>trim</a> | trim | Trim a character vector | NA | glue |
+| <a href=https://tibble.tidyverse.org/reference/types.html>types</a> | types | Column types | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/view.html>view</a> | view | View an object | NA | tibble |
