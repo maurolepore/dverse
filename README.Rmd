@@ -69,39 +69,26 @@ using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-```{r main}
-library(dverse)
+* `dverse::document_universe()` creates a data frame with the documentation of a
+collection of packages.
+* `url_template` links each `{topic}` in each `{package}` with its corresponding
+documentation online.
 
+```{r}
 library(glue)
 library(tibble)
-universe <- c("glue", "tibble")
 
-# https://glue.tidyverse.org/reference/as_glue.html
-# https://tibble.tidyverse.org/reference/as_tibble.html
+packages <- c("glue", "tibble")
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- dverse::document_universe(packages, url_template)
 
-docs <- document_universe(universe, url_template)
 docs
 ```
 
-Typically you would hide the code (`echo = FALSE`) and generate click-able links
-with `DT::datatable()` or `knitr::kable()`. For example, this code to generates
-the table under "All functions in my universe":
+* `knitr::kable()` turns the URLs into clickable links.
 
-```{r kable, eval=FALSE}
-# Picking only a few rows and columns for a short example
-pick <- docs[c("topic", "title", "package")]
-knitr::kable(head(pick, 3))
+```{r}
+knitr::kable(head(docs, 3))
 ```
 
-### All functions in my universe
-
-This is a basic, universe-wide reference generated with dverse.
-
-```{r echo=FALSE, ref.label="kable"}
-
-```
-
-For customization ideas see `?DT::datatable()`, `?knitr::kable()`, and the
-examples in the [dverse
-articles](https://maurolepore.github.io/dverse/articles).
+* `DT::datatabe()` also provides a search box. See [Get started](https://maurolepore.github.io/dverse/articles/dverse.html).

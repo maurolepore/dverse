@@ -65,18 +65,19 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-``` r
-library(dverse)
+- `dverse::document_universe()` creates a data frame with the
+  documentation of a collection of packages.
+- `url_template` links each `{topic}` in each `{package}` with its
+  corresponding documentation online.
 
+``` r
 library(glue)
 library(tibble)
-universe <- c("glue", "tibble")
 
-# https://glue.tidyverse.org/reference/as_glue.html
-# https://tibble.tidyverse.org/reference/as_tibble.html
+packages <- c("glue", "tibble")
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- dverse::document_universe(packages, url_template)
 
-docs <- document_universe(universe, url_template)
 docs
 #> # A tibble: 35 × 5
 #>    topic                                             alias title concept package
@@ -94,27 +95,17 @@ docs
 #> # ℹ 25 more rows
 ```
 
-Typically you would hide the code (`echo = FALSE`) and generate
-click-able links with `DT::datatable()` or `knitr::kable()`. For
-example, this code to generates the table under “All functions in my
-universe”:
+- `knitr::kable()` turns the URLs into clickable links.
 
 ``` r
-# Picking only a few rows and columns for a short example
-pick <- docs[c("topic", "title", "package")]
-knitr::kable(head(pick, 3))
+knitr::kable(head(docs, 3))
 ```
 
-### All functions in my universe
+| topic | alias | title | concept | package |
+|:---|:---|:---|:---|:---|
+| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | add_column | Add columns to a data frame | addition | tibble |
+| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | add_row, add_case | Add rows to a data frame | addition | tibble |
+| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | as_glue | Coerce object to glue | NA | glue |
 
-This is a basic, universe-wide reference generated with dverse.
-
-| topic | title | package |
-|:---|:---|:---|
-| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | Add columns to a data frame | tibble |
-| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | Add rows to a data frame | tibble |
-| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | Coerce object to glue | glue |
-
-For customization ideas see `?DT::datatable()`, `?knitr::kable()`, and
-the examples in the [dverse
-articles](https://maurolepore.github.io/dverse/articles).
+- `DT::datatabe()` also provides a search box. See [Get
+  started](https://maurolepore.github.io/dverse/articles/dverse.html).

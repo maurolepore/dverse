@@ -5,19 +5,3 @@ template:
 authors:
   Mauro Lepore:
     href: https://github.com/maurolepore
-
-navbar:
-  components:
-    reference:
-      text: "Reference"
-      href: articles/reference.html
-    articles:
-      text: "Articles"
-      menu:
-        - text: "Get started"
-          href: articles/start.html
-        - text: "Creating a meta-package"
-          href: articles/meta.html
-    news:
-      text: "Changelog"
-      href: news/index.html
