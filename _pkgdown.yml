@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 
 development:
-  mode: devel
+  mode: auto
 
 authors:
   Mauro Lepore:
