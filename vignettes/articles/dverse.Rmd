@@ -31,8 +31,8 @@ Pick rows and columns to organize the documentation however you like (e.g. by
 pick <- docs[c("topic", "title", "package")]
 ```
 
-You may generate a clickable with `DT::datatable()`, which offers great options
-and features such as a search box.
+You may generate a clickable table with `DT::datatable()`, which offers great
+options and features such as a search box.
 
 ```{r}
 options <- list(dom = "fti", search = list(search = "glue"))
