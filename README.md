@@ -44,17 +44,17 @@ The [Tidyverse](https://www.tidyverse.org/) popularized the idea of a
 centralizes access to functions and data across all its packages. For
 example, with `library(tidyverse)` the [tidyverse
 meta-package](https://tidyverse.tidyverse.org/) centralizes access to
-the functions in [glue](https://glue.tidyverse.org/),
-[tibble](https://tibble.tidyverse.org/), and several other packages in
+the functions in [dplyr](https://dplyr.tidyverse.org/),
+[ggplot2](https://ggplot2.tidyverse.org/), and several other packages in
 the [Tidyverse universe](https://www.tidyverse.org/).
 
 However, meta-packages typically don’t centralize documentation. For
-example, the tidyverse website only shows the [documentation the
+example, the tidyverse website only shows the [documentation for the
 tidyverse meta-package
 itself](https://tidyverse.tidyverse.org/reference/index.html) and does
 not show the [documentation for
-glue](https://glue.tidyverse.org/reference/index.html),
-[tibble](https://tibble.tidyverse.org/reference/index.html), and other
+dplylr](https://dplyr.tidyverse.org/reference/index.html),
+[ggplot2](https://ggplot2.tidyverse.org/reference/index.html), and other
 packages in the Tidyverse.
 
 The [dverse](https://maurolepore.github.io/dverse/) package solves this
@@ -77,7 +77,7 @@ url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 docs <- dverse::document_universe(packages, url_template)
 
 docs
-#> # A tibble: 35 × 5
+#> # A tibble: 39 × 5
 #>    topic                                             alias title concept package
 #>    <chr>                                             <chr> <chr> <chr>   <chr>  
 #>  1 <a href=https://tibble.tidyverse.org/reference/a… add_… Add … additi… tibble 
@@ -87,10 +87,10 @@ docs
 #>  5 <a href=https://tibble.tidyverse.org/reference/c… char… Form… vector… tibble 
 #>  6 <a href=https://tibble.tidyverse.org/reference/d… digi… Comp… <NA>    tibble 
 #>  7 <a href=https://tibble.tidyverse.org/reference/e… enfr… Conv… <NA>    tibble 
-#>  8 <a href=https://tibble.tidyverse.org/reference/e… exte… Exte… <NA>    tibble 
-#>  9 <a href=https://tibble.tidyverse.org/reference/f… form… Colu… <NA>    tibble 
-#> 10 <a href=https://tibble.tidyverse.org/reference/f… form… Prin… <NA>    tibble 
-#> # ℹ 25 more rows
+#>  8 <a href=https://glue.tidyverse.org/reference/eng… engi… Cust… <NA>    glue   
+#>  9 <a href=https://tibble.tidyverse.org/reference/e… exte… Exte… <NA>    tibble 
+#> 10 <a href=https://tibble.tidyverse.org/reference/f… form… Colu… <NA>    tibble 
+#> # ℹ 29 more rows
 ```
 
 `knitr::kable()` turns the URLs into clickable links.
