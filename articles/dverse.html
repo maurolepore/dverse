@@ -95,8 +95,8 @@ the documentation of a collection of R packages.
 (e.g. by <code>package</code> or <code>concept</code>).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pick</span> <span class="op">&lt;-</span> <span class="va">docs</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"topic"</span>, <span class="st">"title"</span>, <span class="st">"package"</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
-<p>You may generate a clickable with <code><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">DT::datatable()</a></code>, which
-offers great options and features such as a search box.</p>
+<p>You may generate a clickable table with <code><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">DT::datatable()</a></code>,
+which offers great options and features such as a search box.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">options</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>dom <span class="op">=</span> <span class="st">"fti"</span>, search <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>search <span class="op">=</span> <span class="st">"glue"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">datatable</a></span><span class="op">(</span><span class="va">pick</span>, escape <span class="op">=</span> <span class="cn">FALSE</span>, rownames <span class="op">=</span> <span class="cn">NULL</span>, options <span class="op">=</span> <span class="va">options</span><span class="op">)</span></span></code></pre></div>
