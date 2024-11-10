@@ -50,15 +50,15 @@ The [Tidyverse](https://www.tidyverse.org/) popularized the idea of a "universe
 of packages." The typical universe has a meta-package that centralizes access to
 functions and data across all its packages. For example, with `library(tidyverse)` the [tidyverse
 meta-package](https://tidyverse.tidyverse.org/) centralizes access to the
-functions in [glue](https://glue.tidyverse.org/),
-[tibble](https://tibble.tidyverse.org/), and several other packages in the
+functions in [dplyr](https://dplyr.tidyverse.org/),
+[ggplot2](https://ggplot2.tidyverse.org/), and several other packages in the
 [Tidyverse universe](https://www.tidyverse.org/).
 
 However, meta-packages typically don't centralize documentation. For example,
-the tidyverse website only shows the [documentation the tidyverse meta-package
-itself](https://tidyverse.tidyverse.org/reference/index.html) and does not show
-the [documentation for glue](https://glue.tidyverse.org/reference/index.html),
-[tibble](https://tibble.tidyverse.org/reference/index.html), and other packages
+the tidyverse website only shows the [documentation for the tidyverse meta-package
+itself](https://tidyverse.tidyverse.org/reference/index.html) but does not show
+the [documentation for dplylr](https://dplyr.tidyverse.org/reference/index.html),
+[ggplot2](https://ggplot2.tidyverse.org/reference/index.html), and other packages
 in the Tidyverse.
 
 The [dverse](https://maurolepore.github.io/dverse/) package solves this problem.
