@@ -69,7 +69,7 @@
 <h2 id="motivation">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
 </h2>
 <p>The <a href="https://www.tidyverse.org/" class="external-link">Tidyverse</a> popularized the idea of a “universe of packages.” The typical universe has a meta-package that centralizes access to functions and data across all its packages. For example, with <code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code> the <a href="https://tidyverse.tidyverse.org/" class="external-link">tidyverse meta-package</a> centralizes access to the functions in <a href="https://dplyr.tidyverse.org/" class="external-link">dplyr</a>, <a href="https://ggplot2.tidyverse.org/" class="external-link">ggplot2</a>, and several other packages in the <a href="https://www.tidyverse.org/" class="external-link">Tidyverse universe</a>.</p>
-<p>However, meta-packages typically don’t centralize documentation. For example, the tidyverse website only shows the <a href="https://tidyverse.tidyverse.org/reference/index.html" class="external-link">documentation for the tidyverse meta-package itself</a> and does not show the <a href="https://dplyr.tidyverse.org/reference/index.html" class="external-link">documentation for dplylr</a>, <a href="https://ggplot2.tidyverse.org/reference/index.html" class="external-link">ggplot2</a>, and other packages in the Tidyverse.</p>
+<p>However, meta-packages typically don’t centralize documentation. For example, the tidyverse website only shows the <a href="https://tidyverse.tidyverse.org/reference/index.html" class="external-link">documentation for the tidyverse meta-package itself</a> but does not show the <a href="https://dplyr.tidyverse.org/reference/index.html" class="external-link">documentation for dplylr</a>, <a href="https://ggplot2.tidyverse.org/reference/index.html" class="external-link">ggplot2</a>, and other packages in the Tidyverse.</p>
 <p>The <a href="https://maurolepore.github.io/dverse/">dverse</a> package solves this problem. It creates a data frame containing the metadata associated with the documentation of any set of packages. This data frame can be easily used to generate the universe-wide reference for the meta-package website, for example using <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>.</p>
 </div>
 <div class="section level2">
@@ -85,7 +85,7 @@
 <span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu">dverse</span><span class="fu">::</span><span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">packages</span>, <span class="va">url_template</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">docs</span></span>
-<span><span class="co">#&gt; # A tibble: 39 × 5</span></span>
+<span><span class="co">#&gt; # A tibble: 35 × 5</span></span>
 <span><span class="co">#&gt;    topic                                             alias title concept package</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;                                             &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  </span></span>
 <span><span class="co">#&gt;  1 &lt;a href=https://tibble.tidyverse.org/reference/a… add_… Add … additi… tibble </span></span>
@@ -95,10 +95,10 @@
 <span><span class="co">#&gt;  5 &lt;a href=https://tibble.tidyverse.org/reference/c… char… Form… vector… tibble </span></span>
 <span><span class="co">#&gt;  6 &lt;a href=https://tibble.tidyverse.org/reference/d… digi… Comp… &lt;NA&gt;    tibble </span></span>
 <span><span class="co">#&gt;  7 &lt;a href=https://tibble.tidyverse.org/reference/e… enfr… Conv… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  8 &lt;a href=https://glue.tidyverse.org/reference/eng… engi… Cust… &lt;NA&gt;    glue   </span></span>
-<span><span class="co">#&gt;  9 &lt;a href=https://tibble.tidyverse.org/reference/e… exte… Exte… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Colu… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt;  8 &lt;a href=https://tibble.tidyverse.org/reference/e… exte… Exte… &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  9 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Colu… &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Prin… &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt; # ℹ 25 more rows</span></span></code></pre></div>
 <p><code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">docs</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
