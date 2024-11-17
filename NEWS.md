@@ -2,7 +2,8 @@
 
 # dverse 0.0.1.9003 (2024-11-17)
 
-* `document_universe()` now outputs the new column `type`. (#18)
+* `document_universe()` now outputs the new column `type` (#18). This allows
+differentiating help files from vignettes.
 
 # dverse 0.0.1.9002 (2024-11-05)
 
