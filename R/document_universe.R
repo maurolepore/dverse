@@ -2,10 +2,16 @@ document_universe_impl <- function(x, url_template = NULL) {
   warn_unnattached(x)
   pick <- pick_doc(x)
 
-  out <- tidy_reference(may_add_url(pick, url = NULL), strip_s3class = TRUE)
+  out <- tidy_reference(pick, strip_s3class = TRUE)
 
   if (!is.null(url_template)) {
-    out <- mutate(out, topic = paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"))
+    out <- mutate(
+      out,
+      topic = ifelse(
+        .data$type == "help",
+        paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"),
+        .data$topic
+      ))
   }
 
   out
@@ -97,21 +103,4 @@ collapse_alias <- function(data, strip_s3class = FALSE) {
 
 may_strip_s3class <- function(x, .f = s3_strip_class) {
   paste(unique(.f(x)), collapse = ", ")
-}
-
-may_add_url <- function(data, url) {
-  if (is.null(url)) {
-    return(unique(data))
-  }
-  unique(link_topic(data, url))
-}
-
-link_topic <- function(data, url) {
-  out <- mutate(
-    data,
-    topic   = glue("<a href={url}{package}/reference/{topic}>?</a>"),
-    package = glue("<a href={url}{package}>{package}</a>")
-  )
-
-  arrange(out, .data$package)
 }

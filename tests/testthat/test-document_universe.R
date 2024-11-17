@@ -65,7 +65,7 @@ test_that("in addition to 'help' files it includes 'vignette' documentation", {
 
 test_that("vignettes lack a link", {
   out <- document_universe("dverse", url_template = "https://maurolepore.github.io/{package}/reference/{topic}.html")
-  vignette <- out[out$type == "vignette", "topic"]$topic
+  vignette <- out[out$type == "vignette", ]$topic
   has_link <- any(grepl("href", vignette))
   expect_false(has_link)
 })
