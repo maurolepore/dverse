@@ -25,6 +25,7 @@ Imports:
 Suggests: 
     DT,
     knitr,
+    rmarkdown,
     testthat
 Config/Needs/website: rmarkdown
 Config/testthat/edition: 3
@@ -33,3 +34,4 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+VignetteBuilder: knitr
