@@ -75,19 +75,19 @@ e.g. <code>"https://maurolepore.github.io/{package}/reference/{topic}.html"</cod
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="st">"datasets"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 87 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    topic          alias                 title                    concept package</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> AirPassengers  AirPassengers         Monthly Airline Passeng… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> BJsales        BJsales, BJsales.lead Sales Data with Leading… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BOD            BOD                   Biochemical Oxygen Dema… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> CO2            CO2                   Carbon Dioxide Uptake i… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ChickWeight    ChickWeight           Weight versus age of ch… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DNase          DNase                 Elisa assay of DNase     Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> EuStockMarkets EuStockMarkets        Daily Closing Prices of… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Formaldehyde   Formaldehyde          Determination of Formal… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> HairEyeColor   HairEyeColor          Hair and Eye Color of S… Datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Harman23.cor   Harman23.cor          Harman Example 2.3       Datase… datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 87 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    topic          alias                 title              concept type  package</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> AirPassengers  AirPassengers         Monthly Airline P… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> BJsales        BJsales, BJsales.lead Sales Data with L… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BOD            BOD                   Biochemical Oxyge… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> CO2            CO2                   Carbon Dioxide Up… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ChickWeight    ChickWeight           Weight versus age… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DNase          DNase                 Elisa assay of DN… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> EuStockMarkets EuStockMarkets        Daily Closing Pri… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Formaldehyde   Formaldehyde          Determination of … Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> HairEyeColor   HairEyeColor          Hair and Eye Colo… Datase… help  datase…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Harman23.cor   Harman23.cor          Harman Example 2.3 Datase… help  datase…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 77 more rows</span></span>
 </code></pre></div>
     </div>

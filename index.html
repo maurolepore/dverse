@@ -85,36 +85,38 @@
 <span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu">dverse</span><span class="fu">::</span><span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">packages</span>, <span class="va">url_template</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">docs</span></span>
-<span><span class="co">#&gt; # A tibble: 35 × 5</span></span>
-<span><span class="co">#&gt;    topic                                             alias title concept package</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                                             &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 &lt;a href=https://tibble.tidyverse.org/reference/a… add_… Add … additi… tibble </span></span>
-<span><span class="co">#&gt;  2 &lt;a href=https://tibble.tidyverse.org/reference/a… add_… Add … additi… tibble </span></span>
-<span><span class="co">#&gt;  3 &lt;a href=https://glue.tidyverse.org/reference/as_… as_g… Coer… &lt;NA&gt;    glue   </span></span>
-<span><span class="co">#&gt;  4 &lt;a href=https://tibble.tidyverse.org/reference/a… as_t… Coer… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  5 &lt;a href=https://tibble.tidyverse.org/reference/c… char… Form… vector… tibble </span></span>
-<span><span class="co">#&gt;  6 &lt;a href=https://tibble.tidyverse.org/reference/d… digi… Comp… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  7 &lt;a href=https://tibble.tidyverse.org/reference/e… enfr… Conv… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  8 &lt;a href=https://tibble.tidyverse.org/reference/e… exte… Exte… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  9 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Colu… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.org/reference/f… form… Prin… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt; # ℹ 25 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 39 × 6</span></span>
+<span><span class="co">#&gt;    topic                                       alias title concept type  package</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                                       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt;  1 &lt;a href=https://tibble.tidyverse.org/refer… add_… Add … additi… help  tibble </span></span>
+<span><span class="co">#&gt;  2 &lt;a href=https://tibble.tidyverse.org/refer… add_… Add … additi… help  tibble </span></span>
+<span><span class="co">#&gt;  3 &lt;a href=https://glue.tidyverse.org/referen… as_g… Coer… &lt;NA&gt;    help  glue   </span></span>
+<span><span class="co">#&gt;  4 &lt;a href=https://tibble.tidyverse.org/refer… as_t… Coer… &lt;NA&gt;    help  tibble </span></span>
+<span><span class="co">#&gt;  5 &lt;a href=https://tibble.tidyverse.org/refer… char… Form… vector… help  tibble </span></span>
+<span><span class="co">#&gt;  6 &lt;a href=https://tibble.tidyverse.org/refer… digi… Comp… &lt;NA&gt;    vign… tibble </span></span>
+<span><span class="co">#&gt;  7 &lt;a href=https://tibble.tidyverse.org/refer… enfr… Conv… &lt;NA&gt;    help  tibble </span></span>
+<span><span class="co">#&gt;  8 &lt;a href=https://glue.tidyverse.org/referen… engi… Cust… &lt;NA&gt;    vign… glue   </span></span>
+<span><span class="co">#&gt;  9 &lt;a href=https://tibble.tidyverse.org/refer… exte… Exte… &lt;NA&gt;    vign… tibble </span></span>
+<span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.org/refer… form… Colu… &lt;NA&gt;    vign… tibble </span></span>
+<span><span class="co">#&gt; # ℹ 29 more rows</span></span></code></pre></div>
 <p><code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">docs</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
-<col width="20%">
-<col width="20%">
-<col width="20%">
-<col width="20%">
-<col width="20%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">topic</th>
 <th align="left">alias</th>
 <th align="left">title</th>
 <th align="left">concept</th>
+<th align="left">type</th>
 <th align="left">package</th>
 </tr></thead>
 <tbody>
@@ -123,6 +125,7 @@
 <td align="left">add_column</td>
 <td align="left">Add columns to a data frame</td>
 <td align="left">addition</td>
+<td align="left">help</td>
 <td align="left">tibble</td>
 </tr>
 <tr class="even">
@@ -130,6 +133,7 @@
 <td align="left">add_row, add_case</td>
 <td align="left">Add rows to a data frame</td>
 <td align="left">addition</td>
+<td align="left">help</td>
 <td align="left">tibble</td>
 </tr>
 <tr class="odd">
@@ -137,6 +141,7 @@
 <td align="left">as_glue</td>
 <td align="left">Coerce object to glue</td>
 <td align="left">NA</td>
+<td align="left">help</td>
 <td align="left">glue</td>
 </tr>
 </tbody>
