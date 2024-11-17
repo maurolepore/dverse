@@ -56,3 +56,9 @@ test_that("with bad `url_template` errors gracefully", {
   bad <- "https://{bad}/{topic}.html"
   expect_error(document_universe("dverse", url_template = bad), "not found")
 })
+
+test_that("in addition to 'help' files it includes 'vignette' documentation", {
+  out <- document_universe("tibble")
+  expect_true("help" %in% out$type)
+  expect_true("vignette" %in% out$type)
+})
