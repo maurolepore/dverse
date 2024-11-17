@@ -25,8 +25,7 @@ Imports:
 Suggests: 
     DT,
     knitr,
-    testthat,
-    withr
+    testthat
 Config/Needs/website: rmarkdown
 Config/testthat/edition: 3
 Encoding: UTF-8

@@ -1,14 +1,9 @@
-search_documentation <- function(packages = NULL) {
+search_documentation <- function() {
   docs <- suppressMessages(
     Reduce(dplyr::full_join, utils::hsearch_db())
   )
 
-  result <- set_names(docs, tolower)
-
-  if (is.null(packages)) {
-    return(result)
-  }
-
-  result <- filter(result, .data$package %in% packages)
-  as_tibble(result)
+  out <- set_names(docs, tolower)
+  out <- as_tibble(out)
+  out
 }
