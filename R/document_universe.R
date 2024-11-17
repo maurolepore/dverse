@@ -1,15 +1,15 @@
 document_universe_impl <- function(x, url_template = NULL) {
-    warn_unnattached(x)
-    pick <- pick_doc(x = x)
+  warn_unnattached(x)
+  pick <- pick_doc(x = x)
 
-    out <- tidy_reference(may_add_url(pick, url = NULL), strip_s3class = TRUE)
+  out <- tidy_reference(may_add_url(pick, url = NULL), strip_s3class = TRUE)
 
-    if (!is.null(url_template)) {
-      out <- mutate(out, topic = paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"))
-    }
-
-    out
+  if (!is.null(url_template)) {
+    out <- mutate(out, topic = paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"))
   }
+
+  out
+}
 
 
 #' Create a data frame with documentation metadata of one or more packages
