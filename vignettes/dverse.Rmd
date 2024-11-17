@@ -33,7 +33,7 @@ Pick rows and columns to organize the documentation however you like (e.g. by
 `package` or `concept`).
 
 ```{r}
-help <- docs$type == "vignette"
+help <- docs$type == "help"
 pick <- docs[help, c("topic", "title", "package")]
 ```
 
