@@ -1,6 +1,6 @@
 document_universe_impl <- function(x, url_template = NULL) {
     warn_unnattached(x)
-    pick <- pick_doc(packages = NULL, x = x)
+    pick <- pick_doc(x = x)
 
     out <- tidy_reference(may_add_url(pick, url = NULL), strip_s3class = TRUE)
 
@@ -46,7 +46,7 @@ warn_unnattached <- function(x, doc = "package") {
   }
 }
 
-pick_doc <- function(packages, x) {
+pick_doc <- function(x) {
   out <- search_documentation()
   out <- exclude_internal_functions(out)
   out <- select(out, -"libpath", -"id", -"encoding", -"name")
