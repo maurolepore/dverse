@@ -73,13 +73,13 @@ attached <- function(x) {
 }
 
 abort_unavailable_package <- function(data, x) {
-  good_request <- x %in% unique(data[["package"]])
-  if (all(good_request)) {
+  is_available <- x %in% unique(data[["package"]])
+  if (all(is_available)) {
     return(invisible(data))
   }
 
-  bad_request <- x[!good_request]
-  cli::cli_abort("No pacakge matches '{bad_request}'.")
+  is_unavailable <- x[!is_available]
+  cli::cli_abort("No pacakge matches '{is_unavailable}'.")
 }
 
 collapse_alias <- function(data, strip_s3class = FALSE) {
