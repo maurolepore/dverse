@@ -10,7 +10,7 @@ test_that("yields the expected tbl", {
   out <- document_universe(c("datasets"))
 
   expect_s3_class(out, "tbl")
-  expect_named(out, c("topic", "alias", "title", "concept", "package"))
+  expect_named(out, c("topic", "alias", "title", "concept", "type", "package"))
   are_type <- unlist(unique(lapply(out, typeof)))
   expect_equal(are_type, "character")
 })

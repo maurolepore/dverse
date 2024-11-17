@@ -59,7 +59,7 @@ pick_doc <- function(x) {
 
 tidy_reference <- function(data, strip_s3class) {
   out <- collapse_alias(data, strip_s3class)
-  out <- select(out, c("topic", "alias", "title", "concept", "package"))
+  out <- select(out, c("topic", "alias", "title", "concept", "type", "package"))
   out <- arrange(out, .data$alias)
   out
 }
