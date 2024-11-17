@@ -33,7 +33,8 @@ Pick rows and columns to organize the documentation however you like (e.g. by
 `package` or `concept`).
 
 ```{r}
-pick <- docs[c("topic", "title", "package")]
+help <- docs$type == "help"
+pick <- docs[help, c("topic", "title", "package")]
 ```
 
 You may generate a clickable table with `DT::datatable()`, which offers great
