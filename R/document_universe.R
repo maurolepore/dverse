@@ -53,7 +53,7 @@ pick_doc <- function(x) {
   out <- unique(out)
   out <- filter(out, out[["package"]] %in% x)
 
-  abort_missing_doc(out, x)
+  abort_unavailable_package(out, x)
   out
 }
 
@@ -72,7 +72,7 @@ attached <- function(x) {
   unlist(lapply(glue("package:{x}"), rlang::is_attached))
 }
 
-abort_missing_doc <- function(data, x) {
+abort_unavailable_package <- function(data, x) {
   good_request <- x %in% unique(data[["package"]])
   if (all(good_request)) {
     return(invisible(data))
