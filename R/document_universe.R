@@ -1,20 +1,15 @@
-reference_any <- function(doc) {
-  force(doc)
-  function(x, url_template = NULL, url = NULL, packages = NULL, strip_s3class = TRUE) {
-    warn_unnattached(x, doc)
-    pick <- pick_doc(packages = packages, doc = doc, x = x)
+document_universe_impl <- function(x, url_template = NULL) {
+    warn_unnattached(x)
+    pick <- pick_doc(packages = NULL, x = x)
 
-    result <- tidy_reference(may_add_url(pick, url), strip_s3class)
+    out <- tidy_reference(may_add_url(pick, url = NULL), strip_s3class = TRUE)
 
     if (!is.null(url_template)) {
-      result <- mutate(result, topic = paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"))
+      out <- mutate(out, topic = paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"))
     }
 
-    result
+    out
   }
-}
-
-document_universe_impl <- reference_any("package")
 
 
 #' Create a data frame with documentation metadata of one or more packages
@@ -41,11 +36,7 @@ document_universe <- function(x, url_template = NULL) {
   tibble::as_tibble(out)
 }
 
-warn_unnattached <- function(x, doc) {
-  if (!identical(doc, "package")) {
-    return(invisible(x))
-  }
-
+warn_unnattached <- function(x, doc = "package") {
   if (!all(attached(x))) {
     unattached <- x[!attached(x)]
     cli::cli_warn(c(
@@ -55,16 +46,15 @@ warn_unnattached <- function(x, doc) {
   }
 }
 
-pick_doc <- function(packages, doc, x) {
-  result <- search_documentation(packages = packages)
-  result <- exclude_package_doc(result, packages)
-  result <- exclude_internal_functions(result)
-  result <- select(result, -"libpath", -"id", -"encoding", -"name")
-  result <- unique(result)
-  result <- filter(result, result[[doc]] %in% x)
+pick_doc <- function(packages, x) {
+  out <- search_documentation()
+  out <- exclude_internal_functions(out)
+  out <- select(out, -"libpath", -"id", -"encoding", -"name")
+  out <- unique(out)
+  out <- filter(out, out[["package"]] %in% x)
 
-  abort_missing_doc(result, doc, x)
-  result
+  abort_missing_doc(out, x)
+  out
 }
 
 tidy_reference <- function(data, strip_s3class) {
@@ -72,14 +62,6 @@ tidy_reference <- function(data, strip_s3class) {
   out <- select(out, c("topic", "alias", "title", "concept", "package"))
   out <- arrange(out, .data$alias)
   out
-}
-
-exclude_package_doc <- function(data, packages) {
-  if (is.null(packages)) {
-    return(data)
-  }
-
-  filter(data, !.data$alias %in% c(packages, glue("{package}-package")))
 }
 
 exclude_internal_functions <- function(data) {
@@ -90,14 +72,14 @@ attached <- function(x) {
   unlist(lapply(glue("package:{x}"), rlang::is_attached))
 }
 
-abort_missing_doc <- function(.data, doc, x) {
-  good_request <- x %in% unique(.data[[doc]])
+abort_missing_doc <- function(data, x) {
+  good_request <- x %in% unique(data[["package"]])
   if (all(good_request)) {
-    return(invisible(.data))
+    return(invisible(data))
   }
 
   bad_request <- x[!good_request]
-  cli::cli_abort("No {doc} matches '{bad_request}'.")
+  cli::cli_abort("No pacakge matches '{bad_request}'.")
 }
 
 collapse_alias <- function(data, strip_s3class = FALSE) {

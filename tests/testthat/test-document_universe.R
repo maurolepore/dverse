@@ -56,3 +56,8 @@ test_that("with bad `url_template` errors gracefully", {
   bad <- "https://{bad}/{topic}.html"
   expect_error(document_universe("dverse", url_template = bad), "not found")
 })
+
+test_that("the output hasn't changed", {
+  out <- document_universe("grDevices")
+  expect_snapshot(out$topic)
+})
