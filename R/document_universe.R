@@ -11,7 +11,8 @@ document_universe_impl <- function(x, url_template = NULL) {
         .data$type == "help",
         paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"),
         .data$topic
-      ))
+      )
+    )
   }
 
   out
