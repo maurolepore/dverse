@@ -1,6 +1,6 @@
 document_universe_impl <- function(x, url_template = NULL) {
   warn_unnattached(x)
-  pick <- pick_doc(x = x)
+  pick <- pick_doc(x)
 
   out <- tidy_reference(may_add_url(pick, url = NULL), strip_s3class = TRUE)
 
