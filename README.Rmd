@@ -57,7 +57,7 @@ functions in [dplyr](https://dplyr.tidyverse.org/),
 However, meta-packages typically don't centralize documentation. For example,
 the tidyverse website only shows the [documentation for the tidyverse meta-package
 itself](https://tidyverse.tidyverse.org/reference/index.html) but does not show
-the [documentation for dplylr](https://dplyr.tidyverse.org/reference/index.html),
+the [documentation for dplyr](https://dplyr.tidyverse.org/reference/index.html),
 [ggplot2](https://ggplot2.tidyverse.org/reference/index.html), and other packages
 in the Tidyverse.
 
