@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# dverse 0.0.1.9003 (2024-11-17)
+
+* `document_universe()` now outputs the new column `type`. (#18)
+
 # dverse 0.0.1.9002 (2024-11-05)
 
 * `document_universe()` with older versions of R no longer errors when handling
