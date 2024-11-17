@@ -31,8 +31,9 @@ test_that("with no url creates no link", {
 })
 
 test_that("with a url creates a link", {
-  out <- document_universe("datasets", url = "https://blah")$topic[[1]]
-  expect_true(grepl("href", out))
+  out <- document_universe("datasets", url = "https://blah")
+  topic <- out[out$type == "help", "topic"]$topic
+  expect_true(all(grepl("href", topic)))
 })
 
 test_that("srips the class of S3 methods", {
@@ -57,15 +58,16 @@ test_that("with bad `url_template` errors gracefully", {
   expect_error(document_universe("dverse", url_template = bad), "not found")
 })
 
-test_that("in addition to 'help' files it includes 'vignette' documentation", {
-  out <- document_universe("dverse")
-  expect_true("help" %in% out$type)
-  expect_true("vignette" %in% out$type)
-})
-
 test_that("vignettes lack a link", {
-  out <- document_universe("dverse", url_template = "https://maurolepore.github.io/{package}/reference/{topic}.html")
-  vignette <- out[out$type == "vignette", ]$topic
-  has_link <- any(grepl("href", vignette))
+  # Not using dverse because on developer mode there are no vignettes
+  withr::local_package("tibble")
+  type <- "vignette"
+  out <- document_universe("tibble", url_template = "some/url")
+  topic <- out[out$type == type, ]$topic
+
+  # Error is there is no vignette
+  expect_false(rlang::is_empty(topic))
+
+  has_link <- any(grepl("href", topic))
   expect_false(has_link)
 })
