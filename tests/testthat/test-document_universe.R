@@ -65,7 +65,7 @@ test_that("vignettes lack a link", {
   out <- document_universe("tibble", url_template = "some/url")
   topic <- out[out$type == type, ]$topic
 
-  # Error is there is no vignette
+  # Error if there is no vignette
   expect_false(rlang::is_empty(topic))
 
   has_link <- any(grepl("href", topic))
