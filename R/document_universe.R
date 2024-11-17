@@ -99,11 +99,11 @@ may_strip_s3class <- function(x, .f = s3_strip_class) {
   paste(unique(.f(x)), collapse = ", ")
 }
 
-may_add_url <- function(x, url) {
+may_add_url <- function(data, url) {
   if (is.null(url)) {
-    return(unique(x))
+    return(unique(data))
   }
-  unique(link_topic(x, url))
+  unique(link_topic(data, url))
 }
 
 link_topic <- function(data, url) {
