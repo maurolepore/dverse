@@ -69,7 +69,9 @@ the documentation of a collection of R packages.
 <code>url_template</code> links each <code>topic</code> in each
 <code>package</code> with its corresponding documentation online.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co"># Universe</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">packages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span></span>
@@ -77,26 +79,41 @@ the documentation of a collection of R packages.
 <span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu">dverse</span><span class="fu">::</span><span class="fu"><a href="../reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">packages</span>, <span class="va">url_template</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">docs</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 39 × 6</span></span></span>
-<span><span class="co">#&gt;    topic                                       alias title concept type  package</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> &lt;a href=https://tibble.tidyverse.org/refer… add_… Add … additi… help  tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> &lt;a href=https://tibble.tidyverse.org/refer… add_… Add … additi… help  tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> &lt;a href=https://glue.tidyverse.org/referen… as_g… Coer… <span style="color: #BB0000;">NA</span>      help  glue   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> &lt;a href=https://tibble.tidyverse.org/refer… as_t… Coer… <span style="color: #BB0000;">NA</span>      help  tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> &lt;a href=https://tibble.tidyverse.org/refer… char… Form… vector… help  tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> digits                                      digi… Comp… <span style="color: #BB0000;">NA</span>      vign… tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> &lt;a href=https://tibble.tidyverse.org/refer… enfr… Conv… <span style="color: #BB0000;">NA</span>      help  tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> engines                                     engi… Cust… <span style="color: #BB0000;">NA</span>      vign… glue   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> extending                                   exte… Exte… <span style="color: #BB0000;">NA</span>      vign… tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> formats                                     form… Colu… <span style="color: #BB0000;">NA</span>      vign… tibble </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 29 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 46 × 7</span></span></span>
+<span><span class="co">#&gt;    topic                               alias title concept type  keyword package</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> &lt;a href=https://tibble.tidyverse.o… add_… Add … additi… help  <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> &lt;a href=https://tibble.tidyverse.o… add_… Add … additi… help  <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> &lt;a href=https://glue.tidyverse.org… as_g… Coer… <span style="color: #BB0000;">NA</span>      help  <span style="color: #BB0000;">NA</span>      glue   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> &lt;a href=https://tibble.tidyverse.o… as_t… Coer… <span style="color: #BB0000;">NA</span>      help  <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> &lt;a href=https://tibble.tidyverse.o… char… Form… vector… help  <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> &lt;a href=https://tibble.tidyverse.o… depr… Depr… <span style="color: #BB0000;">NA</span>      help  intern… tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> digits                              digi… Comp… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> &lt;a href=https://tibble.tidyverse.o… enfr… Conv… <span style="color: #BB0000;">NA</span>      help  <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> engines                             engi… Cust… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      glue   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> extending                           exte… Exte… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 36 more rows</span></span></span></code></pre></div>
 <p>Pick rows and columns to organize the documentation however you like
 (e.g. by <code>package</code> or <code>type</code>).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">rows</span> <span class="op">&lt;-</span> <span class="va">docs</span><span class="op">$</span><span class="va">type</span> <span class="op">==</span> <span class="st">"help"</span></span>
-<span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"topic"</span>, <span class="st">"title"</span>, <span class="st">"package"</span><span class="op">)</span></span>
-<span><span class="va">pick</span> <span class="op">&lt;-</span> <span class="va">docs</span><span class="op">[</span><span class="va">rows</span>, <span class="va">cols</span><span class="op">]</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">pick</span> <span class="op">&lt;-</span> <span class="va">docs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"help"</span>, <span class="va">keyword</span> <span class="op">!=</span> <span class="st">"internal"</span> <span class="op">|</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">keyword</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">topic</span>, <span class="va">title</span>, <span class="va">package</span><span class="op">)</span></span>
+<span><span class="va">pick</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 28 × 3</span></span></span>
+<span><span class="co">#&gt;    topic                                                           title package</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> &lt;a href=https://tibble.tidyverse.org/reference/add_column.html… Add … tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> &lt;a href=https://tibble.tidyverse.org/reference/add_row.html&gt;ad… Add … tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> &lt;a href=https://glue.tidyverse.org/reference/as_glue.html&gt;as_g… Coer… glue   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> &lt;a href=https://tibble.tidyverse.org/reference/as_tibble.html&gt;… Coer… tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> &lt;a href=https://tibble.tidyverse.org/reference/char.html&gt;char&lt;… Form… tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> &lt;a href=https://tibble.tidyverse.org/reference/enframe.html&gt;en… Conv… tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> &lt;a href=https://tibble.tidyverse.org/reference/formatting.html… Prin… tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> &lt;a href=https://tibble.tidyverse.org/reference/frame_matrix.ht… Row-… tibble </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> &lt;a href=https://glue.tidyverse.org/reference/glue.html&gt;glue&lt;/a&gt; Form… glue   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> &lt;a href=https://glue.tidyverse.org/reference/glue_col.html&gt;glu… Cons… glue   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 18 more rows</span></span></span></code></pre></div>
 <p>You may generate a clickable table with <code><a href="https://rdrr.io/pkg/DT/man/datatable.html" class="external-link">DT::datatable()</a></code>,
 which offers great options and features such as a search box.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
