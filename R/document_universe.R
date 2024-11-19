@@ -55,7 +55,6 @@ warn_unnattached <- function(x, doc = "package") {
 
 pick_doc <- function(x) {
   out <- search_documentation()
-  out <- exclude_internal_functions(out)
   out <- select(out, -"libpath", -"id", -"encoding", -"name")
   out <- unique(out)
   out <- filter(out, out[["package"]] %in% x)
@@ -66,13 +65,9 @@ pick_doc <- function(x) {
 
 tidy_reference <- function(data, strip_s3class) {
   out <- collapse_alias(data, strip_s3class)
-  out <- select(out, c("topic", "alias", "title", "concept", "type", "package"))
+  out <- select(out, c("topic", "alias", "title", "concept", "type", "keyword", "package"))
   out <- arrange(out, .data$alias)
   out
-}
-
-exclude_internal_functions <- function(data) {
-  filter(data, !.data$keyword %in% "internal")
 }
 
 attached <- function(x) {

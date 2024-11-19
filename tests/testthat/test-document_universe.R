@@ -10,14 +10,18 @@ test_that("yields the expected tbl", {
   out <- document_universe(c("datasets"))
 
   expect_s3_class(out, "tbl")
-  expect_named(out, c("topic", "alias", "title", "concept", "type", "package"))
+
+  cols <- c("topic", "alias", "title", "concept", "type", "keyword", "package")
+  expect_named(out, cols)
+
   are_type <- unlist(unique(lapply(out, typeof)))
   expect_equal(are_type, "character")
 })
 
 test_that("works with multiple packages", {
-  out <- document_universe(c("datasets", "grDevices"))
-  expect_equal(unique(out$package), c("datasets", "grDevices"))
+  packages <- c("datasets", "grDevices")
+  out <- document_universe(packages)
+  expect_true(setequal(out$package, packages))
 })
 
 test_that("warns if a package isn't attached", {
@@ -42,9 +46,14 @@ test_that("srips the class of S3 methods", {
   expect_false(grepl("numeric", alias))
 })
 
-test_that("doesn't include the package-level documentation", {
+test_that("includes the package-level documentation", {
   out <- document_universe("dverse")
-  expect_false(any(grepl("dverse-package", unique(out$alias))))
+  expect_true(any(grepl("dverse-package", unique(out$alias))))
+})
+
+test_that("includes exported but internal functions", {
+  out <- document_universe("dverse")
+  expect_true("internal" %in% out$keyword)
 })
 
 test_that("takes a `url_template`", {
