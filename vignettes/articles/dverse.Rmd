@@ -32,8 +32,8 @@ Pick rows and columns to organize the documentation however you like (e.g. by
 `package` or `type`).
 
 ```{r}
-pick <- docs %>% 
-  filter(type == "help", keyword != "internal" | is.na(keyword)) %>% 
+pick <- docs %>%
+  filter(type == "help", keyword != "internal" | is.na(keyword)) %>%
   select(topic, title, package)
 pick
 ```
