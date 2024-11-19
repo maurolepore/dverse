@@ -1,7 +1,9 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
-* Includes documentation other than help files: package-level documentation,
-internal functions, vignettes.
+# dverse 0.0.1.9004 (2024-11-19)
+
+* `document_universe()` now includes the new column `keyword` and new rows where
+`keyword` is "internal" (#20).
 
 # dverse 0.0.1.9003 (2024-11-17)
 
