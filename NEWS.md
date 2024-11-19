@@ -1,5 +1,8 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+* Includes documentation other than help files: package-level documentation,
+internal functions, vignettes.
+
 # dverse 0.0.1.9003 (2024-11-17)
 
 * `document_universe()` now outputs the new column `type` (#18). This allows
