@@ -77,20 +77,20 @@ url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 docs <- dverse::document_universe(packages, url_template)
 
 docs
-#> # A tibble: 39 × 6
-#>    topic                                       alias title concept type  package
-#>    <chr>                                       <chr> <chr> <chr>   <chr> <chr>  
-#>  1 <a href=https://tibble.tidyverse.org/refer… add_… Add … additi… help  tibble 
-#>  2 <a href=https://tibble.tidyverse.org/refer… add_… Add … additi… help  tibble 
-#>  3 <a href=https://glue.tidyverse.org/referen… as_g… Coer… <NA>    help  glue   
-#>  4 <a href=https://tibble.tidyverse.org/refer… as_t… Coer… <NA>    help  tibble 
-#>  5 <a href=https://tibble.tidyverse.org/refer… char… Form… vector… help  tibble 
-#>  6 <a href=https://tibble.tidyverse.org/refer… digi… Comp… <NA>    vign… tibble 
-#>  7 <a href=https://tibble.tidyverse.org/refer… enfr… Conv… <NA>    help  tibble 
-#>  8 <a href=https://glue.tidyverse.org/referen… engi… Cust… <NA>    vign… glue   
-#>  9 <a href=https://tibble.tidyverse.org/refer… exte… Exte… <NA>    vign… tibble 
-#> 10 <a href=https://tibble.tidyverse.org/refer… form… Colu… <NA>    vign… tibble 
-#> # ℹ 29 more rows
+#> # A tibble: 46 × 7
+#>    topic                               alias title concept type  keyword package
+#>    <chr>                               <chr> <chr> <chr>   <chr> <chr>   <chr>  
+#>  1 <a href=https://tibble.tidyverse.o… add_… Add … additi… help  <NA>    tibble 
+#>  2 <a href=https://tibble.tidyverse.o… add_… Add … additi… help  <NA>    tibble 
+#>  3 <a href=https://glue.tidyverse.org… as_g… Coer… <NA>    help  <NA>    glue   
+#>  4 <a href=https://tibble.tidyverse.o… as_t… Coer… <NA>    help  <NA>    tibble 
+#>  5 <a href=https://tibble.tidyverse.o… char… Form… vector… help  <NA>    tibble 
+#>  6 <a href=https://tibble.tidyverse.o… depr… Depr… <NA>    help  intern… tibble 
+#>  7 digits                              digi… Comp… <NA>    vign… <NA>    tibble 
+#>  8 <a href=https://tibble.tidyverse.o… enfr… Conv… <NA>    help  <NA>    tibble 
+#>  9 engines                             engi… Cust… <NA>    vign… <NA>    glue   
+#> 10 extending                           exte… Exte… <NA>    vign… <NA>    tibble 
+#> # ℹ 36 more rows
 ```
 
 `knitr::kable()` turns the URLs into clickable links.
@@ -99,11 +99,11 @@ docs
 knitr::kable(head(docs, 3))
 ```
 
-| topic | alias | title | concept | type | package |
-|:---|:---|:---|:---|:---|:---|
-| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | add_column | Add columns to a data frame | addition | help | tibble |
-| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | add_row, add_case | Add rows to a data frame | addition | help | tibble |
-| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | as_glue | Coerce object to glue | NA | help | glue |
+| topic | alias | title | concept | type | keyword | package |
+|:---|:---|:---|:---|:---|:---|:---|
+| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | add_column | Add columns to a data frame | addition | help | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | add_row, add_case | Add rows to a data frame | addition | help | NA | tibble |
+| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | as_glue | Coerce object to glue | NA | help | NA | glue |
 
 `DT::datatabe()` also provides a search box. See [Get
 started](https://maurolepore.github.io/dverse/articles/dverse.html).

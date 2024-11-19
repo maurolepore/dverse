@@ -1,5 +1,7 @@
 ---
 title: "Get started"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -14,6 +16,8 @@ collection of R packages. `url_template` links each `topic` in each `package`
 with its corresponding documentation online.
 
 ```{r}
+library(dplyr, warn.conflicts = FALSE)
+# Universe
 library(glue)
 library(tibble)
 
@@ -28,9 +32,10 @@ Pick rows and columns to organize the documentation however you like (e.g. by
 `package` or `type`).
 
 ```{r}
-rows <- docs$type == "help"
-cols <- c("topic", "title", "package")
-pick <- docs[rows, cols]
+pick <- docs %>% 
+  filter(type == "help", keyword != "internal" | is.na(keyword)) %>% 
+  select(topic, title, package)
+pick
 ```
 
 You may generate a clickable table with `DT::datatable()`, which offers great
