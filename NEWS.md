@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# dverse 0.1.0
+
+* New CRAN release.
+
 # dverse 0.0.1.9004 (2024-11-19)
 
 * `document_universe()` now outputs the new column `keyword` and new rows where
