@@ -74,21 +74,25 @@ e.g. <code>"https://maurolepore.github.io/{package}/reference/{topic}.html"</cod
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="st">"datasets"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 87 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    topic          alias                 title      concept type  keyword package</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> AirPassengers  AirPassengers         Monthly A… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> BJsales        BJsales, BJsales.lead Sales Dat… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> BOD            BOD                   Biochemic… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> CO2            CO2                   Carbon Di… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ChickWeight    ChickWeight           Weight ve… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> DNase          DNase                 Elisa ass… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> EuStockMarkets EuStockMarkets        Daily Clo… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Formaldehyde   Formaldehyde          Determina… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> HairEyeColor   HairEyeColor          Hair and … Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Harman23.cor   Harman23.cor          Harman Ex… Datase… help  datase… datase…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 77 more rows</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">url_template</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span></span></span>
+<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span>, <span class="va">url_template</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 46 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    topic                               alias title concept type  keyword package</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> &lt;a href=https://tibble.tidyverse.o… add_… Add … additi… help  <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> &lt;a href=https://tibble.tidyverse.o… add_… Add … additi… help  <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> &lt;a href=https://glue.tidyverse.org… as_g… Coer… <span style="color: #BB0000;">NA</span>      help  <span style="color: #BB0000;">NA</span>      glue   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> &lt;a href=https://tibble.tidyverse.o… as_t… Coer… <span style="color: #BB0000;">NA</span>      help  <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> &lt;a href=https://tibble.tidyverse.o… char… Form… vector… help  <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> &lt;a href=https://tibble.tidyverse.o… depr… Depr… <span style="color: #BB0000;">NA</span>      help  intern… tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> digits                              digi… Comp… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> &lt;a href=https://tibble.tidyverse.o… enfr… Conv… <span style="color: #BB0000;">NA</span>      help  <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> engines                             engi… Cust… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      glue   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> extending                           exte… Exte… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      tibble </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 36 more rows</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
