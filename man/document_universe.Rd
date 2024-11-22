@@ -24,5 +24,9 @@ to easily create a universe-wide reference for the pkgdown website of your
 meta-package.
 }
 \examples{
-document_universe("datasets")
+library(glue)
+library(tibble)
+
+url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+document_universe(c("glue", "tibble"), url_template)
 }

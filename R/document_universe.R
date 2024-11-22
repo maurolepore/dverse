@@ -36,7 +36,11 @@ document_universe_impl <- function(x, url_template = NULL) {
 #'
 #' @export
 #' @examples
-#' document_universe("datasets")
+#' library(glue)
+#' library(tibble)
+#'
+#' url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+#' document_universe(c("glue", "tibble"), url_template)
 document_universe <- function(x, url_template = NULL) {
   # TODO Refactor to simplify. Comes from the more complex maurolepore/pkgdoc
   out <- document_universe_impl(x = x, url_template = url_template)
