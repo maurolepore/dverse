@@ -1,6 +1,6 @@
 Package: dverse
 Title: Document a Universe of Packages
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person("Mauro", "Lepore", , "maurolepore@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "https://orcid.org/0000-0002-1986-7988"))
