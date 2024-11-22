@@ -1,6 +1,8 @@
-# dverse (development version)
-
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# dverse 0.1.0.9000 (2024-11-22)
+
+* Same as dverse 0.1.0.
 
 # dverse 0.1.0
 
