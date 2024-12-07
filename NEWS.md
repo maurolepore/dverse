@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# dverse 0.1.0.9001 (2024-12-07)
+
+* New `is_online()` helps pick topics that do exist online (#28). This helps drop
+topics that appear in the output of `document_universe()` but likely should not
+be exposed to users, such as reexported operators.
+
 # dverse 0.1.0.9000 (2024-11-22)
 
 * Same as dverse 0.1.0.
