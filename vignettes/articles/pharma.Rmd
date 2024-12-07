@@ -1,0 +1,81 @@
+---
+title: "pharma"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r admiralverse}
+#| eval: false
+#| echo: false
+# admiral packages on CRAN with a website
+admiralverse <- pak::pkg_search("admiral") |> 
+ dplyr::filter(grepl("admiral", package)) |> 
+ dplyr::filter(!is.na(url)) |> 
+ dplyr::pull(package)
+admiralverse
+```
+
+```{r setup}
+#| message: false
+library(dverse)
+
+library(admiraldev)
+library(admiral)
+library(admiralonco)
+library(admiralpeds)
+library(admiralvaccine)
+library(admiralophtha)
+
+library(pak)
+library(dplyr)
+library(DT)
+```
+
+```{r docs}
+admiralverse <- c(
+  "admiraldev",
+  "admiral",
+  "admiralonco",
+  "admiralpeds",
+  "admiralvaccine",
+  "admiralophtha"
+)
+
+# Example: https://pharmaverse.github.io/admiral/reference/queries.html
+template <- "https://pharmaverse.github.io/{package}/reference/{topic}.html"
+docs <- document_universe(admiralverse, template)
+docs
+```
+
+```{r}
+docs |> count(type, keyword)
+```
+
+```{r vignettes}
+vignettes <- docs |> filter(type == "vignette")
+vignettes |> select(title, package) |> arrange(title, package)
+```
+
+```{r datasets}
+datasets <- docs |> filter(keyword == "datasets")
+datasets |>  distinct(topic, title, package) |> datatable(escape = FALSE)
+```
+
+```{r internals}
+internal <- docs |> filter(keyword == "internal")
+public <- docs |> 
+  anti_join(vignettes) |> 
+  anti_join(datasets) |> 
+  anti_join(internal)
+
+# FIXME remove offilne topics
+public |>  distinct(topic, title, package) |> datatable(escape = FALSE)
+```
+
