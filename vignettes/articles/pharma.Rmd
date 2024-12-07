@@ -106,10 +106,8 @@ public <- docs |>
   anti_join(datasets) |> 
   anti_join(internal)
 
-# FIXME remove offilne topics
 public |>  
   distinct(topic, title, package) |> 
-  head(5) |> 
   filter(is_online(topic)) |> 
   datatable(escape = FALSE)
 ```
