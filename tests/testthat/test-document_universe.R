@@ -57,8 +57,8 @@ test_that("includes exported but internal functions", {
 })
 
 test_that("takes a `url_template`", {
-  url_template <- "https://maurolepore.github.io/{package}/reference/{topic}.html"
-  out <- document_universe("dverse", url_template = url_template)
+  template <- "https://maurolepore.github.io/{package}/reference/{topic}.html"
+  out <- document_universe("dverse", url_template = template)
   expect_true(grepl("dverse", out$topic[[1]]))
 })
 
