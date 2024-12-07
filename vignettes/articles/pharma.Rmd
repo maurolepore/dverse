@@ -90,8 +90,18 @@ docs |> count(type, keyword)
 ```
 
 ```{r vignettes}
+to_href <- function(url, template) {
+  paste0("<a href=", template, ">", url, "</a>")
+}
+
+vignettes_template <- "https://pharmaverse.github.io/{package}/articles/{topic}.html"
+
 vignettes <- docs |> filter(type == "vignette")
-vignettes |> select(title, package) |> arrange(title, package)
+vignettes |> 
+  select(topic, title, package) |> 
+  arrange(title, package) |> 
+  mutate(topic = to_href(topic, glue::glue(vignettes_template))) |> 
+  datatable(escape = FALSE)
 ```
 
 ```{r datasets}
@@ -100,6 +110,7 @@ datasets |>  distinct(topic, title, package) |> datatable(escape = FALSE)
 ```
 
 ```{r internals}
+#| cache: true
 internal <- docs |> filter(keyword == "internal")
 public <- docs |> 
   anti_join(vignettes) |> 
