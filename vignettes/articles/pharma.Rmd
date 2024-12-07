@@ -26,6 +26,14 @@ admiralverse
 ```{r helpers}
 #| echo: false
 
+vignettes_template <- function(template) {
+  gsub("/reference/", "/articles/", template)
+}
+
+to_href <- function(url, template) {
+  paste0("<a href=", template, ">", url, "</a>")
+}
+
 is_online <- function(topic) {
   url <- extract_topic_url(topic)
   yields_successful_request(url)
@@ -44,7 +52,6 @@ yields_successful_request <- function(url) {
 yields_successful_request_impl <- function(url) {
   tryCatch(is_succesful_request(url), error = function(e) FALSE)
 }
-
 
 is_succesful_request <- function(url) {
   req <- httr2::req_error(httr2::request(url), is_error = \(resp) FALSE)
@@ -90,17 +97,10 @@ docs |> count(type, keyword)
 ```
 
 ```{r vignettes}
-to_href <- function(url, template) {
-  paste0("<a href=", template, ">", url, "</a>")
-}
-
-vignettes_template <- "https://pharmaverse.github.io/{package}/articles/{topic}.html"
-
 vignettes <- docs |> filter(type == "vignette")
 vignettes |> 
   select(topic, title, package) |> 
   arrange(title, package) |> 
-  mutate(topic = to_href(topic, glue::glue(vignettes_template))) |> 
   datatable(escape = FALSE)
 ```
 
