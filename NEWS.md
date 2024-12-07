@@ -3,16 +3,9 @@
 # dverse 0.1.0.9002 (2024-12-07)
 
 * Vignettes now also have links to their counterpart online (#27).
-
-# dverse 0.1.0.9001 (2024-12-07)
-
 * New `is_online()` helps pick topics that do exist online (#28). This helps drop
 topics that appear in the output of `document_universe()` but likely should not
 be exposed to users, such as reexported operators.
-
-# dverse 0.1.0.9000 (2024-11-22)
-
-* Same as dverse 0.1.0.
 
 # dverse 0.1.0
 
