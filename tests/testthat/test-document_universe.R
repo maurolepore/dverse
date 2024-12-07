@@ -69,7 +69,7 @@ test_that("with bad `url_template` errors gracefully", {
   expect_error(document_universe("dverse", url_template = bad), "not found")
 })
 
-test_that("vignettes have a valid link", {
+test_that("vignettes have a reachable link", {
   # Not using dverse because on developer mode there are no vignettes
   withr::local_package("tibble")
 
