@@ -8,8 +8,14 @@ document_universe_impl <- function(x, url_template = NULL) {
     out <- mutate(
       out,
       topic = dplyr::case_when(
-        .data$type == "help" ~ to_href(.data$topic, template = glue::glue(url_template)),
-        .data$type == "vignette" ~ to_href(.data$topic, template = glue::glue(vignettes_template(url_template))),
+        .data$type == "help" ~ to_href(
+          .data$topic,
+          template = glue::glue(url_template)
+        ),
+        .data$type == "vignette" ~ to_href(
+          .data$topic,
+          template = glue::glue(vignettes_template(url_template))
+        ),
         .default = .data$topic
       )
     )
