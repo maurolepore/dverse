@@ -97,4 +97,13 @@ is_succesful_request <- function(url) {
 }
 ```
 
+```{r}
+extract_url(public$topic)
+public |> 
+  mutate(url = extract_url(topic)) |> 
+  mutate(is_online = purrr::map_lgl(url, is_online)) |> 
+  head(5) |> 
+  select(alias, is_online)
+```
+
 
