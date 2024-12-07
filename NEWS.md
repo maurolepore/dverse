@@ -2,12 +2,7 @@
 
 # dverse 0.1.0.9002 (2024-12-07)
 
-* Link vignettes
-* lint
-* lint
-* style
-* refactor
-
+* Vignettes now also have links to their counterpart online (#27).
 
 # dverse 0.1.0.9001 (2024-12-07)
 
