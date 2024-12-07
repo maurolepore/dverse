@@ -1,3 +1,5 @@
+# dverse 0.2.0
+
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
 # dverse 0.1.0.9002 (2024-12-07)
