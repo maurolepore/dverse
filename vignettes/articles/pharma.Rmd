@@ -22,6 +22,37 @@ admiralverse <- pak::pkg_search("admiral") |>
 admiralverse
 ```
 
+
+```{r helpers}
+#| echo: false
+
+is_online <- function(topic) {
+  url <- extract_topic_url(topic)
+  yields_successful_request(url)
+}
+
+extract_topic_url <- function(x) {
+  gsub(".*href=([^ '>]+).*", "\\1", x)
+}
+
+# yields_successful_request("https://google.com")
+# yields_successful_request("bad")
+yields_successful_request <- function(url) {
+  unlist(lapply(url, yields_successful_request_impl))
+}
+
+yields_successful_request_impl <- function(url) {
+  tryCatch(is_succesful_request(url), error = function(e) FALSE)
+}
+
+
+is_succesful_request <- function(url) {
+  req <- httr2::req_error(httr2::request(url), is_error = \(resp) FALSE)
+  resp <- httr2::req_perform(req)
+  identical(httr2::resp_status(resp), 200L)
+}
+```
+
 ```{r setup}
 #| message: false
 library(dverse)
@@ -76,34 +107,9 @@ public <- docs |>
   anti_join(internal)
 
 # FIXME remove offilne topics
-public |>  distinct(topic, title, package) |> datatable(escape = FALSE)
-```
-
-```{r}
-extract_url <- function(x) {
-  gsub(".*href=([^ '>]+).*", "\\1", x)
-}
-
-# is_online("https://google.com")
-# is_online("bad")
-is_online <- function(url) {
-  tryCatch(is_succesful_request(url), error = function(e) FALSE)
-}
-
-is_succesful_request <- function(url) {
-  req <- httr2::req_error(httr2::request(url), is_error = \(resp) FALSE)
-  resp <- httr2::req_perform(req)
-  identical(httr2::resp_status(resp), 200L)
-}
-```
-
-```{r}
-extract_url(public$topic)
-public |> 
-  mutate(url = extract_url(topic)) |> 
-  mutate(is_online = purrr::map_lgl(url, is_online)) |> 
+public |>  
+  distinct(topic, title, package) |> 
   head(5) |> 
-  select(alias, is_online)
+  filter(is_online(topic)) |> 
+  datatable(escape = FALSE)
 ```
-
-
