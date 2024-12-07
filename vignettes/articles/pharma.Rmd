@@ -79,3 +79,22 @@ public <- docs |>
 public |>  distinct(topic, title, package) |> datatable(escape = FALSE)
 ```
 
+```{r}
+extract_url <- function(x) {
+  gsub(".*href=([^ '>]+).*", "\\1", x)
+}
+
+# is_online("https://google.com")
+# is_online("bad")
+is_online <- function(url) {
+  tryCatch(is_succesful_request(url), error = function(e) FALSE)
+}
+
+is_succesful_request <- function(url) {
+  req <- httr2::req_error(httr2::request(url), is_error = \(resp) FALSE)
+  resp <- httr2::req_perform(req)
+  identical(httr2::resp_status(resp), 200L)
+}
+```
+
+
