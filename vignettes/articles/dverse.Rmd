@@ -6,6 +6,7 @@ editor_options:
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  message = FALSE,
   collapse = TRUE,
   comment = "#>"
 )
@@ -16,34 +17,57 @@ collection of R packages. `url_template` links each `topic` in each `package`
 with its corresponding documentation online.
 
 ```{r}
-library(dplyr, warn.conflicts = FALSE)
+library(dverse)
 # Universe
 library(glue)
 library(tibble)
+# Other
+library(dplyr)
+library(DT)
 
 packages <- c("glue", "tibble")
 url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 docs <- dverse::document_universe(packages, url_template)
-
 docs
 ```
 
-Pick rows and columns to organize the documentation however you like (e.g. by
-`package` or `type`).
+You may need to exclude reexported objects from other packages, which links are
+broken.
 
 ```{r}
-pick <- docs %>%
-  filter(type == "help", keyword != "internal" | is.na(keyword)) %>%
-  select(topic, title, package)
-pick
+online <- docs %>% filter(dverse::is_online(topic))
 ```
 
-You may generate a clickable table with `DT::datatable()`, which offers great
-options and features such as a search box.
+Documentation is of multiple kinds.
 
 ```{r}
-options <- list(dom = "fti", search = list(search = "glue"))
-DT::datatable(pick, escape = FALSE, rownames = NULL, options = options)
+online %>% count(type, keyword)
 ```
 
-See `?DT::datatable()` for more options.
+You may organize it however you like.
+
+```{r}
+vignettes <- online %>% filter(type == "vignette")
+everything_else <- online %>% anti_join(vignettes)
+```
+
+#### Vignettes
+
+```{r}
+vignettes %>%
+  select(topic, title, package) %>%
+  datatable(escape = FALSE)
+```
+
+#### Everything else
+
+```{r}
+everything_else %>%
+  select(topic, title, package) %>%
+  # Showing off some options from `DT::datatable()`
+  datatable(
+    escape = FALSE,
+    rownames = NULL,
+    options = list(dom = "fti", search = list(search = "glue"))
+  )
+```
