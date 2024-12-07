@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# dverse 0.1.0.9002 (2024-12-07)
+
+* Link vignettes
+* lint
+* lint
+* style
+* refactor
+
+
 # dverse 0.1.0.9001 (2024-12-07)
 
 * New `is_online()` helps pick topics that do exist online (#28). This helps drop
