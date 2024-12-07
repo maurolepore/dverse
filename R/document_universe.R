@@ -9,7 +9,7 @@ document_universe_impl <- function(x, url_template = NULL) {
       out,
       topic = ifelse(
         .data$type == "help",
-        paste0("<a href=", glue::glue(url_template), ">", .data$topic, "</a>"),
+        to_href(url = .data$topic, template = glue::glue(url_template)),
         .data$topic
       )
     )
@@ -18,6 +18,9 @@ document_universe_impl <- function(x, url_template = NULL) {
   out
 }
 
+to_href <- function(url, template) {
+  paste0("<a href=", template, ">", url, "</a>")
+}
 
 #' Create a data frame with documentation metadata of one or more packages
 #'

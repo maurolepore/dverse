@@ -19,6 +19,7 @@ Imports:
     cli,
     dplyr,
     glue,
+    httr2,
     rlang,
     tibble,
     utils
