@@ -86,10 +86,10 @@ docs
 #>  4 <a href=https://tibble.tidyverse.o… as_t… Coer… <NA>    help  <NA>    tibble 
 #>  5 <a href=https://tibble.tidyverse.o… char… Form… vector… help  <NA>    tibble 
 #>  6 <a href=https://tibble.tidyverse.o… depr… Depr… <NA>    help  intern… tibble 
-#>  7 digits                              digi… Comp… <NA>    vign… <NA>    tibble 
+#>  7 <a href=https://tibble.tidyverse.o… digi… Comp… <NA>    vign… <NA>    tibble 
 #>  8 <a href=https://tibble.tidyverse.o… enfr… Conv… <NA>    help  <NA>    tibble 
-#>  9 engines                             engi… Cust… <NA>    vign… <NA>    glue   
-#> 10 extending                           exte… Exte… <NA>    vign… <NA>    tibble 
+#>  9 <a href=https://glue.tidyverse.org… engi… Cust… <NA>    vign… <NA>    glue   
+#> 10 <a href=https://tibble.tidyverse.o… exte… Exte… <NA>    vign… <NA>    tibble 
 #> # ℹ 36 more rows
 ```
 
