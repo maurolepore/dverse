@@ -7,10 +7,10 @@ document_universe_impl <- function(x, url_template = NULL) {
   if (!is.null(url_template)) {
     out <- mutate(
       out,
-      topic = ifelse(
-        .data$type == "help",
-        to_href(url = .data$topic, template = glue::glue(url_template)),
-        .data$topic
+      topic = dplyr::case_when(
+        .data$type == "help" ~ to_href(.data$topic, template = glue::glue(url_template)),
+        .data$type == "vignette" ~ to_href(.data$topic, template = glue::glue(vignettes_template(url_template))),
+        .default = .data$topic
       )
     )
   }
@@ -20,6 +20,10 @@ document_universe_impl <- function(x, url_template = NULL) {
 
 to_href <- function(url, template) {
   paste0("<a href=", template, ">", url, "</a>")
+}
+
+vignettes_template <- function(template) {
+  gsub("/reference/", "/articles/", template)
 }
 
 #' Create a data frame with documentation metadata of one or more packages

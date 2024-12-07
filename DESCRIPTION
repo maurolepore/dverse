@@ -17,9 +17,9 @@ Depends:
     R (>= 3.6)
 Imports: 
     cli,
+    curl,
     dplyr,
     glue,
-    httr2,
     rlang,
     tibble,
     utils
