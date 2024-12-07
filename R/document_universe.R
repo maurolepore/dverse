@@ -62,7 +62,7 @@ document_universe <- function(x, url_template = NULL) {
 
 warn_unnattached <- function(x, doc = "package") {
   if (!all(attached(x))) {
-    unattached <- x[!attached(x)]  # nolint
+    unattached <- x[!attached(x)] # nolint
     cli::cli_warn(c(
       "All packages should be attached to work properly.",
       x = "Not attached: {unattached}"
@@ -100,7 +100,7 @@ abort_unavailable_package <- function(data, x) {
     return(invisible(data))
   }
 
-  is_unavailable <- x[!is_available]  # nolint
+  is_unavailable <- x[!is_available] # nolint
   cli::cli_abort("No pacakge matches '{is_unavailable}'.")
 }
 
