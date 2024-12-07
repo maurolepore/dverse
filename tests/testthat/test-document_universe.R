@@ -57,26 +57,29 @@ test_that("includes exported but internal functions", {
 })
 
 test_that("takes a `url_template`", {
-  url_template <- "https://maurolepore.github.io/{package}/reference/{topic}.html"
-  out <- document_universe("dverse", url_template = url_template)
+  template <- "https://maurolepore.github.io/{package}/reference/{topic}.html"
+  out <- document_universe("dverse", url_template = template)
   expect_true(grepl("dverse", out$topic[[1]]))
 })
 
 test_that("with bad `url_template` errors gracefully", {
+  skip_if_offline()
+
   bad <- "https://{bad}/{topic}.html"
   expect_error(document_universe("dverse", url_template = bad), "not found")
 })
 
-test_that("vignettes lack a link", {
+test_that("vignettes have a reachable link", {
   # Not using dverse because on developer mode there are no vignettes
   withr::local_package("tibble")
-  type <- "vignette"
-  out <- document_universe("tibble", url_template = "some/url")
-  topic <- out[out$type == type, ]$topic
 
-  # Error if there is no vignette
+  template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+  out <- document_universe("tibble", url_template = template)
+  topic <- out[out$type == "vignette", ]$topic
+  topic <- head(topic)
+
+  # Errors if there is no vignette
   expect_false(rlang::is_empty(topic))
 
-  has_link <- any(grepl("href", topic))
-  expect_false(has_link)
+  expect_true(all(is_online(topic)))
 })

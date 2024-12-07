@@ -7,10 +7,16 @@ document_universe_impl <- function(x, url_template = NULL) {
   if (!is.null(url_template)) {
     out <- mutate(
       out,
-      topic = ifelse(
-        .data$type == "help",
-        to_href(url = .data$topic, template = glue::glue(url_template)),
-        .data$topic
+      topic = dplyr::case_when(
+        .data$type == "help" ~ to_href(
+          .data$topic,
+          template = glue::glue(url_template)
+        ),
+        .data$type == "vignette" ~ to_href(
+          .data$topic,
+          template = glue::glue(vignettes_template(url_template))
+        ),
+        .default = .data$topic
       )
     )
   }
@@ -20,6 +26,10 @@ document_universe_impl <- function(x, url_template = NULL) {
 
 to_href <- function(url, template) {
   paste0("<a href=", template, ">", url, "</a>")
+}
+
+vignettes_template <- function(template) {
+  gsub("/reference/", "/articles/", template)
 }
 
 #' Create a data frame with documentation metadata of one or more packages
@@ -52,7 +62,7 @@ document_universe <- function(x, url_template = NULL) {
 
 warn_unnattached <- function(x, doc = "package") {
   if (!all(attached(x))) {
-    unattached <- x[!attached(x)]
+    unattached <- x[!attached(x)] # nolint
     cli::cli_warn(c(
       "All packages should be attached to work properly.",
       x = "Not attached: {unattached}"
@@ -72,7 +82,10 @@ pick_doc <- function(x) {
 
 tidy_reference <- function(data, strip_s3class) {
   out <- collapse_alias(data, strip_s3class)
-  out <- select(out, c("topic", "alias", "title", "concept", "type", "keyword", "package"))
+  out <- select(
+    out,
+    c("topic", "alias", "title", "concept", "type", "keyword", "package")
+  )
   out <- arrange(out, .data$alias)
   out
 }
@@ -87,7 +100,7 @@ abort_unavailable_package <- function(data, x) {
     return(invisible(data))
   }
 
-  is_unavailable <- x[!is_available]
+  is_unavailable <- x[!is_available] # nolint
   cli::cli_abort("No pacakge matches '{is_unavailable}'.")
 }
 
