@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# dverse 0.2.0.9000
+
+* Same as previous version.
+
 # dverse 0.2.0
 
 * Vignettes now also have links to their counterpart online (#27).
