@@ -6,6 +6,8 @@
 \alias{dverse-package}
 \title{dverse: Document a Universe of Packages}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Creates a data frame containing the metadata associated with the documentation of a collection of R packages. It allows for linking topic names to their corresponding documentation online. If you maintain a universe meta-package, it helps create a comprehensive reference for its website.
 }
 \seealso{
