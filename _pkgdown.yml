@@ -1,6 +1,8 @@
 url: https://maurolepore.github.io/dverse/
 template:
   bootstrap: 5
+  params:
+    bootswatch: minty
 
 authors:
   Mauro Lepore:
