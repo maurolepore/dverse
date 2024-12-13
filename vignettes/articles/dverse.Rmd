@@ -55,15 +55,15 @@ packages. Because topics outside your universe yield broken links, you can
 exclude them with dverse::is_online().
 
 ```{r online}
-docs |> filter(!dverse::is_online(topic))
+docs %>% filter(!dverse::is_online(topic))
 
-online <- docs |> filter(dverse::is_online(topic))
+online <- docs %>% filter(dverse::is_online(topic))
 ```
 
 Consider the different kinds of documentation in your universe.
 
 ```{r kinds}
-online |> count(type, keyword)
+online %>% count(type, keyword)
 ```
 
 You may organize the documentation however you like. For inspiration see the
@@ -82,10 +82,10 @@ Here are all the vignettes available across packages in the 'toyverse'.
 Click on each topic to read its corresponding vignette.
 
 ```{r vignettes}
-vignettes <- online |> filter(type == "vignette")
+vignettes <- online %>% filter(type == "vignette")
 
-vignettes |>
-  distinct(topic, title, package) |>
+vignettes %>%
+  distinct(topic, title, package) %>%
   datatable(escape = FALSE)
 ```
 
@@ -105,10 +105,10 @@ devtools::install() or remotes::install_github(), then you need `build_vignettes
 Here are all the datasets. Click on each topic to read about it.
 
 ```{r datasets}
-datasets <- online |> filter(keyword == "datasets")
+datasets <- online %>% filter(keyword == "datasets")
 
-datasets |>
-  distinct(topic, title, package) |>
+datasets %>%
+  distinct(topic, title, package) %>%
   datatable(escape = FALSE)
 ```
 
@@ -117,15 +117,15 @@ datasets |>
 Here are all the functions, except internal ones. Click on each topic to read about it.
 
 ```{r public}
-internal <- online |> filter(keyword == "internal")
+internal <- online %>% filter(keyword == "internal")
 
-public <- online |>
-  anti_join(vignettes) |>
-  anti_join(datasets) |>
+public <- online %>%
+  anti_join(vignettes) %>%
+  anti_join(datasets) %>%
   anti_join(internal)
 
-public |>
-  distinct(topic, title, package) |>
+public %>%
+  distinct(topic, title, package) %>%
   datatable(escape = FALSE)
 ```
 
