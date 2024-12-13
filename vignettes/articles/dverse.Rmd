@@ -3,9 +3,6 @@ title: Get started
 ---
 
 ```{r setup, include=FALSE}
-library(link)
-link::auto()
-
 knitr::opts_chunk$set(
   message = FALSE,
   collapse = TRUE,
