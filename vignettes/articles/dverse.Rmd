@@ -16,13 +16,13 @@ the [tidyverse](https://tidyverse.org/). But it may also be not on CRAN, small,
 company-specific or personal.
 
 The example here uses the 'toyverse' -- a toy universe containing the packages
-{glue} and {dplyr}.
+glue and dplyr.
 
 You need:
 
-* the package {dverse} to <u>d</u>ocument your uni<u>verse</u>, 
+* the package dverse to <u>d</u>ocument your uni<u>verse</u>, 
 * each package in the 'toyverse' to access the documentation metadata,
-* {DT} to create a searchable table.
+* DT to create a searchable table.
 
 ```{r packages}
 library(dverse)
@@ -34,7 +34,7 @@ library(dplyr)
 library(DT)
 ```
 
-dverse::document_universe() takes the names of the packages in the
+`dverse::document_universe()` takes the names of the packages in the
 'toyverse', and a template pointing to each help file (topic) in each
 package.
 
@@ -49,7 +49,7 @@ docs
 
 You may need to exclude some topics, such as reexported objects from other
 packages. Because topics outside your universe yield broken links, you can
-exclude them with dverse::is_online().
+exclude them with `dverse::is_online()`.
 
 ```{r online}
 docs %>% filter(!dverse::is_online(topic))
@@ -88,13 +88,13 @@ vignettes %>%
 
 #### You don't see what you expect?
 
-* This works with vignettes but not articles, so usethis::use_vignette() not
-usethis::use_article().
+* This works with vignettes but not articles, so `usethis::use_vignette()` not
+`usethis::use_article()`.
 
 * When you install the packages in your universe ensure to install the vignettes.
 Vignettes install by default when you install your packages from CRAN with
-`install.packages()` or pak::pak(). But if you install them from source with
-devtools::install() or remotes::install_github(), then you need `build_vignettes
+`install.packages()` or `pak::pak()`. But if you install them from source with
+`devtools::install()` or `remotes::install_github()`, then you need `build_vignettes
 = TRUE`.
 
 ### Datasets
@@ -130,7 +130,7 @@ public %>%
 
 To learn more see the toy 'admiralverse'
 [meta-package](https://maurolepore.github.io/admiralverse) -- which models the
-main use case of {dverse}.
+main use case of dverse.
 
 You may also enjoy these videos:
 
