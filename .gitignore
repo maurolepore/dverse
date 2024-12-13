@@ -3,3 +3,5 @@ inst/doc
 .RData
 .Rproj.user
 docs
+
+/.quarto/

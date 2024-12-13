@@ -69,12 +69,15 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 of one or more packages.
 
 ``` r
+library(dverse)
+# demoverse
 library(glue)
 library(tibble)
 
-packages <- c("glue", "tibble")
-url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- dverse::document_universe(packages, url_template)
+demoverse <- c("glue", "tibble")
+# For example: "https://tibble.tidyverse.org/reference/enframe.html"
+template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- dverse::document_universe(demoverse, template)
 
 docs
 #> # A tibble: 46 × 7
@@ -99,11 +102,11 @@ docs
 knitr::kable(head(docs, 3))
 ```
 
-| topic | alias | title | concept | type | keyword | package |
-|:---|:---|:---|:---|:---|:---|:---|
-| <a href=https://tibble.tidyverse.org/reference/add_column.html>add_column</a> | add_column | Add columns to a data frame | addition | help | NA | tibble |
-| <a href=https://tibble.tidyverse.org/reference/add_row.html>add_row</a> | add_row, add_case | Add rows to a data frame | addition | help | NA | tibble |
-| <a href=https://glue.tidyverse.org/reference/as_glue.html>as_glue</a> | as_glue | Coerce object to glue | NA | help | NA | glue |
+| topic                                                                          | alias               | title                       | concept  | type | keyword | package |
+| :----------------------------------------------------------------------------- | :------------------ | :-------------------------- | :------- | :--- | :------ | :------ |
+| <a href=https://tibble.tidyverse.org/reference/add_column.html>add\_column</a> | add\_column         | Add columns to a data frame | addition | help | NA      | tibble  |
+| <a href=https://tibble.tidyverse.org/reference/add_row.html>add\_row</a>       | add\_row, add\_case | Add rows to a data frame    | addition | help | NA      | tibble  |
+| <a href=https://glue.tidyverse.org/reference/as_glue.html>as\_glue</a>         | as\_glue            | Coerce object to glue       | NA       | help | NA      | glue    |
 
 `DT::datatabe()` also provides a search box. See [Get
 started](https://maurolepore.github.io/dverse/articles/dverse.html).
