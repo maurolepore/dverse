@@ -26,6 +26,7 @@ Imports:
 Suggests: 
     DT,
     knitr,
+    link,
     testthat,
     withr
 Config/Needs/website: rmarkdown
