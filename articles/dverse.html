@@ -74,13 +74,13 @@ of R packages, i.e. a universe. Your universe may be on CRAN, large, and
 popular like the <a href="https://tidyverse.org/" class="external-link">tidyverse</a>. But it
 may also be not on CRAN, small, company-specific or personal.</p>
 <p>The example here uses the ‘toyverse’ – a toy universe containing the
-packages {glue} and {dplyr}.</p>
+packages glue and dplyr.</p>
 <p>You need:</p>
 <ul>
-<li>the package {dverse} to <u>d</u>ocument your uni<u>verse</u>,</li>
+<li>the package dverse to <u>d</u>ocument your uni<u>verse</u>,</li>
 <li>each package in the ‘toyverse’ to access the documentation
 metadata,</li>
-<li>{DT} to create a searchable table.</li>
+<li>DT to create a searchable table.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maurolepore/dverse" class="external-link">dverse</a></span><span class="op">)</span></span>
@@ -90,9 +90,9 @@ metadata,</li>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT" class="external-link">DT</a></span><span class="op">)</span></span></code></pre></div>
-<p>dverse::document_universe() takes the names of the packages in the
-‘toyverse’, and a template pointing to each help file (topic) in each
-package.</p>
+<p><code><a href="../reference/document_universe.html">dverse::document_universe()</a></code> takes the names of the
+packages in the ‘toyverse’, and a template pointing to each help file
+(topic) in each package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">toyverse</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"dplyr"</span><span class="op">)</span></span>
 <span><span class="co"># For example: https://dplyr.tidyverse.org/reference/select.html</span></span>
@@ -116,7 +116,7 @@ package.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 128 more rows</span></span></span></code></pre></div>
 <p>You may need to exclude some topics, such as reexported objects from
 other packages. Because topics outside your universe yield broken links,
-you can exclude them with dverse::is_online().</p>
+you can exclude them with <code><a href="../reference/is_online.html">dverse::is_online()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">docs</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu">dverse</span><span class="fu">::</span><span class="fu"><a href="../reference/is_online.html">is_online</a></span><span class="op">(</span><span class="va">topic</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 7</span></span></span>
@@ -159,12 +159,14 @@ functions in separate tables.</p>
 </h4>
 <ul>
 <li><p>This works with vignettes but not articles, so
-usethis::use_vignette() not usethis::use_article().</p></li>
+<code>usethis::use_vignette()</code> not
+<code>usethis::use_article()</code>.</p></li>
 <li><p>When you install the packages in your universe ensure to install
 the vignettes. Vignettes install by default when you install your
-packages from CRAN with <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages()</a></code> or pak::pak().
-But if you install them from source with devtools::install() or
-remotes::install_github(), then you need
+packages from CRAN with <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages()</a></code> or
+<code><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak::pak()</a></code>. But if you install them from source with
+<code>devtools::install()</code> or
+<code>remotes::install_github()</code>, then you need
 <code>build_vignettes = TRUE</code>.</p></li>
 </ul>
 </div>
@@ -205,7 +207,7 @@ to read about it.</p>
 <h3 id="learn-more">Learn More<a class="anchor" aria-label="anchor" href="#learn-more"></a>
 </h3>
 <p>To learn more see the toy ‘admiralverse’ <a href="https://maurolepore.github.io/admiralverse" class="external-link">meta-package</a> –
-which models the main use case of {dverse}.</p>
+which models the main use case of dverse.</p>
 <p>You may also enjoy these videos:</p>
 <ul>
 <li>Creating a meta-package for the toy ‘admiralverse’ (<a href="https://youtu.be/ezVpsadSF7A" class="external-link">5’</a>).</li>
