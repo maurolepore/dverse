@@ -73,12 +73,15 @@ using [pkgdown](https://pkgdown.r-lib.org/).
 more packages.
 
 ```{r}
+library(dverse)
+# demoverse
 library(glue)
 library(tibble)
 
-packages <- c("glue", "tibble")
-url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- dverse::document_universe(packages, url_template)
+demoverse <- c("glue", "tibble")
+# For example: "https://tibble.tidyverse.org/reference/enframe.html"
+template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- dverse::document_universe(demoverse, template)
 
 docs
 ```
