@@ -66,7 +66,7 @@ online %>% count(type, keyword)
 You may organize the documentation however you like. For inspiration see the
 [pactaverse](https://rmi-pacta.github.io/pactaverse/articles/global-search.html),
 the toy
-['toyverse'](https://maurolepore.github.io/toyverse/articles/reference.html),
+['admiralverse'](https://maurolepore.github.io/admiralverse/articles/reference.html),
 [fgeo](https://forestgeo.github.io/fgeo/articles/siteonly/reference.html) and
 [tidymodels](https://www.tidymodels.org/find/).
 
