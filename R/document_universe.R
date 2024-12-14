@@ -5,16 +5,30 @@ document_universe_impl <- function(x, url_template = NULL) {
   out <- tidy_reference(pick, strip_s3class = TRUE)
 
   if (!is.null(url_template)) {
+    manual <- url_template[[1]]
+
+    if (identical(length(url_template), 1L)) {
+      vignettes <- url_template[[1]]
+    }
+    if (identical(length(url_template), 2L)) {
+      vignettes <- url_template[[2]]
+    }
+    if (length(url_template) > 2L) {
+      longer <- length(url_template)
+      cli::cli_abort("`url_template` must be of length 1 or 2, not {longer}.")
+    }
+
+
     out <- mutate(
       out,
       topic = dplyr::case_when(
         .data$type == "help" ~ to_href(
           .data$topic,
-          template = glue::glue(url_template)
+          template = glue::glue(manual)
         ),
         .data$type == "vignette" ~ to_href(
           .data$topic,
-          template = glue::glue(vignettes_template(url_template))
+          template = glue::glue(vignettes_template(vignettes))
         ),
         .default = .data$topic
       )
@@ -40,10 +54,18 @@ vignettes_template <- function(template) {
 #' meta-package.
 #'
 #' @param x A character vector giving concepts or package names to match.
-#' @param url_template Character. A template to generate links to documentation
-#'   based on the column names of the output -- typically `package` and `topic`,
-#'   e.g. `"https://maurolepore.github.io/{package}/reference/{topic}.html"`
-#'   (`glue::glue()` syntax).
+#' @param url_template Character. A template to generate links to documentation,
+#'   using the syntax of `glue::glue()` to indicate where to insert the values
+#'   from the columns `package` and `topic`.
+#'   * If the vector has length 1, we assume it's for the manual (i.e. what you
+#'   can access with `?`), e.g.:
+#'   `"https://maurolepore.github.io/{package}/reference/{topic}.html"`. The
+#'   template for vignettes will be automatically constructed by replacing
+#'   /reference/ with /articles/, e.g.
+#'   `"https://maurolepore.github.io/{package}/articles/{topic}.html"`. If this
+#'   is invalid, then you'll need to provide a vector of length 2.
+#'   * If the vector has length 2, we assume the first element is for the
+#'   manual and the second element is for vignettes.
 #'
 #' @return A data frame.
 #'
@@ -52,10 +74,13 @@ vignettes_template <- function(template) {
 #' library(glue)
 #' library(tibble)
 #'
-#' url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-#' document_universe(c("glue", "tibble"), url_template)
+#' manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
+#' vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
+#' document_universe(c("glue", "tibble"), url_template = c(manual, vignettes))
+#'
+#' # Assuming vignettes can be found at */articles/* rather than */reference/*
+#' document_universe(c("glue", "tibble"), url_template = manual)
 document_universe <- function(x, url_template = NULL) {
-  # TODO Refactor to simplify. Comes from the more complex maurolepore/pkgdoc
   out <- document_universe_impl(x = x, url_template = url_template)
   tibble::as_tibble(out)
 }
