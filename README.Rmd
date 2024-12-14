@@ -69,37 +69,28 @@ using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-`document_universe()` creates a data frame with documentation metadata of one or
+* `document_universe()` creates a data frame with documentation metadata of one or
 more packages.
+* `url_template` can take different templates for the manual and vignettes.
+* `knitr::kable()` turns the URLs into clickable links. `DT::datatabe()` also
+provides a search box.
 
 ```{r}
 library(dverse)
-# demoverse
+
 library(glue)
 library(tibble)
 
-demoverse <- c("glue", "tibble")
-# Example: "https://tibble.tidyverse.org/reference/as_tibble.html"
+universe <- c("glue", "tibble")
+document_universe(universe)
+
+# Assuming vignettes can be found at */articles/* rather than */reference/*
 manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- document_universe(demoverse, url_template = manual)
-docs
-```
+document_universe(universe, url_template = manual)
 
-`knitr::kable()` turns the URLs into clickable links.
+# Adding an explicit template for vignettes
+vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
+docs <- document_universe(universe, url_template = c(manual, vignettes))
 
-```{r}
 knitr::kable(tail(docs))
 ```
-
-`url_template` can take different templates for the manual and vignettes.
-
-```{r}
-manual <- "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"
-vignettes <- "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
-docs_runiverse <- document_universe(demoverse, url_template = c(manual, vignettes))
-docs_runiverse
-
-knitr::kable(tail(docs_runiverse))
-```
-
-`DT::datatabe()` also provides a search box. See [Get started](https://maurolepore.github.io/dverse/articles/dverse.html).

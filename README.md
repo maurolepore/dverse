@@ -65,20 +65,39 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 
 ## Example
 
-`document_universe()` creates a data frame with documentation metadata
-of one or more packages.
+- `document_universe()` creates a data frame with documentation metadata
+  of one or more packages.
+- `url_template` can take different templates for the manual and
+  vignettes.
+- `knitr::kable()` turns the URLs into clickable links. `DT::datatabe()`
+  also provides a search box.
 
 ``` r
 library(dverse)
-# demoverse
+
 library(glue)
 library(tibble)
 
-demoverse <- c("glue", "tibble")
-# Example: "https://tibble.tidyverse.org/reference/as_tibble.html"
+universe <- c("glue", "tibble")
+document_universe(universe)
+#> # A tibble: 46 × 7
+#>    topic      alias                          title concept type  keyword package
+#>    <chr>      <chr>                          <chr> <chr>   <chr> <chr>   <chr>  
+#>  1 add_column add_column                     Add … additi… help  <NA>    tibble 
+#>  2 add_row    add_row, add_case              Add … additi… help  <NA>    tibble 
+#>  3 as_glue    as_glue                        Coer… <NA>    help  <NA>    glue   
+#>  4 as_tibble  as_tibble, as_tibble_row, as_… Coer… <NA>    help  <NA>    tibble 
+#>  5 char       char, set_char_opts            Form… vector… help  <NA>    tibble 
+#>  6 deprecated deprecated, data_frame, tibbl… Depr… <NA>    help  intern… tibble 
+#>  7 digits     digits                         Comp… <NA>    vign… <NA>    tibble 
+#>  8 enframe    enframe, deframe               Conv… <NA>    help  <NA>    tibble 
+#>  9 engines    engines                        Cust… <NA>    vign… <NA>    glue   
+#> 10 extending  extending                      Exte… <NA>    vign… <NA>    tibble 
+#> # ℹ 36 more rows
+
+# Assuming vignettes can be found at */articles/* rather than */reference/*
 manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- document_universe(demoverse, url_template = manual)
-docs
+document_universe(universe, url_template = manual)
 #> # A tibble: 46 × 7
 #>    topic                               alias title concept type  keyword package
 #>    <chr>                               <chr> <chr> <chr>   <chr> <chr>   <chr>  
@@ -93,11 +112,11 @@ docs
 #>  9 <a href=https://glue.tidyverse.org… engi… Cust… <NA>    vign… <NA>    glue   
 #> 10 <a href=https://tibble.tidyverse.o… exte… Exte… <NA>    vign… <NA>    tibble 
 #> # ℹ 36 more rows
-```
 
-`knitr::kable()` turns the URLs into clickable links.
+# Adding an explicit template for vignettes
+vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
+docs <- document_universe(universe, url_template = c(manual, vignettes))
 
-``` r
 knitr::kable(tail(docs))
 ```
 
@@ -109,41 +128,3 @@ knitr::kable(tail(docs))
 | <a href=https://tibble.tidyverse.org/articles/types.html>types</a> | types | Column types | NA | vignette | NA | tibble |
 | <a href=https://tibble.tidyverse.org/reference/view.html>view</a> | view | View an object | NA | help | NA | tibble |
 | <a href=https://glue.tidyverse.org/articles/wrappers.html>wrappers</a> | wrappers | How to write a function that wraps glue | NA | vignette | NA | glue |
-
-`url_template` can take different templates for the manual and
-vignettes.
-
-``` r
-manual <- "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"
-vignettes <- "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
-docs_runiverse <- document_universe(demoverse, url_template = c(manual, vignettes))
-docs_runiverse
-#> # A tibble: 46 × 7
-#>    topic                               alias title concept type  keyword package
-#>    <chr>                               <chr> <chr> <chr>   <chr> <chr>   <chr>  
-#>  1 <a href=https://tidyverse.r-univer… add_… Add … additi… help  <NA>    tibble 
-#>  2 <a href=https://tidyverse.r-univer… add_… Add … additi… help  <NA>    tibble 
-#>  3 <a href=https://tidyverse.r-univer… as_g… Coer… <NA>    help  <NA>    glue   
-#>  4 <a href=https://tidyverse.r-univer… as_t… Coer… <NA>    help  <NA>    tibble 
-#>  5 <a href=https://tidyverse.r-univer… char… Form… vector… help  <NA>    tibble 
-#>  6 <a href=https://tidyverse.r-univer… depr… Depr… <NA>    help  intern… tibble 
-#>  7 <a href=https://tidyverse.r-univer… digi… Comp… <NA>    vign… <NA>    tibble 
-#>  8 <a href=https://tidyverse.r-univer… enfr… Conv… <NA>    help  <NA>    tibble 
-#>  9 <a href=https://tidyverse.r-univer… engi… Cust… <NA>    vign… <NA>    glue   
-#> 10 <a href=https://tidyverse.r-univer… exte… Exte… <NA>    vign… <NA>    tibble 
-#> # ℹ 36 more rows
-
-knitr::kable(tail(docs_runiverse))
-```
-
-| topic | alias | title | concept | type | keyword | package |
-|:---|:---|:---|:---|:---|:---|:---|
-| <a href=https://tidyverse.r-universe.dev/tibble/doc/manual.html#tribble>tribble</a> | tribble | Row-wise tibble creation | NA | help | NA | tibble |
-| <a href=https://tidyverse.r-universe.dev/glue/doc/manual.html#trim>trim</a> | trim | Trim a character vector | NA | help | NA | glue |
-| <a href=https://tidyverse.r-universe.dev/tibble/doc/manual.html#trunc_mat>trunc_mat</a> | trunc_mat | Legacy printing | NA | help | internal | tibble |
-| <a href=https://tidyverse.r-universe.dev/articles/tibble/types.html>types</a> | types | Column types | NA | vignette | NA | tibble |
-| <a href=https://tidyverse.r-universe.dev/tibble/doc/manual.html#view>view</a> | view | View an object | NA | help | NA | tibble |
-| <a href=https://tidyverse.r-universe.dev/articles/glue/wrappers.html>wrappers</a> | wrappers | How to write a function that wraps glue | NA | vignette | NA | glue |
-
-`DT::datatabe()` also provides a search box. See [Get
-started](https://maurolepore.github.io/dverse/articles/dverse.html).
