@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# dverse 0.2.0.9001
+
+* `url_template` in `document_universe()` can now take different templates for
+topics in the manual versus vignettes, i.e. for what you access with
+`?package::topic` versus `vignette(topic, package = "tibble")`.
+
 # dverse 0.2.0.9000
 
 * Same as previous version.
