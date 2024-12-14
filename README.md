@@ -75,10 +75,9 @@ library(glue)
 library(tibble)
 
 demoverse <- c("glue", "tibble")
-# For example: "https://tibble.tidyverse.org/reference/enframe.html"
-template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- dverse::document_universe(demoverse, template)
-
+# Example: "https://tibble.tidyverse.org/reference/as_tibble.html"
+manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- document_universe(demoverse, url_template = manual)
 docs
 #> # A tibble: 46 × 7
 #>    topic                               alias title concept type  keyword package
@@ -99,14 +98,52 @@ docs
 `knitr::kable()` turns the URLs into clickable links.
 
 ``` r
-knitr::kable(head(docs, 3))
+knitr::kable(tail(docs))
 ```
 
-| topic                                                                          | alias               | title                       | concept  | type | keyword | package |
-| :----------------------------------------------------------------------------- | :------------------ | :-------------------------- | :------- | :--- | :------ | :------ |
-| <a href=https://tibble.tidyverse.org/reference/add_column.html>add\_column</a> | add\_column         | Add columns to a data frame | addition | help | NA      | tibble  |
-| <a href=https://tibble.tidyverse.org/reference/add_row.html>add\_row</a>       | add\_row, add\_case | Add rows to a data frame    | addition | help | NA      | tibble  |
-| <a href=https://glue.tidyverse.org/reference/as_glue.html>as\_glue</a>         | as\_glue            | Coerce object to glue       | NA       | help | NA      | glue    |
+| topic | alias | title | concept | type | keyword | package |
+|:---|:---|:---|:---|:---|:---|:---|
+| <a href=https://tibble.tidyverse.org/reference/tribble.html>tribble</a> | tribble | Row-wise tibble creation | NA | help | NA | tibble |
+| <a href=https://glue.tidyverse.org/reference/trim.html>trim</a> | trim | Trim a character vector | NA | help | NA | glue |
+| <a href=https://tibble.tidyverse.org/reference/trunc_mat.html>trunc_mat</a> | trunc_mat | Legacy printing | NA | help | internal | tibble |
+| <a href=https://tibble.tidyverse.org/articles/types.html>types</a> | types | Column types | NA | vignette | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/view.html>view</a> | view | View an object | NA | help | NA | tibble |
+| <a href=https://glue.tidyverse.org/articles/wrappers.html>wrappers</a> | wrappers | How to write a function that wraps glue | NA | vignette | NA | glue |
+
+`url_template` can take different templates for the manual and
+vignettes.
+
+``` r
+manual <- "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"
+vignettes <- "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
+docs_runiverse <- document_universe(demoverse, url_template = c(manual, vignettes))
+docs_runiverse
+#> # A tibble: 46 × 7
+#>    topic                               alias title concept type  keyword package
+#>    <chr>                               <chr> <chr> <chr>   <chr> <chr>   <chr>  
+#>  1 <a href=https://tidyverse.r-univer… add_… Add … additi… help  <NA>    tibble 
+#>  2 <a href=https://tidyverse.r-univer… add_… Add … additi… help  <NA>    tibble 
+#>  3 <a href=https://tidyverse.r-univer… as_g… Coer… <NA>    help  <NA>    glue   
+#>  4 <a href=https://tidyverse.r-univer… as_t… Coer… <NA>    help  <NA>    tibble 
+#>  5 <a href=https://tidyverse.r-univer… char… Form… vector… help  <NA>    tibble 
+#>  6 <a href=https://tidyverse.r-univer… depr… Depr… <NA>    help  intern… tibble 
+#>  7 <a href=https://tidyverse.r-univer… digi… Comp… <NA>    vign… <NA>    tibble 
+#>  8 <a href=https://tidyverse.r-univer… enfr… Conv… <NA>    help  <NA>    tibble 
+#>  9 <a href=https://tidyverse.r-univer… engi… Cust… <NA>    vign… <NA>    glue   
+#> 10 <a href=https://tidyverse.r-univer… exte… Exte… <NA>    vign… <NA>    tibble 
+#> # ℹ 36 more rows
+
+knitr::kable(tail(docs_runiverse))
+```
+
+| topic | alias | title | concept | type | keyword | package |
+|:---|:---|:---|:---|:---|:---|:---|
+| <a href=https://tidyverse.r-universe.dev/tibble/doc/manual.html#tribble>tribble</a> | tribble | Row-wise tibble creation | NA | help | NA | tibble |
+| <a href=https://tidyverse.r-universe.dev/glue/doc/manual.html#trim>trim</a> | trim | Trim a character vector | NA | help | NA | glue |
+| <a href=https://tidyverse.r-universe.dev/tibble/doc/manual.html#trunc_mat>trunc_mat</a> | trunc_mat | Legacy printing | NA | help | internal | tibble |
+| <a href=https://tidyverse.r-universe.dev/articles/tibble/types.html>types</a> | types | Column types | NA | vignette | NA | tibble |
+| <a href=https://tidyverse.r-universe.dev/tibble/doc/manual.html#view>view</a> | view | View an object | NA | help | NA | tibble |
+| <a href=https://tidyverse.r-universe.dev/articles/glue/wrappers.html>wrappers</a> | wrappers | How to write a function that wraps glue | NA | vignette | NA | glue |
 
 `DT::datatabe()` also provides a search box. See [Get
 started](https://maurolepore.github.io/dverse/articles/dverse.html).
