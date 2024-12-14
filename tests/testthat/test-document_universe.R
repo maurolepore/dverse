@@ -40,7 +40,7 @@ test_that("with a url creates a link", {
   expect_true(all(grepl("href", topic)))
 })
 
-test_that("srips the class of S3 methods", {
+test_that("strips the class of S3 methods", {
   out <- document_universe("base")
   alias <- unique(out[grepl("all.equal", out$alias), "alias"])[[1]]
   expect_false(grepl("numeric", alias))
