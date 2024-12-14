@@ -74,12 +74,16 @@ vignettes_template <- function(template) {
 #' library(glue)
 #' library(tibble)
 #'
-#' manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
-#' vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
-#' document_universe(c("glue", "tibble"), url_template = c(manual, vignettes))
+#' packages <- c("glue", "tibble")
+#' document_universe(packages)
 #'
 #' # Assuming vignettes can be found at */articles/* rather than */reference/*
-#' document_universe(c("glue", "tibble"), url_template = manual)
+#' manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
+#' document_universe(packages, url_template = manual)
+#'
+#' # Adding an explicit template for vignettes
+#' vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
+#' document_universe(packages, url_template = c(manual, vignettes))
 document_universe <- function(x, url_template = NULL) {
   out <- document_universe_impl(x = x, url_template = url_template)
   tibble::as_tibble(out)
