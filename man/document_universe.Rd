@@ -9,10 +9,20 @@ document_universe(x, url_template = NULL)
 \arguments{
 \item{x}{A character vector giving concepts or package names to match.}
 
-\item{url_template}{Character. A template to generate links to documentation
-based on the column names of the output -- typically \code{package} and \code{topic},
-e.g. \code{"https://maurolepore.github.io/{package}/reference/{topic}.html"}
-(\code{glue::glue()} syntax).}
+\item{url_template}{Character. A template to generate links to documentation,
+using the syntax of \code{glue::glue()} to indicate where to insert the values
+from the columns \code{package} and \code{topic}.
+\itemize{
+\item If the vector has length 1, we assume it's for the manual (i.e. what you
+can access with \verb{?}), e.g.:
+\code{"https://maurolepore.github.io/{package}/reference/{topic}.html"}. The
+template for vignettes will be automatically constructed by replacing
+/reference/ with /articles/, e.g.
+\code{"https://maurolepore.github.io/{package}/articles/{topic}.html"}. If this
+is invalid, then you'll need to provide a vector of length 2.
+\item If the vector has length 2, we assume the first element is for the
+manual and the second element is for vignettes.
+}}
 }
 \value{
 A data frame.
@@ -27,6 +37,10 @@ meta-package.
 library(glue)
 library(tibble)
 
-url_template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-document_universe(c("glue", "tibble"), url_template)
+manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
+vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
+document_universe(c("glue", "tibble"), url_template = c(manual, vignettes))
+
+# Assuming vignettes can be found at */articles/* rather than */reference/*
+document_universe(c("glue", "tibble"), url_template = manual)
 }

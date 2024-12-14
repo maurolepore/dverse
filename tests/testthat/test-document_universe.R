@@ -70,7 +70,7 @@ test_that("with bad `url_template` errors gracefully", {
 })
 
 test_that("vignettes have a reachable link", {
-  # Not using dverse because on developer mode there are no vignettes
+  skip_if_offline()
   withr::local_package("tibble")
 
   template <- "https://{package}.tidyverse.org/reference/{topic}.html"
@@ -82,4 +82,25 @@ test_that("vignettes have a reachable link", {
   expect_false(rlang::is_empty(topic))
 
   expect_true(all(is_online(topic)))
+})
+
+test_that("a r-universe template yields the expected vignette topic", {
+  skip_if_offline()
+  withr::local_package("tibble")
+
+  template <- c(
+    manual = "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}",
+    articles = "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
+  )
+  out <- document_universe("tibble", url_template = template)
+  url <- extract_url(out[grep("extending", out$topic), ]$topic)
+
+  expected <- "https://tidyverse.r-universe.dev/articles/tibble/extending.html"
+  expect_equal(url, expected)
+  expect_true(is_online(url))
+})
+
+test_that("with url_template longer than 2 yields an error", {
+  too_long <- c("a", "b", "c")
+  expect_snapshot(error = TRUE, document_universe("base", too_long))
 })
