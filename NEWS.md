@@ -4,7 +4,7 @@
 
 * `url_template` in `document_universe()` can now take different templates for
 topics in the manual versus vignettes, i.e. for what you access with
-`?package::topic` versus `vignette(topic, package = "tibble")`.
+`?packagename::topicname` versus `vignette("topicname", "packagename")`.
 
 # dverse 0.2.0.9000
 
