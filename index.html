@@ -84,18 +84,40 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p><code><a href="reference/document_universe.html">document_universe()</a></code> creates a data frame with documentation metadata of one or more packages.</p>
+<ul>
+<li>
+<code><a href="reference/document_universe.html">document_universe()</a></code> creates a data frame with documentation metadata of one or more packages.</li>
+<li>
+<code>url_template</code> can take different templates for the manual and vignettes.</li>
+<li>
+<code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links. <code>DT::datatabe()</code> also provides a search box.</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/maurolepore/dverse" class="external-link">dverse</a></span><span class="op">)</span></span>
-<span><span class="co"># demoverse</span></span>
+<span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">demoverse</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span></span>
-<span><span class="co"># Example: "https://tibble.tidyverse.org/reference/as_tibble.html"</span></span>
+<span><span class="va">universe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">universe</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 46 × 7</span></span>
+<span><span class="co">#&gt;    topic      alias                          title concept type  keyword package</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;                          &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt;  1 add_column add_column                     Add … additi… help  &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  2 add_row    add_row, add_case              Add … additi… help  &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  3 as_glue    as_glue                        Coer… &lt;NA&gt;    help  &lt;NA&gt;    glue   </span></span>
+<span><span class="co">#&gt;  4 as_tibble  as_tibble, as_tibble_row, as_… Coer… &lt;NA&gt;    help  &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  5 char       char, set_char_opts            Form… vector… help  &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  6 deprecated deprecated, data_frame, tibbl… Depr… &lt;NA&gt;    help  intern… tibble </span></span>
+<span><span class="co">#&gt;  7 digits     digits                         Comp… &lt;NA&gt;    vign… &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  8 enframe    enframe, deframe               Conv… &lt;NA&gt;    help  &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt;  9 engines    engines                        Cust… &lt;NA&gt;    vign… &lt;NA&gt;    glue   </span></span>
+<span><span class="co">#&gt; 10 extending  extending                      Exte… &lt;NA&gt;    vign… &lt;NA&gt;    tibble </span></span>
+<span><span class="co">#&gt; # ℹ 36 more rows</span></span>
+<span></span>
+<span><span class="co"># Assuming vignettes can be found at */articles/* rather than */reference/*</span></span>
 <span><span class="va">manual</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span></span>
-<span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">demoverse</span>, url_template <span class="op">=</span> <span class="va">manual</span><span class="op">)</span></span>
-<span><span class="va">docs</span></span>
+<span><span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">universe</span>, url_template <span class="op">=</span> <span class="va">manual</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 46 × 7</span></span>
 <span><span class="co">#&gt;    topic                               alias title concept type  keyword package</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;                               &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  </span></span>
@@ -109,10 +131,13 @@
 <span><span class="co">#&gt;  8 &lt;a href=https://tibble.tidyverse.o… enfr… Conv… &lt;NA&gt;    help  &lt;NA&gt;    tibble </span></span>
 <span><span class="co">#&gt;  9 &lt;a href=https://glue.tidyverse.org… engi… Cust… &lt;NA&gt;    vign… &lt;NA&gt;    glue   </span></span>
 <span><span class="co">#&gt; 10 &lt;a href=https://tibble.tidyverse.o… exte… Exte… &lt;NA&gt;    vign… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt; # ℹ 36 more rows</span></span></code></pre></div>
-<p><code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> turns the URLs into clickable links.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">docs</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ 36 more rows</span></span>
+<span></span>
+<span><span class="co"># Adding an explicit template for vignettes</span></span>
+<span><span class="va">vignettes</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/articles/{topic}.html"</span></span>
+<span><span class="va">docs</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">universe</span>, url_template <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">manual</span>, <span class="va">vignettes</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">docs</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="14%">
@@ -189,105 +214,6 @@
 </tr>
 </tbody>
 </table>
-<p><code>url_template</code> can take different templates for the manual and vignettes.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">manual</span> <span class="op">&lt;-</span> <span class="st">"https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"</span></span>
-<span><span class="va">vignettes</span> <span class="op">&lt;-</span> <span class="st">"https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"</span></span>
-<span><span class="va">docs_runiverse</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/document_universe.html">document_universe</a></span><span class="op">(</span><span class="va">demoverse</span>, url_template <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">manual</span>, <span class="va">vignettes</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">docs_runiverse</span></span>
-<span><span class="co">#&gt; # A tibble: 46 × 7</span></span>
-<span><span class="co">#&gt;    topic                               alias title concept type  keyword package</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                               &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 &lt;a href=https://tidyverse.r-univer… add_… Add … additi… help  &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  2 &lt;a href=https://tidyverse.r-univer… add_… Add … additi… help  &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  3 &lt;a href=https://tidyverse.r-univer… as_g… Coer… &lt;NA&gt;    help  &lt;NA&gt;    glue   </span></span>
-<span><span class="co">#&gt;  4 &lt;a href=https://tidyverse.r-univer… as_t… Coer… &lt;NA&gt;    help  &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  5 &lt;a href=https://tidyverse.r-univer… char… Form… vector… help  &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  6 &lt;a href=https://tidyverse.r-univer… depr… Depr… &lt;NA&gt;    help  intern… tibble </span></span>
-<span><span class="co">#&gt;  7 &lt;a href=https://tidyverse.r-univer… digi… Comp… &lt;NA&gt;    vign… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  8 &lt;a href=https://tidyverse.r-univer… enfr… Conv… &lt;NA&gt;    help  &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt;  9 &lt;a href=https://tidyverse.r-univer… engi… Cust… &lt;NA&gt;    vign… &lt;NA&gt;    glue   </span></span>
-<span><span class="co">#&gt; 10 &lt;a href=https://tidyverse.r-univer… exte… Exte… &lt;NA&gt;    vign… &lt;NA&gt;    tibble </span></span>
-<span><span class="co">#&gt; # ℹ 36 more rows</span></span>
-<span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">docs_runiverse</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<table style="width:100%;" class="table">
-<colgroup>
-<col width="14%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">topic</th>
-<th align="left">alias</th>
-<th align="left">title</th>
-<th align="left">concept</th>
-<th align="left">type</th>
-<th align="left">keyword</th>
-<th align="left">package</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><a href="https://tidyverse.r-universe.dev/tibble/doc/manual.html#tribble" class="external-link">tribble</a></td>
-<td align="left">tribble</td>
-<td align="left">Row-wise tibble creation</td>
-<td align="left">NA</td>
-<td align="left">help</td>
-<td align="left">NA</td>
-<td align="left">tibble</td>
-</tr>
-<tr class="even">
-<td align="left"><a href="https://tidyverse.r-universe.dev/glue/doc/manual.html#trim" class="external-link">trim</a></td>
-<td align="left">trim</td>
-<td align="left">Trim a character vector</td>
-<td align="left">NA</td>
-<td align="left">help</td>
-<td align="left">NA</td>
-<td align="left">glue</td>
-</tr>
-<tr class="odd">
-<td align="left"><a href="https://tidyverse.r-universe.dev/tibble/doc/manual.html#trunc_mat" class="external-link">trunc_mat</a></td>
-<td align="left">trunc_mat</td>
-<td align="left">Legacy printing</td>
-<td align="left">NA</td>
-<td align="left">help</td>
-<td align="left">internal</td>
-<td align="left">tibble</td>
-</tr>
-<tr class="even">
-<td align="left"><a href="https://tidyverse.r-universe.dev/articles/tibble/types.html" class="external-link">types</a></td>
-<td align="left">types</td>
-<td align="left">Column types</td>
-<td align="left">NA</td>
-<td align="left">vignette</td>
-<td align="left">NA</td>
-<td align="left">tibble</td>
-</tr>
-<tr class="odd">
-<td align="left"><a href="https://tidyverse.r-universe.dev/tibble/doc/manual.html#view" class="external-link">view</a></td>
-<td align="left">view</td>
-<td align="left">View an object</td>
-<td align="left">NA</td>
-<td align="left">help</td>
-<td align="left">NA</td>
-<td align="left">tibble</td>
-</tr>
-<tr class="even">
-<td align="left"><a href="https://tidyverse.r-universe.dev/articles/glue/wrappers.html" class="external-link">wrappers</a></td>
-<td align="left">wrappers</td>
-<td align="left">How to write a function that wraps glue</td>
-<td align="left">NA</td>
-<td align="left">vignette</td>
-<td align="left">NA</td>
-<td align="left">glue</td>
-</tr>
-</tbody>
-</table>
-<p><code>DT::datatabe()</code> also provides a search box. See <a href="https://maurolepore.github.io/dverse/articles/dverse.html">Get started</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
