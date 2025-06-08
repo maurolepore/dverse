@@ -12,7 +12,6 @@ document_universe(x, url_template = NULL)
 \item{url_template}{Character. A template to generate links to documentation,
 using the syntax of \code{glue::glue()} to indicate where to insert the values
 from the columns \code{package} and \code{topic}.
-
 The template may have lengh 1 or 2:
 \itemize{
 \item If the template is a vector has length 1, the template should point to the

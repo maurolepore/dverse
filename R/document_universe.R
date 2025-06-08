@@ -57,9 +57,7 @@ vignettes_template <- function(template) {
 #' @param url_template Character. A template to generate links to documentation,
 #'   using the syntax of `glue::glue()` to indicate where to insert the values
 #'   from the columns `package` and `topic`.
-#'
 #'   The template may have lengh 1 or 2:
-#'
 #'   * If the template is a vector has length 1, the template should point to the
 #'   manual (a.k.a. "reference" or "index"), i.e. the online version of the help
 #'   files that you can otherwise access locally with `?`, e.g.:
@@ -72,7 +70,6 @@ vignettes_template <- function(template) {
 #'   "https://{package}.tidyverse.org/articles/{topic}.html"
 #'   ```
 #'   If this is invalid, then you'll need to provide a vector of length 2.
-#'
 #'   * If the template is a vector has length 2, the first element should point to the manual
 #'   (see above), and the second element should point to vignettes, e.g.:
 #'   ```r
