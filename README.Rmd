@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+on_ci <- isTRUE(as.logical(Sys.getenv("CI", "false")))
 ```
 
 # dverse
@@ -77,20 +79,26 @@ provides a search box.
 
 ```{r}
 library(dverse)
-
+# Universe
 library(glue)
 library(tibble)
 
-universe <- c("glue", "tibble")
-document_universe(universe)
+packages <- c("glue", "tibble")
+template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- document_universe(packages, template)
 
-# Assuming vignettes can be found at */articles/* rather than */reference/*
-manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
-document_universe(universe, url_template = manual)
+docs
+```
 
-# Adding an explicit template for vignettes
-vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
-docs <- document_universe(universe, url_template = c(manual, vignettes))
+```{r}
+#| eval: !r on_ci
+#| echo: !r on_ci
+DT::datatable(docs)
+```
 
+```{r}
+#| eval: !r on_ci
+#| echo: !r on_ci
 knitr::kable(tail(docs))
 ```
+
