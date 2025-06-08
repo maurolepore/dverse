@@ -66,11 +66,10 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 ## Example
 
 - `document_universe()` creates a data frame with documentation metadata
-  of one or more packages.
-- `url_template` can take different templates for the manual and
-  vignettes.
-- `knitr::kable()` turns the URLs into clickable links. `DT::datatabe()`
-  also provides a search box.
+  of one or more packages, i.e. the universe.
+- You can then turn the URLs into clickable links with
+  e.g. `knitr::kable()` or `DT::datatabe()` (which also provides a
+  search box).
 
 ``` r
 library(dverse)
@@ -97,4 +96,15 @@ docs
 #>  9 <a href=https://glue.tidyverse.org… engi… Cust… <NA>    vign… <NA>    glue   
 #> 10 <a href=https://tibble.tidyverse.o… exte… Exte… <NA>    vign… <NA>    tibble 
 #> # ℹ 36 more rows
+
+knitr::kable(tail(docs))
 ```
+
+| topic | alias | title | concept | type | keyword | package |
+|:---|:---|:---|:---|:---|:---|:---|
+| <a href=https://tibble.tidyverse.org/reference/tribble.html>tribble</a> | tribble | Row-wise tibble creation | NA | help | NA | tibble |
+| <a href=https://glue.tidyverse.org/reference/trim.html>trim</a> | trim | Trim a character vector | NA | help | NA | glue |
+| <a href=https://tibble.tidyverse.org/reference/trunc_mat.html>trunc_mat</a> | trunc_mat | Legacy printing | NA | help | internal | tibble |
+| <a href=https://tibble.tidyverse.org/articles/types.html>types</a> | types | Column types | NA | vignette | NA | tibble |
+| <a href=https://tibble.tidyverse.org/reference/view.html>view</a> | view | View an object | NA | help | NA | tibble |
+| <a href=https://glue.tidyverse.org/articles/wrappers.html>wrappers</a> | wrappers | How to write a function that wraps glue | NA | vignette | NA | glue |

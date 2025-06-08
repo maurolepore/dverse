@@ -72,10 +72,9 @@ using [pkgdown](https://pkgdown.r-lib.org/).
 ## Example
 
 * `document_universe()` creates a data frame with documentation metadata of one or
-more packages.
-* `url_template` can take different templates for the manual and vignettes.
-* `knitr::kable()` turns the URLs into clickable links. `DT::datatabe()` also
-provides a search box.
+more packages, i.e. the universe.
+* You can then turn the URLs into clickable links with e.g. `knitr::kable()` or
+`DT::datatabe()` (which also provides a search box).
 
 ```{r}
 library(dverse)
@@ -88,17 +87,6 @@ template <- "https://{package}.tidyverse.org/reference/{topic}.html"
 docs <- document_universe(packages, template)
 
 docs
-```
 
-```{r}
-#| eval: !r on_ci
-#| echo: !r on_ci
-DT::datatable(docs, escape = FALSE)
-```
-
-```{r}
-#| eval: !r on_ci
-#| echo: !r on_ci
 knitr::kable(tail(docs))
 ```
-
