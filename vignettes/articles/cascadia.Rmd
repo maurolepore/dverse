@@ -1,0 +1,32 @@
+---
+title: "cascadia"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library(dverse)
+# Universe
+library(glue)
+library(tibble)
+
+packages <- c("glue", "tibble")
+template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- document_universe(packages, template)
+```
+
+```{r}
+docs
+```
+
+```{r}
+docs |> 
+  dplyr::select(topic, title, package) |> 
+  DT::datatable(escape = FALSE)
+```
+
