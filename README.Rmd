@@ -93,7 +93,7 @@ docs
 ```{r}
 #| eval: !r on_ci
 #| echo: !r on_ci
-DT::datatable(docs)
+DT::datatable(docs, escape = FALSE)
 ```
 
 ```{r}
