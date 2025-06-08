@@ -57,16 +57,30 @@ vignettes_template <- function(template) {
 #' @param url_template Character. A template to generate links to documentation,
 #'   using the syntax of `glue::glue()` to indicate where to insert the values
 #'   from the columns `package` and `topic`.
-#'   * If the vector has length 1, we assume it's for the manual (i.e. what you
-#'   can access with `?`), e.g.:
-#'   `"https://maurolepore.github.io/{package}/reference/{topic}.html"`. The
-#'   template for vignettes will be automatically constructed by replacing
-#'   /reference/ with /articles/, e.g.
-#'   `"https://maurolepore.github.io/{package}/articles/{topic}.html"`. If this
-#'   is invalid, then you'll need to provide a vector of length 2.
-#'   * If the vector has length 2, we assume the first element is for the
-#'   manual and the second element is for vignettes.
 #'
+#'   The template may have lengh 1 or 2:
+#'
+#'   * If the template is a vector has length 1, the template should point to the
+#'   manual (a.k.a. "reference" or "index"), i.e. the online version of the help
+#'   files that you can otherwise access locally with `?`, e.g.:
+#'   ```r
+#'   "https://{package}.tidyverse.org/reference/{topic}.html"
+#'   ```
+#'   In this case, the template for vignettes is automatically constructed by
+#'   replacing `/reference/` with `/articles/`, e.g.:
+#'   ```r
+#'   "https://{package}.tidyverse.org/articles/{topic}.html"
+#'   ```
+#'   If this is invalid, then you'll need to provide a vector of length 2.
+#'
+#'   * If the template is a vector has length 2, the first element should point to the manual
+#'   (see above), and the second element should point to vignettes, e.g.:
+#'   ```r
+#'   c(
+#'    "https://{package}.tidyverse.org/reference/{topic}.html",
+#'    "https://{package}.tidyverse.org/articles/{topic}.html"
+#'   )
+#'   ```
 #' @return A data frame.
 #'
 #' @export
@@ -75,20 +89,26 @@ vignettes_template <- function(template) {
 #' library(tibble)
 #'
 #' universe <- c("glue", "tibble")
+#'
 #' document_universe(universe)
 #'
-#' # Assuming vignettes can be found at */articles/* rather than */reference/*
-#' manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
-#' document_universe(universe, url_template = manual)
+#' # Adding links the online manual and vignettes
+#' template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+#' document_universe(universe, template)
 #'
 #' # Adding an explicit template for vignettes
-#' vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
-#' document_universe(universe, c(manual, vignettes))
+#' template <- c(
+#'  "https://{package}.tidyverse.org/reference/{topic}.html",
+#'  "https://{package}.tidyverse.org/articles/{topic}.html"
+#' )
+#' document_universe(universe, template)
 #'
 #' # Works beyond GitHub Pages, e.g. on r-universe
-#' manual <- "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"
-#' vignettes <- "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
-#' document_universe(universe, c(manual, vignettes))
+#' template <- c(
+#'   "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}",
+#'   "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
+#' )
+#' document_universe(universe, template)
 document_universe <- function(x, url_template = NULL) {
   out <- document_universe_impl(x = x, url_template = url_template)
   tibble::as_tibble(out)
