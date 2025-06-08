@@ -74,30 +74,15 @@ website, for example using [pkgdown](https://pkgdown.r-lib.org/).
 
 ``` r
 library(dverse)
-
+# Universe
 library(glue)
 library(tibble)
 
-universe <- c("glue", "tibble")
-document_universe(universe)
-#> # A tibble: 46 × 7
-#>    topic      alias                          title concept type  keyword package
-#>    <chr>      <chr>                          <chr> <chr>   <chr> <chr>   <chr>  
-#>  1 add_column add_column                     Add … additi… help  <NA>    tibble 
-#>  2 add_row    add_row, add_case              Add … additi… help  <NA>    tibble 
-#>  3 as_glue    as_glue                        Coer… <NA>    help  <NA>    glue   
-#>  4 as_tibble  as_tibble, as_tibble_row, as_… Coer… <NA>    help  <NA>    tibble 
-#>  5 char       char, set_char_opts            Form… vector… help  <NA>    tibble 
-#>  6 deprecated deprecated, data_frame, tibbl… Depr… <NA>    help  intern… tibble 
-#>  7 digits     digits                         Comp… <NA>    vign… <NA>    tibble 
-#>  8 enframe    enframe, deframe               Conv… <NA>    help  <NA>    tibble 
-#>  9 engines    engines                        Cust… <NA>    vign… <NA>    glue   
-#> 10 extending  extending                      Exte… <NA>    vign… <NA>    tibble 
-#> # ℹ 36 more rows
+packages <- c("glue", "tibble")
+template <- "https://{package}.tidyverse.org/reference/{topic}.html"
+docs <- document_universe(packages, template)
 
-# Assuming vignettes can be found at */articles/* rather than */reference/*
-manual <- "https://{package}.tidyverse.org/reference/{topic}.html"
-document_universe(universe, url_template = manual)
+docs
 #> # A tibble: 46 × 7
 #>    topic                               alias title concept type  keyword package
 #>    <chr>                               <chr> <chr> <chr>   <chr> <chr>   <chr>  
@@ -112,19 +97,4 @@ document_universe(universe, url_template = manual)
 #>  9 <a href=https://glue.tidyverse.org… engi… Cust… <NA>    vign… <NA>    glue   
 #> 10 <a href=https://tibble.tidyverse.o… exte… Exte… <NA>    vign… <NA>    tibble 
 #> # ℹ 36 more rows
-
-# Adding an explicit template for vignettes
-vignettes <- "https://{package}.tidyverse.org/articles/{topic}.html"
-docs <- document_universe(universe, url_template = c(manual, vignettes))
-
-knitr::kable(tail(docs))
 ```
-
-| topic | alias | title | concept | type | keyword | package |
-|:---|:---|:---|:---|:---|:---|:---|
-| <a href=https://tibble.tidyverse.org/reference/tribble.html>tribble</a> | tribble | Row-wise tibble creation | NA | help | NA | tibble |
-| <a href=https://glue.tidyverse.org/reference/trim.html>trim</a> | trim | Trim a character vector | NA | help | NA | glue |
-| <a href=https://tibble.tidyverse.org/reference/trunc_mat.html>trunc_mat</a> | trunc_mat | Legacy printing | NA | help | internal | tibble |
-| <a href=https://tibble.tidyverse.org/articles/types.html>types</a> | types | Column types | NA | vignette | NA | tibble |
-| <a href=https://tibble.tidyverse.org/reference/view.html>view</a> | view | View an object | NA | help | NA | tibble |
-| <a href=https://glue.tidyverse.org/articles/wrappers.html>wrappers</a> | wrappers | How to write a function that wraps glue | NA | vignette | NA | glue |
