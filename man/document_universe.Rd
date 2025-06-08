@@ -50,6 +50,7 @@ to easily create a universe-wide reference for the pkgdown website of your
 meta-package.
 }
 \examples{
+# Pretend this is the universe we want to document
 library(glue)
 library(tibble)
 

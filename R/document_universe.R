@@ -82,6 +82,7 @@ vignettes_template <- function(template) {
 #'
 #' @export
 #' @examples
+#' # Pretend this is the universe we want to document
 #' library(glue)
 #' library(tibble)
 #'
