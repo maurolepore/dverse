@@ -62,16 +62,20 @@ meta-package.</p>
 <dt id="arg-url-template">url_template<a class="anchor" aria-label="anchor" href="#arg-url-template"></a></dt>
 <dd><p>Character. A template to generate links to documentation,
 using the syntax of <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code> to indicate where to insert the values
-from the columns <code>package</code> and <code>topic</code>.</p><ul><li><p>If the vector has length 1, we assume it's for the manual (i.e. what you
-can access with <code>?</code>), e.g.:
-<code>"https://maurolepore.github.io/{package}/reference/{topic}.html"</code>. The
-template for vignettes will be automatically constructed by replacing
-/reference/ with /articles/, e.g.
-<code>"https://maurolepore.github.io/{package}/articles/{topic}.html"</code>. If this
-is invalid, then you'll need to provide a vector of length 2.</p></li>
-<li><p>If the vector has length 2, we assume the first element is for the
-manual and the second element is for vignettes.</p></li>
-</ul></dd>
+from the columns <code>package</code> and <code>topic</code>.
+The template may have lengh 1 or 2:</p><ul><li><p>If the template is a vector has length 1, the template should point to the
+manual (a.k.a. "reference" or "index"), i.e. the online version of the help
+files that you can otherwise access locally with <code>?</code>, e.g.:</p></li>
+</ul><p></p><div class="sourceCode r"><pre><code><span><span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span></span></code></pre><p></p></div>
+<p>In this case, the template for vignettes is automatically constructed by
+replacing <code>/reference/</code> with <code>/articles/</code>, e.g.:</p>
+<p></p><div class="sourceCode r"><pre><code><span><span class="st">"https://{package}.tidyverse.org/articles/{topic}.html"</span></span></code></pre><p></p></div>
+<p>If this is invalid, then you'll need to provide a vector of length 2.</p><ul><li><p>If the template is a vector has length 2, the first element should point to the manual
+(see above), and the second element should point to vignettes, e.g.:</p></li>
+</ul><p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span>,</span>
+<span> <span class="st">"https://{package}.tidyverse.org/articles/{topic}.html"</span></span>
+<span><span class="op">)</span></span></code></pre><p></p></div></dd>
 
 </dl></div>
     <div class="section level2">
@@ -81,10 +85,12 @@ manual and the second element is for vignettes.</p></li>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Pretend this is the universe we want to document</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">universe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"glue"</span>, <span class="st">"tibble"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 46 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    topic      alias                          title concept type  keyword package</span>
@@ -101,9 +107,9 @@ manual and the second element is for vignettes.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> extending  extending                      Exte… <span style="color: #BB0000;">NA</span>      vign… <span style="color: #BB0000;">NA</span>      tibble </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 36 more rows</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Assuming vignettes can be found at */articles/* rather than */reference/*</span></span></span>
-<span class="r-in"><span><span class="va">manual</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span></span></span>
-<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span>, url_template <span class="op">=</span> <span class="va">manual</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Adding links the online manual and vignettes</span></span></span>
+<span class="r-in"><span><span class="va">template</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span></span></span>
+<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span>, <span class="va">template</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 46 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    topic                               alias title concept type  keyword package</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -120,8 +126,11 @@ manual and the second element is for vignettes.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 36 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Adding an explicit template for vignettes</span></span></span>
-<span class="r-in"><span><span class="va">vignettes</span> <span class="op">&lt;-</span> <span class="st">"https://{package}.tidyverse.org/articles/{topic}.html"</span></span></span>
-<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">manual</span>, <span class="va">vignettes</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">template</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span> <span class="st">"https://{package}.tidyverse.org/reference/{topic}.html"</span>,</span></span>
+<span class="r-in"><span> <span class="st">"https://{package}.tidyverse.org/articles/{topic}.html"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span>, <span class="va">template</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 46 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    topic                               alias title concept type  keyword package</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
@@ -138,9 +147,11 @@ manual and the second element is for vignettes.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 36 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Works beyond GitHub Pages, e.g. on r-universe</span></span></span>
-<span class="r-in"><span><span class="va">manual</span> <span class="op">&lt;-</span> <span class="st">"https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"</span></span></span>
-<span class="r-in"><span><span class="va">vignettes</span> <span class="op">&lt;-</span> <span class="st">"https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"</span></span></span>
-<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">manual</span>, <span class="va">vignettes</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">template</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">document_universe</span><span class="op">(</span><span class="va">universe</span>, <span class="va">template</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 46 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    topic                               alias title concept type  keyword package</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
