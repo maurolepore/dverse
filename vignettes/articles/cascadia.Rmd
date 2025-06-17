@@ -7,26 +7,52 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+set.seed(1234)
 ```
 
-```{r}
-library(dverse)
-# Universe
-library(glue)
-library(tibble)
+```{r message=FALSE}
+library(tidyverse)
+packages <- tidyverse:::core
+packages
 
-packages <- c("glue", "tibble")
 template <- "https://{package}.tidyverse.org/reference/{topic}.html"
-docs <- document_universe(packages, template)
+docs <- dverse::document_universe(packages, template)
+
+docs |> slice_sample(n = 5)
 ```
 
 ```{r}
-docs
+docs |> select(topic, alias)
+```
+
+```{r}
+c("www.example.com", "Page not found") |> dverse::is_online()
+
+head(docs$topic) |> dverse::is_online()
+
+tail(docs$topic) |> dverse::is_online()
 ```
 
 ```{r}
 docs |> 
-  dplyr::select(topic, title, package) |> 
+  filter(dverse::is_online(topic)) |> 
+  select(topic, title, package) |> 
   DT::datatable(escape = FALSE)
 ```
 
+```{r message=FALSE}
+library(tidyverse)
+
+packages <- tidyverse:::core
+template <- c(
+  reference = "https://tidyverse.r-universe.dev/{package}/doc/manual.html#{topic}",
+  articles = "https://tidyverse.r-universe.dev/articles/{package}/{topic}.html"
+)
+docs <- dverse::document_universe(packages, template)
+
+docs |> 
+  filter(dverse::is_online(topic)) |> 
+  select(topic, title, package) |> 
+  DT::datatable(escape = FALSE)
+```
