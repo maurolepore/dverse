@@ -21,7 +21,7 @@ is_online <- function(x) {
 
 is_online_once <- function(url) {
   tryCatch(error = function(e) FALSE, {
-    response <- curl::curl_fetch_memory(url, handle = curl::new_handle())
+    response <- curl_fetch_memory(url, handle = new_handle())
     identical(response$status_code, 200L)
   })
 }
