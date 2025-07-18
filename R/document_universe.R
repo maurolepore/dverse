@@ -15,20 +15,20 @@ document_universe_impl <- function(x, url_template = NULL) {
     }
     if (length(url_template) > 2L) {
       longer <- length(url_template)
-      cli::cli_abort("`url_template` must be of length 1 or 2, not {longer}.")
+      cli_abort("`url_template` must be of length 1 or 2, not {longer}.")
     }
 
 
     out <- mutate(
       out,
-      topic = dplyr::case_when(
+      topic = case_when(
         .data$type == "help" ~ to_href(
           .data$topic,
-          template = glue::glue(manual)
+          template = glue(manual)
         ),
         .data$type == "vignette" ~ to_href(
           .data$topic,
-          template = glue::glue(vignettes_template(vignettes))
+          template = glue(vignettes_template(vignettes))
         ),
         .default = .data$topic
       )
@@ -109,13 +109,13 @@ vignettes_template <- function(template) {
 #' document_universe(universe, template)
 document_universe <- function(x, url_template = NULL) {
   out <- document_universe_impl(x = x, url_template = url_template)
-  tibble::as_tibble(out)
+  as_tibble(out)
 }
 
 warn_unnattached <- function(x, doc = "package") {
   if (!all(attached(x))) {
     unattached <- x[!attached(x)] # nolint
-    cli::cli_warn(c(
+    cli_warn(c(
       "All packages should be attached to work properly.",
       x = "Not attached: {unattached}"
     ))
@@ -143,7 +143,7 @@ tidy_reference <- function(data, strip_s3class) {
 }
 
 attached <- function(x) {
-  unlist(lapply(glue("package:{x}"), rlang::is_attached))
+  unlist(lapply(glue("package:{x}"), is_attached))
 }
 
 abort_unavailable_package <- function(data, x) {
@@ -153,13 +153,13 @@ abort_unavailable_package <- function(data, x) {
   }
 
   is_unavailable <- x[!is_available] # nolint
-  cli::cli_abort("No pacakge matches '{is_unavailable}'.")
+  cli_abort("No pacakge matches '{is_unavailable}'.")
 }
 
 collapse_alias <- function(data, strip_s3class = FALSE) {
   out <- mutate(
     data,
-    alias = dplyr::case_when(
+    alias = case_when(
       !strip_s3class ~ may_strip_s3class(.data$alias, .f = identity),
       strip_s3class ~ may_strip_s3class(.data$alias, .f = s3_strip_class),
     ),

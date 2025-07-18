@@ -16,7 +16,7 @@ s3_strip_class_impl <- function(x) {
 
   ok <- logical(nfc)
   for (j in 2:nfc) {
-    ok[[j]] <- utils::isS3method(
+    ok[[j]] <- isS3method(
       f = paste(f_c[1:(j - 1)], collapse = "."),
       class = paste(f_c[j:nfc], collapse = ".")
     )
@@ -31,5 +31,5 @@ s3_strip_class_impl <- function(x) {
 }
 
 is_s3_method <- function(x) {
-  ifelse(startsWith(x, "."), FALSE, utils::isS3method(x))
+  ifelse(startsWith(x, "."), FALSE, isS3method(x))
 }
