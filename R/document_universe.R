@@ -135,7 +135,7 @@ abort_unavailable_package <- function(data, x) {
   }
 
   is_unavailable <- x[!is_available] # nolint
-  cli::cli_abort("No pacakge matches '{is_unavailable}'.")
+  cli::cli_abort("No package matches '{is_unavailable}'.")
 }
 
 collapse_alias <- function(data, strip_s3class = FALSE) {
