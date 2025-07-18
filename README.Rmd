@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
-on_ci <- identical(Sys.getenv("GITHUB_ACTIONS") == "true")
+on_ci <- identical(Sys.getenv("GITHUB_ACTIONS"), "true")
 ```
 
 # dverse
